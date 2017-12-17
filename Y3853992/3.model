@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992" xmi:id="_RrknQNqOEeeqTZ_Mc2KngQ">
+  <requirements xmi:id="_SRxEkNqOEeeqTZ_Mc2KngQ" description="Build Application" decomposition="_VQPn4NqOEeeqTZ_Mc2KngQ _T0TOUNqOEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_T0TOUNqOEeeqTZ_Mc2KngQ" description="Build frontend" type="System" parentDecomposition="_SRxEkNqOEeeqTZ_Mc2KngQ" decomposition="_bG1AwNqOEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_VQPn4NqOEeeqTZ_Mc2KngQ" description="Build backend" type="System" parentDecomposition="_SRxEkNqOEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_bG1AwNqOEeeqTZ_Mc2KngQ" description="Build frontend part 1" type="System" parentDecomposition="_T0TOUNqOEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_fdgtINqOEeeqTZ_Mc2KngQ" identifier="10" description="Doesn't originate from customer requirement" type="System"/>
+</RequirementsModel>

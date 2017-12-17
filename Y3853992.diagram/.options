@@ -1,0 +1,7 @@
+# Tracing options for the Y3853992.diagram plug-in
+
+# Common issues
+Y3853992.diagram/debug=false
+
+# Visual IDs
+Y3853992.diagram/debug/visualID=false

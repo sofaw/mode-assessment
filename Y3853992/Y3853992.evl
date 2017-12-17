@@ -1,0 +1,129 @@
+context RequirementsModel {
+	constraint NoCustomerAndSystemRequirementConflicts {
+		check {
+			/*if(self.type == RequirementType#Customer) {
+				return not self.conflicts.exists(r | r.type == RequirementType#System);
+			} else {
+				return not self.conflicts.exists(r | r.type == RequirementType#Customer);
+			}*/
+			
+			// TODO
+		}
+		message : "Customer and System requirements cannot be in conflict at requirement \"" 
+			+ self.`identifier` + "\"."
+	}
+	
+	// TODO: check no conflicts w/n requirements decomposition tree
+}
+
+context Requirement {
+	constraint IdentifierIsUnique {
+		check {
+			var otherIdentifiers = Requirement.all.excluding(self).identifier;
+			return not otherIdentifiers.contains(self.identifier);
+		} 
+		message : "Identifier for requirement \"" + self.`identifier` 
+			+ "\" with description \"" + self.`description` + "\" must be unique."
+	}
+	
+	// TODO: combine these constraints?
+	constraint HasDescription {
+		check : self.description.isDefined()
+		message : "Requirement \"" + self.`identifier` + "\" must have a description."
+	}
+	
+	constraint DescriptionAtLeastTenChars {
+		guard : self.satisfies("HasDescription")
+		
+		check : self.description.length() >= 10
+		message : "Requirement \"" + self.`identifier` + "\" must have a description longer than 10 characters."
+	}
+
+	constraint SystemReqCannotDecomposeToCustomerReq {
+		guard : self.type == RequirementType#System
+		
+		check : not self.decomposition.exists(r | r.type == RequirementType#Customer)
+		message : "System requirements cannot be decomposed to Customer requirements at requirement \"" 
+			+ self.`identifier` + "\"." 
+	}
+	
+	constraint CustomerReqDecomposesToSystemReq {
+		guard : self.type == RequirementType#Customer
+		
+		check : self.decomposition.exists(r | r.type == RequirementType#System)
+		message : "Customer requirement must decompose into at least one System requirement at requirement \"" 
+			+ self.`identifier` + "\"." 
+	}
+	
+	constraint LeafReqProgressIsInBounds {
+		guard : self.decomposition.size() == 0
+		check : self.progress >= 0.0 and self.progress <= 1.0
+		message : "Progress should have a value between 0.0 and 1.0 at requirement \"" 
+			+ self.`identifier` + "\"."
+	}
+	
+	constraint ReqProgressIsAvgOfDecomposition {
+		guard : self.decomposition.size() <> 0
+		check {
+			var decompositionTotal = self.decomposition.progress.sum();
+			return self.progress == (decompositionTotal/self.decomposition.size());
+		}
+		message : "Progress should be average of decomposition progresses at requirement \"" 
+			+ self.`identifier` + "\"."
+	}
+	
+	constraint TeamMemberAssigned {
+		check : self.teamMembers.size() > 0
+		message : "Requirement must have at least one team member assigned at requirement \""
+			+ self.`identifier` + "\"."
+	}
+	
+		
+	constraint DecompositionFreeOfCycles {
+		check : not self.closure(r | r.decomposition).includes(self)
+		message : "Requirements decomposition must be free of cycles at requirement \""
+			+ self.`identifier` + "\"."
+	}
+	
+	/*constraint ConflictsAreBidirectional {
+		guard : self.conflicts.size() <> 0
+		check : self.forAll(r | r.conflicts.conflicts.flatten().contains(self))
+		message : "Conflicts must be bidirectional at requirement \""
+			+ self.`identifier` + "\"." 
+		// User needs to check list of conflicts at this requirement s.t. itself is contained
+		// TODO: is there a better way to do this?
+	}*/
+	
+	constraint OriginatesFromCustomerReq {
+		guard : self.type == RequirementType#System
+		check : self.closure(r | r.parentDecomposition).exists(p | p.type == RequirementType#Customer)
+		message : "System requirements must originate from at least one Customer requirement at requirement \""
+			+ self.`identifier` + "\"." 
+	}
+}
+
+context TestCase {
+	constraint HasDescription {
+		check : self.description.isDefined()
+		message : "All test cases require a description."
+	}
+
+	constraint OnlyVerifySystemReqs {
+		check : not self.verifies.exists(r | r.type == RequirementType#Customer)
+		message : "Test case should only verify System requirements at test case \"" + 
+			self.`description` + "\"."
+	}
+	
+	constraint VerifyAtLeastOneSystemReq {
+		guard : self.satisfies("OnlyVerifySystemReqs")
+		check : self.verifies.size() > 0
+		message : "Test case should verify at least one System requirement at test case \"" + 
+			self.`description` + "\"."
+	}
+}
+
+// TODO: add constraints e.g. progress cannot be greater than 1 or less than 0
+// TODO: add fixes
+// TODO: check messages
+// TODO: remove printlns
+// TODO: remove redundant constraints e.g. progress is always defined

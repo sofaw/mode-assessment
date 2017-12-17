@@ -1,0 +1,51 @@
+@namespace(uri="http://Y3853992", prefix="")
+@gmf
+package Y3853992;
+
+@gmf.diagram
+class RequirementsModel {
+	val Requirement[1..*] requirements;
+	val TestCase[1..*] testCases;
+	val TeamMember[1..*] teamMembers;
+	val Conflict[*] conflicts;
+}
+
+enum RequirementType {
+	Customer;
+	System;
+}
+
+@gmf.node(label = "type,description")
+class Requirement {
+	attr int[1] identifier;
+	attr String[1] description;
+	derived attr float[1] progress;
+	attr RequirementType[1] type;
+	@gmf.link(target.decoration="arrow", color="0,0,0")
+	ref Requirement[*]#parentDecomposition decomposition;
+	ref Requirement[*]#decomposition parentDecomposition;
+	@gmf.link(style="dot")
+	ref TeamMember[1..*]#requirements teamMembers;
+	@gmf.link(style="dot")
+	ref TestCase[*]#verifies testCases;
+
+}
+
+@gmf.link(target.decoration="dot", color="255,0,0")
+class Conflict {
+	ref Requirement first;
+	ref Requirement second;
+}
+
+@gmf.node(label = "description")
+class TestCase {
+	attr String[1] description;
+	@gmf.link(style="dash", target.decoration="arrow", color="0,0,255")
+	ref Requirement[1..*]#testCases verifies;
+}
+
+@gmf.node(label = "name")
+class TeamMember {
+	attr String[1] name;
+	ref Requirement[*]#teamMembers requirements;
+}

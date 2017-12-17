@@ -1,0 +1,92 @@
+<!doctype html>
+<style> .indented {padding-left: 50pt;} </style>
+<html>
+<head>
+	<title>Y3853992</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
+<div class="container">
+	<div class="row">
+    	<div class="col-sm-4">
+      		<h3>Requirements</h3>
+			[%for (rootReq in rm.requirements.select(r | r.parentDecomposition.size() == 0)) {%]
+				[% rootReq.generateRequirementTree(); %]
+			[%}%]
+    	</div>
+    	<div class="col-sm-4">
+      		<h3>Team Members</h3>
+     		[%for (teamMember in rm.teamMembers) {%]
+				[% teamMember.showAssignedRequirements(); %]
+			[%}%]    	</div>
+    	<div class="col-sm-4">
+      		<h3>Test Cases</h3>        
+      		[%for (testCase in rm.testCases) {%]
+				[% testCase.showVerifies(); %]
+			[%}%] 
+    	</div>
+  	</div>
+</div>
+<script>
+function hideCompleted() {
+    var completedRequirements = document.getElementsByClassName("completed");
+    var i;
+	for (i = 0; i < completedRequirements.length; i++) {
+    	if (completedRequirements[i].style.display === "none") {
+        	completedRequirements[i].style.display = "block";
+    	} else {
+        	completedRequirements[i].style.display = "none";
+    	}
+	}
+}
+</script>
+</body>
+</html>
+
+[% operation Requirement generateRequirementTree() { %]
+	[% if(self.progress == 1.0) {%]
+		<div class="completed">
+	[%} else {%]
+		<div class="notCompleted">
+	[%}%]
+		<details>
+  			<summary>ID:[%=self.identifier%];Description:"[%=self.description%]
+  			<div class="container" style="max-width:100%">
+  				<div class="progress">
+  					[% var progressPercent = self.progress * 100; %]
+  					<div class="progress-bar" role="progressbar" aria-valuenow="[%=progressPercent%]" aria-valuemin="0" aria-valuemax="100" style="width:[%=progressPercent%]%">[%=progressPercent%]%</div>
+  				</div>	
+  			</div>
+  			</summary>
+			[%for (req in self.decomposition) {%]
+  				<div class="indented">
+  					[% req.generateRequirementTree(); %]
+  				</div>	
+			[% } %]		
+		</details>
+	</div>
+[% } %]
+
+[% operation TeamMember showAssignedRequirements() { %]
+	<h4>[%=self.name%]</h4>
+	<ul>
+		[% for(req in self.requirements) { %]
+			<li>Requirement: [%=req.identifier%]</li>
+		[% } %]
+	</ul>
+[% } %]
+
+[% operation TestCase showVerifies() { %]
+	<h4>[%=self.description%]</h4>
+	<p>Verifies requirements:</p>
+	<ul>
+		[% for(req in self.verifies) { %]
+			<li>Requirement: [%=req.identifier%]</li>
+		[% } %]
+	</ul>
+[% } %]

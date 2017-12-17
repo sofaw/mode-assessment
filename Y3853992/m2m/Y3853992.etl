@@ -1,0 +1,30 @@
+rule Project2OnlyIncomplete
+	transform rin : IN!RequirementsModel
+	to rout : OUT!RequirementsModel {
+		// Requirements
+		var incompleteRequirements = rin.requirements.select(r | r.progress < 1.0);
+		var completeRequirements = rin.requirements.select(r | r.progress >= 1.0);
+		// Remove completed requirements from decomposition
+		for(req in incompleteRequirements) {
+			req.decomposition.removeAll(completeRequirements);
+		}
+		rout.requirements = incompleteRequirements;
+		
+		// Team members
+		var teamMembersWithIncomplete = rin.teamMembers.select(tm | tm.requirements.exists(r | r.progress < 1.0));
+		for(tm in teamMembersWithIncomplete) {
+			tm.requirements.removeAll(completeRequirements);
+		}
+		rout.teamMembers = teamMembersWithIncomplete;
+		
+		// Test cases
+		var testCasesWithIncomplete = rin.testCases.select(tc | tc.verifies.exists(r | r.progress < 1.0));
+		for(tc in testCasesWithIncomplete) {
+			tc.verifies.removeAll(completeRequirements);
+		}
+		rout.testCases = testCasesWithIncomplete;
+		
+}
+
+// TODO: split into multiple rules e.g. 1 for testcase;teammember;requirements
+// Make sure to save this version to talk about in report

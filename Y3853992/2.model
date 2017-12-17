@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992" xmi:id="_-zwIUNpvEeeqTZ_Mc2KngQ">
+  <requirements xmi:id="_AXX3MNpwEeeqTZ_Mc2KngQ" identifier="1" description="Build application" decomposition="_BWz68NpwEeeqTZ_Mc2KngQ _A_KP8NpwEeeqTZ_Mc2KngQ" teamMembers="_sw3IoNqFEeeqTZ_Mc2KngQ" testCases="_mM9TkNqBEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_A_KP8NpwEeeqTZ_Mc2KngQ" identifier="2" description="Build frontend" progress="0.5" type="System" parentDecomposition="_AXX3MNpwEeeqTZ_Mc2KngQ" decomposition="_Y17voNqjEeeqTZ_Mc2KngQ _kTh0UNqjEeeqTZ_Mc2KngQ _mV2RYNqjEeeqTZ_Mc2KngQ" testCases="_9Qv_UNqBEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_BWz68NpwEeeqTZ_Mc2KngQ" identifier="3" description="Build backend" type="System" parentDecomposition="_AXX3MNpwEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_U6gRINp9EeeqTZ_Mc2KngQ" identifier="4" description="Conflict"/>
+  <requirements xmi:id="_fzpgwNqEEeeqTZ_Mc2KngQ" identifier="5" description="Decomposes to itself" parentDecomposition="_7PLW4NqGEeeqTZ_Mc2KngQ" decomposition="_7PLW4NqGEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_7PLW4NqGEeeqTZ_Mc2KngQ" identifier="6" description="Intermediate" parentDecomposition="_fzpgwNqEEeeqTZ_Mc2KngQ" decomposition="_fzpgwNqEEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="__3kPkNqMEeeqTZ_Mc2KngQ" identifier="7" description="Conflict not maintained both ways" type="System" conflictsOut="_DuvVcNqNEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_DuvVcNqNEeeqTZ_Mc2KngQ" identifier="8" description="Conflict not maintained both ways (2)" type="System" conflictsIn="__3kPkNqMEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_Y17voNqjEeeqTZ_Mc2KngQ" identifier="9" description="Build frontend (part 1)" progress="1.0" type="System" parentDecomposition="_A_KP8NpwEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_kTh0UNqjEeeqTZ_Mc2KngQ" identifier="10" description="Build frontend (part 2)" parentDecomposition="_A_KP8NpwEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_mV2RYNqjEeeqTZ_Mc2KngQ" identifier="11" description="Build frontend (part 3)" parentDecomposition="_A_KP8NpwEeeqTZ_Mc2KngQ"/>
+  <requirements xmi:id="_fX-2YNteEeeqTZ_Mc2KngQ" identifier="12" description="New conflict"/>
+  <requirements xmi:id="_hlP_MNteEeeqTZ_Mc2KngQ" identifier="13" description="New conflict opp"/>
+  <requirements xmi:id="_9HQB8NwqEeeqTZ_Mc2KngQ" identifier="21" description="Completed" progress="1.0"/>
+  <testCases xmi:id="_mM9TkNqBEeeqTZ_Mc2KngQ" description="Verfies customer req" verifies="_AXX3MNpwEeeqTZ_Mc2KngQ"/>
+  <testCases xmi:id="_9Qv_UNqBEeeqTZ_Mc2KngQ" description="" verifies="_A_KP8NpwEeeqTZ_Mc2KngQ"/>
+  <testCases xmi:id="_KVb9oNqCEeeqTZ_Mc2KngQ" description="Doesn't verify anything"/>
+  <teamMembers xmi:id="_sw3IoNqFEeeqTZ_Mc2KngQ" name="Richard" requirements="_AXX3MNpwEeeqTZ_Mc2KngQ"/>
+</RequirementsModel>

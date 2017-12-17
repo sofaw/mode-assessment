@@ -1,0 +1,6 @@
+rule SYS2HTML 
+	transform rm : RequirementsModel {
+		template : "REQ2HTML.egl"
+		target : "gen/gen.html"
+	}
+
