@@ -1,19 +1,41 @@
-context RequirementsModel {
-	constraint NoCustomerAndSystemRequirementConflicts {
-		check {
-			/*if(self.type == RequirementType#Customer) {
-				return not self.conflicts.exists(r | r.type == RequirementType#System);
-			} else {
-				return not self.conflicts.exists(r | r.type == RequirementType#Customer);
-			}*/
-			
-			// TODO
+context RequirementsModel {	
+	// TODO: check no conflicts w/n requirements decomposition tree
+	
+	/*constraint NoDuplicateConflicts {
+		check : self.conflicts.asSet().size() == self.conflicts.size() // TODO: fix - this doesn't work
+		message : "There should not be duplicate conflicts in the Requirements Model."
+		
+		fix {
+			title : "Remove duplicate conflicts."
+			do {
+				self.conflicts = self.conflicts.asSet();
+			}
 		}
-		message : "Customer and System requirements cannot be in conflict at requirement \"" 
-			+ self.`identifier` + "\"."
+	}*/
+}
+
+context Conflict {
+	constraint NoCustomerAndSystemRequirementConflicts {
+		check : self.first.type == self.second.type
+		message : "Customer and System requirements cannot be in conflict at requirements \"" 
+			+ self.first.`identifier` + " and " + self.second.`identifier` + "\"."
+			
+		fix {
+			title : "Delete conflict between requirements " + self.first.`identifier` 
+						+ " and " + self.second.`identifier` + "\"."
+    		do {
+    			delete self;
+    		}
+		}
 	}
 	
-	// TODO: check no conflicts w/n requirements decomposition tree
+	/*constraint NoDuplicateConflicts {
+		check : conflictIsNotDuplicate()
+		message : "Duplicate conflict between requirements " + self.first.`identifier`
+			+ " and " + self.second.`identifier` + "\"."
+			
+		// TODO: fix - be careful because could end up deleting all instances
+	}*/
 }
 
 context Requirement {
@@ -24,18 +46,17 @@ context Requirement {
 		} 
 		message : "Identifier for requirement \"" + self.`identifier` 
 			+ "\" with description \"" + self.`description` + "\" must be unique."
-	}
-	
-	// TODO: combine these constraints?
-	constraint HasDescription {
-		check : self.description.isDefined()
-		message : "Requirement \"" + self.`identifier` + "\" must have a description."
+			
+		fix {
+			title : "Update the identifier for this requirement to \"" + getNextAvailableIdentifier() + "\"."
+    		do {
+    			self.identifier = getNextAvailableIdentifier();
+    		}
+		}
 	}
 	
 	constraint DescriptionAtLeastTenChars {
-		guard : self.satisfies("HasDescription")
-		
-		check : self.description.length() >= 10
+		check : self.description.isDefined() and self.description.length() >= 10
 		message : "Requirement \"" + self.`identifier` + "\" must have a description longer than 10 characters."
 	}
 
@@ -45,6 +66,13 @@ context Requirement {
 		check : not self.decomposition.exists(r | r.type == RequirementType#Customer)
 		message : "System requirements cannot be decomposed to Customer requirements at requirement \"" 
 			+ self.`identifier` + "\"." 
+			
+		fix {
+				title : "Delete decompositions of system requirement " + self.`identifier` + " to customer requirement(s)."
+   			do {
+    			self.decomposition = self.decomposition.select(r | r.type == RequirementType#System);
+    		}
+		}
 	}
 	
 	constraint CustomerReqDecomposesToSystemReq {
@@ -56,19 +84,10 @@ context Requirement {
 	}
 	
 	constraint LeafReqProgressIsInBounds {
-		guard : self.decomposition.size() == 0
+		// Don't need to check for non-leaf requirements because progress value is derived
+		guard : self.decomposition.size() == 0 
 		check : self.progress >= 0.0 and self.progress <= 1.0
 		message : "Progress should have a value between 0.0 and 1.0 at requirement \"" 
-			+ self.`identifier` + "\"."
-	}
-	
-	constraint ReqProgressIsAvgOfDecomposition {
-		guard : self.decomposition.size() <> 0
-		check {
-			var decompositionTotal = self.decomposition.progress.sum();
-			return self.progress == (decompositionTotal/self.decomposition.size());
-		}
-		message : "Progress should be average of decomposition progresses at requirement \"" 
 			+ self.`identifier` + "\"."
 	}
 	
@@ -77,24 +96,15 @@ context Requirement {
 		message : "Requirement must have at least one team member assigned at requirement \""
 			+ self.`identifier` + "\"."
 	}
-	
 		
 	constraint DecompositionFreeOfCycles {
 		check : not self.closure(r | r.decomposition).includes(self)
 		message : "Requirements decomposition must be free of cycles at requirement \""
 			+ self.`identifier` + "\"."
+		// TODO add fix (or too complicated ?)
 	}
 	
-	/*constraint ConflictsAreBidirectional {
-		guard : self.conflicts.size() <> 0
-		check : self.forAll(r | r.conflicts.conflicts.flatten().contains(self))
-		message : "Conflicts must be bidirectional at requirement \""
-			+ self.`identifier` + "\"." 
-		// User needs to check list of conflicts at this requirement s.t. itself is contained
-		// TODO: is there a better way to do this?
-	}*/
-	
-	constraint OriginatesFromCustomerReq {
+	constraint SystemReqOriginatesFromCustomerReq {
 		guard : self.type == RequirementType#System
 		check : self.closure(r | r.parentDecomposition).exists(p | p.type == RequirementType#Customer)
 		message : "System requirements must originate from at least one Customer requirement at requirement \""
@@ -112,6 +122,13 @@ context TestCase {
 		check : not self.verifies.exists(r | r.type == RequirementType#Customer)
 		message : "Test case should only verify System requirements at test case \"" + 
 			self.`description` + "\"."
+			
+		fix {
+				title : "Delete verifications of customer requirements at test case \"" + self.`description` + "\""
+   			do {
+    			self.verifies = self.verifies.select(r | r.type == RequirementType#System);
+    		}
+		}
 	}
 	
 	constraint VerifyAtLeastOneSystemReq {
@@ -122,8 +139,15 @@ context TestCase {
 	}
 }
 
+operation getNextAvailableIdentifier() : Integer {
+	var identifiers = Requirement.allInstances.identifier;
+	var max = identifiers.select(id1 | identifiers.forAll(id2 | id1 >= id2)).first();
+	return max + 1;
+}
+
 // TODO: add constraints e.g. progress cannot be greater than 1 or less than 0
 // TODO: add fixes
+// TODO: check guards
 // TODO: check messages
 // TODO: remove printlns
 // TODO: remove redundant constraints e.g. progress is always defined
