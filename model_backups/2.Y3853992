@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992">
+  <requirements description="Customer req 0" decomposition="//@requirements.1 //@requirements.2" teamMembers="//@teamMembers.0"/>
+  <requirements identifier="1" description="System req 1" type="System" decomposition="//@requirements.3 //@requirements.4" parentDecomposition="//@requirements.0" teamMembers="//@teamMembers.0" testCases="//@testCases.1"/>
+  <requirements identifier="2" description="System req 2" progress="0.4" type="System" parentDecomposition="//@requirements.0" teamMembers="//@teamMembers.0" testCases="//@testCases.2"/>
+  <requirements identifier="3" description="System req 3" type="System" parentDecomposition="//@requirements.1" teamMembers="//@teamMembers.0" testCases="//@testCases.0"/>
+  <requirements identifier="4" description="System req 4" progress="0.5" type="System" parentDecomposition="//@requirements.1" teamMembers="//@teamMembers.0" testCases="//@testCases.0"/>
+  <requirements identifier="5" description="Customer req 5" decomposition="//@requirements.6" teamMembers="//@teamMembers.1"/>
+  <requirements identifier="6" description="System req 6" progress="0.2" type="System" parentDecomposition="//@requirements.5" teamMembers="//@teamMembers.1 //@teamMembers.2" testCases="//@testCases.3"/>
+  <testCases description="For system req 3, 4" verifies="//@requirements.3 //@requirements.4"/>
+  <testCases description="For system req 1" verifies="//@requirements.1"/>
+  <testCases description="For system req 2" verifies="//@requirements.2"/>
+  <testCases description="For system req 6" verifies="//@requirements.6"/>
+  <teamMembers name="Lauren" requirements="//@requirements.0 //@requirements.1 //@requirements.2 //@requirements.3 //@requirements.4"/>
+  <teamMembers name="Richard" requirements="//@requirements.5 //@requirements.6"/>
+  <teamMembers name="Sam" requirements="//@requirements.6"/>
+  <conflicts first="//@requirements.3" second="//@requirements.4"/>
+  <conflicts first="//@requirements.0" second="//@requirements.5"/>
+</RequirementsModel>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992">
+  <requirements description="Customer req 0" decomposition="//@requirements.1" teamMembers="//@teamMembers.0"/>
+  <requirements identifier="1" description="System req 1" progress="0.2" type="System" parentDecomposition="//@requirements.0" teamMembers="//@teamMembers.0" testCases="//@testCases.0"/>
+  <testCases description="Test application" verifies="//@requirements.1"/>
+  <teamMembers name="Richard" requirements="//@requirements.0 //@requirements.1"/>
+</RequirementsModel>
