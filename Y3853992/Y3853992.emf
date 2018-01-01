@@ -2,11 +2,11 @@
 @gmf
 package Y3853992;
 
-@gmf.diagram
+@gmf.diagram(model.extension="Y3853992")
 class RequirementsModel {
-	val Requirement[1..*] requirements;
-	val TestCase[1..*] testCases;
-	val TeamMember[1..*] teamMembers;
+	val Requirement[*] requirements;
+	val TestCase[*] testCases;
+	val TeamMember[*] teamMembers;
 	val Conflict[*] conflicts;
 }
 
@@ -26,25 +26,24 @@ class Requirement {
 	ref Requirement[*]#decomposition parentDecomposition;
 	@gmf.link(style="dot")
 	ref TeamMember[1..*]#requirements teamMembers;
-	@gmf.link(style="dot")
 	ref TestCase[*]#verifies testCases;
 
 }
 
-@gmf.link(target.decoration="dot", color="255,0,0")
+@gmf.link(source="first", target="second", style="dot", color="255,0,0")
 class Conflict {
 	ref Requirement first;
 	ref Requirement second;
 }
 
-@gmf.node(label = "description")
+@gmf.node(label="description")
 class TestCase {
 	attr String[1] description;
 	@gmf.link(style="dash", target.decoration="arrow", color="0,0,255")
 	ref Requirement[1..*]#testCases verifies;
 }
 
-@gmf.node(label = "name")
+@gmf.node(label="name")
 class TeamMember {
 	attr String[1] name;
 	ref Requirement[*]#teamMembers requirements;

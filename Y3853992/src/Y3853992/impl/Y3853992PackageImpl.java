@@ -2,6 +2,7 @@
  */
 package Y3853992.impl;
 
+import Y3853992.Conflict;
 import Y3853992.Project;
 import Y3853992.Requirement;
 import Y3853992.RequirementType;
@@ -39,6 +40,13 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * @generated
 	 */
 	private EClass requirementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conflictEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,6 +171,15 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRequirementsModel_Conflicts() {
+		return (EReference)requirementsModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRequirement() {
 		return requirementEClass;
 	}
@@ -209,15 +226,6 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * @generated
 	 */
 	public EReference getRequirement_ParentDecomposition() {
-		return (EReference)requirementEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequirement_Decomposition() {
 		return (EReference)requirementEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -226,8 +234,8 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequirement_Conflicts() {
-		return (EReference)requirementEClass.getEStructuralFeatures().get(6);
+	public EReference getRequirement_Decomposition() {
+		return (EReference)requirementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -236,7 +244,7 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * @generated
 	 */
 	public EReference getRequirement_TeamMembers() {
-		return (EReference)requirementEClass.getEStructuralFeatures().get(7);
+		return (EReference)requirementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -245,7 +253,34 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * @generated
 	 */
 	public EReference getRequirement_TestCases() {
-		return (EReference)requirementEClass.getEStructuralFeatures().get(8);
+		return (EReference)requirementEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConflict() {
+		return conflictEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConflict_First() {
+		return (EReference)conflictEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConflict_Second() {
+		return (EReference)conflictEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -343,17 +378,21 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		createEReference(requirementsModelEClass, REQUIREMENTS_MODEL__REQUIREMENTS);
 		createEReference(requirementsModelEClass, REQUIREMENTS_MODEL__TEST_CASES);
 		createEReference(requirementsModelEClass, REQUIREMENTS_MODEL__TEAM_MEMBERS);
+		createEReference(requirementsModelEClass, REQUIREMENTS_MODEL__CONFLICTS);
 
 		requirementEClass = createEClass(REQUIREMENT);
 		createEAttribute(requirementEClass, REQUIREMENT__IDENTIFIER);
 		createEAttribute(requirementEClass, REQUIREMENT__DESCRIPTION);
 		createEAttribute(requirementEClass, REQUIREMENT__PROGRESS);
 		createEAttribute(requirementEClass, REQUIREMENT__TYPE);
-		createEReference(requirementEClass, REQUIREMENT__PARENT_DECOMPOSITION);
 		createEReference(requirementEClass, REQUIREMENT__DECOMPOSITION);
-		createEReference(requirementEClass, REQUIREMENT__CONFLICTS);
+		createEReference(requirementEClass, REQUIREMENT__PARENT_DECOMPOSITION);
 		createEReference(requirementEClass, REQUIREMENT__TEAM_MEMBERS);
 		createEReference(requirementEClass, REQUIREMENT__TEST_CASES);
+
+		conflictEClass = createEClass(CONFLICT);
+		createEReference(conflictEClass, CONFLICT__FIRST);
+		createEReference(conflictEClass, CONFLICT__SECOND);
 
 		testCaseEClass = createEClass(TEST_CASE);
 		createEAttribute(testCaseEClass, TEST_CASE__DESCRIPTION);
@@ -398,20 +437,24 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(requirementsModelEClass, RequirementsModel.class, "RequirementsModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequirementsModel_Requirements(), this.getRequirement(), null, "requirements", null, 1, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRequirementsModel_TestCases(), this.getTestCase(), null, "testCases", null, 1, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRequirementsModel_TeamMembers(), this.getTeamMember(), null, "teamMembers", null, 1, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRequirementsModel_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRequirementsModel_TestCases(), this.getTestCase(), null, "testCases", null, 0, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRequirementsModel_TeamMembers(), this.getTeamMember(), null, "teamMembers", null, 0, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRequirementsModel_Conflicts(), this.getConflict(), null, "conflicts", null, 0, -1, RequirementsModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRequirement_Identifier(), ecorePackage.getEInt(), "identifier", null, 1, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_Description(), ecorePackage.getEString(), "description", null, 1, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_Progress(), ecorePackage.getEFloat(), "progress", null, 1, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_Type(), this.getRequirementType(), "type", null, 1, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRequirement_ParentDecomposition(), this.getRequirement(), this.getRequirement_Decomposition(), "parentDecomposition", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRequirement_Decomposition(), this.getRequirement(), this.getRequirement_ParentDecomposition(), "decomposition", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRequirement_Conflicts(), this.getRequirement(), null, "conflicts", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRequirement_ParentDecomposition(), this.getRequirement(), this.getRequirement_Decomposition(), "parentDecomposition", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRequirement_TeamMembers(), this.getTeamMember(), this.getTeamMember_Requirements(), "teamMembers", null, 1, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRequirement_TestCases(), this.getTestCase(), this.getTestCase_Verifies(), "testCases", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conflictEClass, Conflict.class, "Conflict", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConflict_First(), this.getRequirement(), null, "first", null, 0, 1, Conflict.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConflict_Second(), this.getRequirement(), null, "second", null, 0, 1, Conflict.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testCaseEClass, TestCase.class, "TestCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTestCase_Description(), ecorePackage.getEString(), "description", null, 1, 1, TestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -467,6 +510,7 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		  (requirementsModelEClass, 
 		   source, 
 		   new String[] {
+			 "model.extension", "Y3853992"
 		   });
 	}
 
@@ -514,17 +558,19 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 			 "color", "0,0,0"
 		   });	
 		addAnnotation
-		  (getRequirement_Conflicts(), 
-		   source, 
-		   new String[] {
-			 "style", "dot",
-			 "color", "255,0,0"
-		   });	
-		addAnnotation
 		  (getRequirement_TeamMembers(), 
 		   source, 
 		   new String[] {
 			 "style", "dot"
+		   });	
+		addAnnotation
+		  (conflictEClass, 
+		   source, 
+		   new String[] {
+			 "source", "first",
+			 "target", "second",
+			 "style", "dot",
+			 "color", "255,0,0"
 		   });	
 		addAnnotation
 		  (getTestCase_Verifies(), 

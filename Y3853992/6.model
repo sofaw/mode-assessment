@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992" xmi:id="_tTxDIOJhEeeNm8gxCwZXQQ">
-  <requirements xmi:id="_uM0LAOJhEeeNm8gxCwZXQQ" description="First"/>
-  <requirements xmi:id="_ulphwOJhEeeNm8gxCwZXQQ" description="Second"/>
-  <conflicts xmi:id="_wpC84OJhEeeNm8gxCwZXQQ" first="_uM0LAOJhEeeNm8gxCwZXQQ" second="_ulphwOJhEeeNm8gxCwZXQQ"/>
-  <conflicts xmi:id="_Wm0JEOJsEeeNm8gxCwZXQQ" first="_uM0LAOJhEeeNm8gxCwZXQQ" second="_ulphwOJhEeeNm8gxCwZXQQ"/>
-</RequirementsModel>

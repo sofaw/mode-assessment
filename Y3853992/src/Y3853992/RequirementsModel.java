@@ -18,10 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link Y3853992.RequirementsModel#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link Y3853992.RequirementsModel#getTestCases <em>Test Cases</em>}</li>
  *   <li>{@link Y3853992.RequirementsModel#getTeamMembers <em>Team Members</em>}</li>
+ *   <li>{@link Y3853992.RequirementsModel#getConflicts <em>Conflicts</em>}</li>
  * </ul>
  *
  * @see Y3853992.Y3853992Package#getRequirementsModel()
- * @model
+ * @model annotation="gmf.diagram model.extension='Y3853992'"
  * @generated
  */
 public interface RequirementsModel extends EObject {
@@ -36,7 +37,7 @@ public interface RequirementsModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Requirements</em>' containment reference list.
 	 * @see Y3853992.Y3853992Package#getRequirementsModel_Requirements()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Requirement> getRequirements();
@@ -52,7 +53,7 @@ public interface RequirementsModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Test Cases</em>' containment reference list.
 	 * @see Y3853992.Y3853992Package#getRequirementsModel_TestCases()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<TestCase> getTestCases();
@@ -68,9 +69,25 @@ public interface RequirementsModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Team Members</em>' containment reference list.
 	 * @see Y3853992.Y3853992Package#getRequirementsModel_TeamMembers()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<TeamMember> getTeamMembers();
+
+	/**
+	 * Returns the value of the '<em><b>Conflicts</b></em>' containment reference list.
+	 * The list contents are of type {@link Y3853992.Conflict}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Conflicts</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Conflicts</em>' containment reference list.
+	 * @see Y3853992.Y3853992Package#getRequirementsModel_Conflicts()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Conflict> getConflicts();
 
 } // RequirementsModel

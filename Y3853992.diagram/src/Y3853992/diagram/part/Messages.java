@@ -286,12 +286,12 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String Conflicts1CreationTool_title;
+	public static String Conflict1CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Conflicts1CreationTool_desc;
+	public static String Conflict1CreationTool_desc;
 
 	/**
 	* @generated
@@ -386,12 +386,12 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_RequirementConflicts_4007_target;
+	public static String NavigatorGroupName_Conflict_4008_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_RequirementConflicts_4007_source;
+	public static String NavigatorGroupName_Conflict_4008_source;
 
 	/**
 	* @generated

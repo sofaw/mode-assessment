@@ -19,7 +19,7 @@ public class Y3853992UriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "y3853992_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "Y3853992_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

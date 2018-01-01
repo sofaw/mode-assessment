@@ -40,6 +40,15 @@ public interface Y3853992Factory extends EFactory {
 	Requirement createRequirement();
 
 	/**
+	 * Returns a new object of class '<em>Conflict</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conflict</em>'.
+	 * @generated
+	 */
+	Conflict createConflict();
+
+	/**
 	 * Returns a new object of class '<em>Test Case</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

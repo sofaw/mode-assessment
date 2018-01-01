@@ -44,8 +44,8 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Conflicts"
-          description="Create new Conflicts">
+          title="Conflict"
+          description="Create new Conflict">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

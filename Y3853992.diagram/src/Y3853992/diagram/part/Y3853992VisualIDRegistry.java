@@ -12,7 +12,7 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import Y3853992.RequirementsModel;
 import Y3853992.Y3853992Package;
-import Y3853992.diagram.edit.parts.RequirementConflictsEditPart;
+import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementDescriptionTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
@@ -25,7 +25,6 @@ import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
 import Y3853992.diagram.edit.parts.WrappingLabel2EditPart;
 import Y3853992.diagram.edit.parts.WrappingLabel3EditPart;
-import Y3853992.diagram.edit.parts.WrappingLabel4EditPart;
 import Y3853992.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
@@ -194,18 +193,13 @@ public class Y3853992VisualIDRegistry {
 				return true;
 			}
 			break;
-		case RequirementConflictsEditPart.VISUAL_ID:
+		case RequirementTeamMembersEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case RequirementTeamMembersEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case TestCaseVerifiesEditPart.VISUAL_ID:
-			if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -219,6 +213,9 @@ public class Y3853992VisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (Y3853992Package.eINSTANCE.getConflict().isSuperTypeOf(domainElement.eClass())) {
+			return ConflictEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

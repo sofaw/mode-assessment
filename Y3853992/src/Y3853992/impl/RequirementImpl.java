@@ -38,9 +38,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link Y3853992.impl.RequirementImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementImpl#getProgress <em>Progress</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementImpl#getType <em>Type</em>}</li>
- *   <li>{@link Y3853992.impl.RequirementImpl#getParentDecomposition <em>Parent Decomposition</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementImpl#getDecomposition <em>Decomposition</em>}</li>
- *   <li>{@link Y3853992.impl.RequirementImpl#getConflicts <em>Conflicts</em>}</li>
+ *   <li>{@link Y3853992.impl.RequirementImpl#getParentDecomposition <em>Parent Decomposition</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementImpl#getTeamMembers <em>Team Members</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementImpl#getTestCases <em>Test Cases</em>}</li>
  * </ul>
@@ -129,16 +128,6 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 	protected RequirementType type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParentDecomposition() <em>Parent Decomposition</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentDecomposition()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Requirement> parentDecomposition;
-
-	/**
 	 * The cached value of the '{@link #getDecomposition() <em>Decomposition</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,14 +138,14 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 	protected EList<Requirement> decomposition;
 
 	/**
-	 * The cached value of the '{@link #getConflicts() <em>Conflicts</em>}' reference list.
+	 * The cached value of the '{@link #getParentDecomposition() <em>Parent Decomposition</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConflicts()
+	 * @see #getParentDecomposition()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Requirement> conflicts;
+	protected EList<Requirement> parentDecomposition;
 
 	/**
 	 * The cached value of the '{@link #getTeamMembers() <em>Team Members</em>}' reference list.
@@ -319,18 +308,6 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Requirement> getConflicts() {
-		if (conflicts == null) {
-			conflicts = new EObjectResolvingEList<Requirement>(Requirement.class, this, Y3853992Package.REQUIREMENT__CONFLICTS);
-		}
-		return conflicts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<TeamMember> getTeamMembers() {
 		if (teamMembers == null) {
 			teamMembers = new EObjectWithInverseResolvingEList.ManyInverse<TeamMember>(TeamMember.class, this, Y3853992Package.REQUIREMENT__TEAM_MEMBERS, Y3853992Package.TEAM_MEMBER__REQUIREMENTS);
@@ -359,10 +336,10 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParentDecomposition()).basicAdd(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENT__DECOMPOSITION:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDecomposition()).basicAdd(otherEnd, msgs);
+			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParentDecomposition()).basicAdd(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENT__TEAM_MEMBERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTeamMembers()).basicAdd(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENT__TEST_CASES:
@@ -379,10 +356,10 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
-				return ((InternalEList<?>)getParentDecomposition()).basicRemove(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENT__DECOMPOSITION:
 				return ((InternalEList<?>)getDecomposition()).basicRemove(otherEnd, msgs);
+			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
+				return ((InternalEList<?>)getParentDecomposition()).basicRemove(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENT__TEAM_MEMBERS:
 				return ((InternalEList<?>)getTeamMembers()).basicRemove(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENT__TEST_CASES:
@@ -407,12 +384,10 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 				return getProgress();
 			case Y3853992Package.REQUIREMENT__TYPE:
 				return getType();
-			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
-				return getParentDecomposition();
 			case Y3853992Package.REQUIREMENT__DECOMPOSITION:
 				return getDecomposition();
-			case Y3853992Package.REQUIREMENT__CONFLICTS:
-				return getConflicts();
+			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
+				return getParentDecomposition();
 			case Y3853992Package.REQUIREMENT__TEAM_MEMBERS:
 				return getTeamMembers();
 			case Y3853992Package.REQUIREMENT__TEST_CASES:
@@ -442,17 +417,13 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 			case Y3853992Package.REQUIREMENT__TYPE:
 				setType((RequirementType)newValue);
 				return;
-			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
-				getParentDecomposition().clear();
-				getParentDecomposition().addAll((Collection<? extends Requirement>)newValue);
-				return;
 			case Y3853992Package.REQUIREMENT__DECOMPOSITION:
 				getDecomposition().clear();
 				getDecomposition().addAll((Collection<? extends Requirement>)newValue);
 				return;
-			case Y3853992Package.REQUIREMENT__CONFLICTS:
-				getConflicts().clear();
-				getConflicts().addAll((Collection<? extends Requirement>)newValue);
+			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
+				getParentDecomposition().clear();
+				getParentDecomposition().addAll((Collection<? extends Requirement>)newValue);
 				return;
 			case Y3853992Package.REQUIREMENT__TEAM_MEMBERS:
 				getTeamMembers().clear();
@@ -486,14 +457,11 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 			case Y3853992Package.REQUIREMENT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
-				getParentDecomposition().clear();
-				return;
 			case Y3853992Package.REQUIREMENT__DECOMPOSITION:
 				getDecomposition().clear();
 				return;
-			case Y3853992Package.REQUIREMENT__CONFLICTS:
-				getConflicts().clear();
+			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
+				getParentDecomposition().clear();
 				return;
 			case Y3853992Package.REQUIREMENT__TEAM_MEMBERS:
 				getTeamMembers().clear();
@@ -521,12 +489,10 @@ public class RequirementImpl extends EObjectImpl implements Requirement {
 				return progress != PROGRESS_EDEFAULT;
 			case Y3853992Package.REQUIREMENT__TYPE:
 				return type != TYPE_EDEFAULT;
-			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
-				return parentDecomposition != null && !parentDecomposition.isEmpty();
 			case Y3853992Package.REQUIREMENT__DECOMPOSITION:
 				return decomposition != null && !decomposition.isEmpty();
-			case Y3853992Package.REQUIREMENT__CONFLICTS:
-				return conflicts != null && !conflicts.isEmpty();
+			case Y3853992Package.REQUIREMENT__PARENT_DECOMPOSITION:
+				return parentDecomposition != null && !parentDecomposition.isEmpty();
 			case Y3853992Package.REQUIREMENT__TEAM_MEMBERS:
 				return teamMembers != null && !teamMembers.isEmpty();
 			case Y3853992Package.REQUIREMENT__TEST_CASES:

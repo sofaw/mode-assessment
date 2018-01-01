@@ -48,7 +48,7 @@ public class Y3853992PaletteFactory {
 	private PaletteContainer createConnections2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createConflicts1CreationTool());
+		paletteContainer.add(createConflict1CreationTool());
 		paletteContainer.add(createDecomposition2CreationTool());
 		paletteContainer.add(createTeamMembers3CreationTool());
 		paletteContainer.add(createVerifies4CreationTool());
@@ -95,12 +95,11 @@ public class Y3853992PaletteFactory {
 	/**
 	* @generated
 	*/
-	private ToolEntry createConflicts1CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Conflicts1CreationTool_title,
-				Messages.Conflicts1CreationTool_desc,
-				Collections.singletonList(Y3853992ElementTypes.RequirementConflicts_4007));
-		entry.setId("createConflicts1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(Y3853992ElementTypes.getImageDescriptor(Y3853992ElementTypes.RequirementConflicts_4007));
+	private ToolEntry createConflict1CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Conflict1CreationTool_title,
+				Messages.Conflict1CreationTool_desc, Collections.singletonList(Y3853992ElementTypes.Conflict_4008));
+		entry.setId("createConflict1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(Y3853992ElementTypes.getImageDescriptor(Y3853992ElementTypes.Conflict_4008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

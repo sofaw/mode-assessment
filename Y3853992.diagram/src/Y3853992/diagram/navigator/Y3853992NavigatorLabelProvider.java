@@ -21,7 +21,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
-import Y3853992.diagram.edit.parts.RequirementConflictsEditPart;
+import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementDescriptionTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
@@ -117,9 +117,8 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 		case RequirementTeamMembersEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?http://Y3853992?Requirement?teamMembers", //$NON-NLS-1$
 					Y3853992ElementTypes.RequirementTeamMembers_4005);
-		case RequirementConflictsEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://Y3853992?Requirement?conflicts", //$NON-NLS-1$
-					Y3853992ElementTypes.RequirementConflicts_4007);
+		case ConflictEditPart.VISUAL_ID:
+			return getImage("Navigator?Link?http://Y3853992?Conflict", Y3853992ElementTypes.Conflict_4008); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -192,8 +191,8 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 			return getTestCaseVerifies_4004Text(view);
 		case RequirementTeamMembersEditPart.VISUAL_ID:
 			return getRequirementTeamMembers_4005Text(view);
-		case RequirementConflictsEditPart.VISUAL_ID:
-			return getRequirementConflicts_4007Text(view);
+		case ConflictEditPart.VISUAL_ID:
+			return getConflict_4008Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -301,16 +300,8 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getRequirementConflicts_4007Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.RequirementConflicts_4007,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6007); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
+	private String getConflict_4008Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**

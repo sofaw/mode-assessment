@@ -82,6 +82,12 @@ public class Y3853992Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Y3853992Package.CONFLICT: {
+				Conflict conflict = (Conflict)theEObject;
+				T result = caseConflict(conflict);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case Y3853992Package.TEST_CASE: {
 				TestCase testCase = (TestCase)theEObject;
 				T result = caseTestCase(testCase);
@@ -125,6 +131,21 @@ public class Y3853992Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRequirement(Requirement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conflict</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conflict</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConflict(Conflict object) {
 		return null;
 	}
 

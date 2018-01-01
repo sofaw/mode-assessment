@@ -19,9 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link Y3853992.Requirement#getDescription <em>Description</em>}</li>
  *   <li>{@link Y3853992.Requirement#getProgress <em>Progress</em>}</li>
  *   <li>{@link Y3853992.Requirement#getType <em>Type</em>}</li>
- *   <li>{@link Y3853992.Requirement#getParentDecomposition <em>Parent Decomposition</em>}</li>
  *   <li>{@link Y3853992.Requirement#getDecomposition <em>Decomposition</em>}</li>
- *   <li>{@link Y3853992.Requirement#getConflicts <em>Conflicts</em>}</li>
+ *   <li>{@link Y3853992.Requirement#getParentDecomposition <em>Parent Decomposition</em>}</li>
  *   <li>{@link Y3853992.Requirement#getTeamMembers <em>Team Members</em>}</li>
  *   <li>{@link Y3853992.Requirement#getTestCases <em>Test Cases</em>}</li>
  * </ul>
@@ -174,23 +173,6 @@ public interface Requirement extends EObject {
 	 * @generated
 	 */
 	EList<Requirement> getDecomposition();
-
-	/**
-	 * Returns the value of the '<em><b>Conflicts</b></em>' reference list.
-	 * The list contents are of type {@link Y3853992.Requirement}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Conflicts</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Conflicts</em>' reference list.
-	 * @see Y3853992.Y3853992Package#getRequirement_Conflicts()
-	 * @model derived="true"
-	 *        annotation="gmf.link style='dot' color='255,0,0'"
-	 * @generated
-	 */
-	EList<Requirement> getConflicts();
 
 	/**
 	 * Returns the value of the '<em><b>Team Members</b></em>' reference list.

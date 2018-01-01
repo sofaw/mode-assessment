@@ -9,26 +9,22 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
+import Y3853992.Conflict;
 import Y3853992.Requirement;
+import Y3853992.RequirementsModel;
 import Y3853992.diagram.edit.policies.Y3853992BaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class RequirementConflictsReorientCommand extends EditElementCommand {
+public class ConflictReorientCommand extends EditElementCommand {
 
 	/**
 	* @generated
 	*/
 	private final int reorientDirection;
-
-	/**
-	* @generated
-	*/
-	private final EObject referenceOwner;
 
 	/**
 	* @generated
@@ -43,10 +39,9 @@ public class RequirementConflictsReorientCommand extends EditElementCommand {
 	/**
 	* @generated
 	*/
-	public RequirementConflictsReorientCommand(ReorientReferenceRelationshipRequest request) {
-		super(request.getLabel(), null, request);
+	public ConflictReorientCommand(ReorientRelationshipRequest request) {
+		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
-		referenceOwner = request.getReferenceOwner();
 		oldEnd = request.getOldRelationshipEnd();
 		newEnd = request.getNewRelationshipEnd();
 	}
@@ -55,7 +50,7 @@ public class RequirementConflictsReorientCommand extends EditElementCommand {
 	* @generated
 	*/
 	public boolean canExecute() {
-		if (false == referenceOwner instanceof Requirement) {
+		if (false == getElementToEdit() instanceof Conflict) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -74,8 +69,13 @@ public class RequirementConflictsReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Requirement && newEnd instanceof Requirement)) {
 			return false;
 		}
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistRequirementConflicts_4007(getNewSource(),
-				getOldTarget());
+		Requirement target = getLink().getSecond();
+		if (!(getLink().eContainer() instanceof RequirementsModel)) {
+			return false;
+		}
+		RequirementsModel container = (RequirementsModel) getLink().eContainer();
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistConflict_4008(container, getLink(),
+				getNewSource(), target);
 	}
 
 	/**
@@ -85,8 +85,13 @@ public class RequirementConflictsReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Requirement && newEnd instanceof Requirement)) {
 			return false;
 		}
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistRequirementConflicts_4007(getOldSource(),
-				getNewTarget());
+		Requirement source = getLink().getFirst();
+		if (!(getLink().eContainer() instanceof RequirementsModel)) {
+			return false;
+		}
+		RequirementsModel container = (RequirementsModel) getLink().eContainer();
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistConflict_4008(container, getLink(),
+				source, getNewTarget());
 	}
 
 	/**
@@ -109,25 +114,30 @@ public class RequirementConflictsReorientCommand extends EditElementCommand {
 	* @generated
 	*/
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getConflicts().remove(getOldTarget());
-		getNewSource().getConflicts().add(getOldTarget());
-		return CommandResult.newOKCommandResult(referenceOwner);
+		getLink().setFirst(getNewSource());
+		return CommandResult.newOKCommandResult(getLink());
 	}
 
 	/**
 	* @generated
 	*/
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getOldSource().getConflicts().remove(getOldTarget());
-		getOldSource().getConflicts().add(getNewTarget());
-		return CommandResult.newOKCommandResult(referenceOwner);
+		getLink().setSecond(getNewTarget());
+		return CommandResult.newOKCommandResult(getLink());
+	}
+
+	/**
+	* @generated
+	*/
+	protected Conflict getLink() {
+		return (Conflict) getElementToEdit();
 	}
 
 	/**
 	* @generated
 	*/
 	protected Requirement getOldSource() {
-		return (Requirement) referenceOwner;
+		return (Requirement) oldEnd;
 	}
 
 	/**

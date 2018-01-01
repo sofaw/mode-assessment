@@ -103,19 +103,19 @@ public class Y3853992CreationWizard extends Wizard implements INewWizard {
 	* @generated
 	*/
 	public void addPages() {
-		diagramModelFilePage = new Y3853992CreationWizardPage("DiagramModelFile", getSelection(), "y3853992_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage = new Y3853992CreationWizardPage("DiagramModelFile", getSelection(), "Y3853992_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage.setTitle(Messages.Y3853992CreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage.setDescription(Messages.Y3853992CreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
-		domainModelFilePage = new Y3853992CreationWizardPage("DomainModelFile", getSelection(), "y3853992") { //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage = new Y3853992CreationWizardPage("DomainModelFile", getSelection(), "Y3853992") { //$NON-NLS-1$ //$NON-NLS-2$
 
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length() - ".y3853992_diagram".length()); //$NON-NLS-1$
+					fileName = fileName.substring(0, fileName.length() - ".Y3853992_diagram".length()); //$NON-NLS-1$
 					setFileName(
-							Y3853992DiagramEditorUtil.getUniqueFileName(getContainerFullPath(), fileName, "y3853992")); //$NON-NLS-1$
+							Y3853992DiagramEditorUtil.getUniqueFileName(getContainerFullPath(), fileName, "Y3853992")); //$NON-NLS-1$
 				}
 				super.setVisible(visible);
 			}

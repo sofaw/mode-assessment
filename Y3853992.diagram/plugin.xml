@@ -7,13 +7,13 @@
 
    <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
       <?gmfgen generated="true"?>
-      <fileTypes type="text" extension="y3853992_diagram"/>
+      <fileTypes type="text" extension="Y3853992_diagram"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
       <?gmfgen generated="true"?>
       <parser
-         type="y3853992_diagram"
+         type="Y3853992_diagram"
          class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
       </parser>
    </extension>
@@ -24,7 +24,7 @@
          id="Y3853992.diagram.part.Y3853992DiagramEditorID"
          name="%editorName"
          icon="icons/obj16/Y3853992DiagramFile.gif"
-         extensions="y3853992_diagram"
+         extensions="Y3853992_diagram"
          default="true"
          class="Y3853992.diagram.part.Y3853992DiagramEditor"
          matchingStrategy="Y3853992.diagram.part.Y3853992MatchingStrategy"
@@ -58,7 +58,7 @@
       <?gmfgen generated="true"?>
       <objectContribution
             id="Y3853992.diagram.InitDiagram"
-            nameFilter="*.y3853992"
+            nameFilter="*.Y3853992"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Y3853992"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4007,4005,4004"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4008,4001,4005,4004"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="2007,2008,2009"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001,4007,4005,4004"/>
+            <method name="getType()" value="4008,4001,4005,4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5007,5008,5009"/>
@@ -381,21 +381,22 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
+         <metamodelType
+               id="Y3853992.diagram.Conflict_4008"
+               name="%metatype.name.Conflict_4008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Conflict"
+               edithelper="Y3853992.diagram.edit.helpers.ConflictEditHelper">
+            <param name="semanticHint" value="4008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://Y3853992">
          <specializationType
                id="Y3853992.diagram.RequirementDecomposition_4001"
                name="%metatype.name.RequirementDecomposition_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="4001"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://Y3853992">
-         <specializationType
-               id="Y3853992.diagram.RequirementConflicts_4007"
-               name="%metatype.name.RequirementConflicts_4007"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4007"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
@@ -432,8 +433,8 @@
          <elementType ref="Y3853992.diagram.Requirement_2007"/>
          <elementType ref="Y3853992.diagram.TestCase_2008"/>
          <elementType ref="Y3853992.diagram.TeamMember_2009"/>
+         <elementType ref="Y3853992.diagram.Conflict_4008"/>
          <elementType ref="Y3853992.diagram.RequirementDecomposition_4001"/>
-         <elementType ref="Y3853992.diagram.RequirementConflicts_4007"/>
          <elementType ref="Y3853992.diagram.RequirementTeamMembers_4005"/>
          <elementType ref="Y3853992.diagram.TestCaseVerifies_4004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
@@ -491,7 +492,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="y3853992_diagram"/>
+        	      <test property="org.eclipse.core.resources.extension" value="Y3853992_diagram"/>
                </and>
                <instanceof value="Y3853992.diagram.navigator.Y3853992AbstractNavigatorItem"/>
            	   <adapt type="org.eclipse.gmf.runtime.notation.View">
@@ -514,7 +515,7 @@
                <or>
 	              <and>
     	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="y3853992_diagram"/>
+        	         <test property="org.eclipse.core.resources.extension" value="Y3853992_diagram"/>
                   </and>
                   <instanceof value="Y3853992.diagram.navigator.Y3853992AbstractNavigatorItem"/>
                </or>
@@ -533,7 +534,7 @@
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="y3853992"/>
+        	      <test property="org.eclipse.core.resources.extension" value="Y3853992"/>
                </and>
                <instanceof value="Y3853992.diagram.navigator.Y3853992DomainNavigatorItem"/>
             </or>

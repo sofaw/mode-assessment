@@ -69,6 +69,23 @@
     </ownedChild>
   </nodes>
   <links>
+    <domainMetaElement
+        href="Y3853992.ecore#//Conflict"/>
+    <containmentFeature
+        href="Y3853992.ecore#//RequirementsModel/conflicts"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="Y3853992.gmftool#//@palette/@tools.1/@tools.0"/>
+    <diagramLink
+        href="Y3853992.gmfgraph#Conflict"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="Y3853992.ecore#//Conflict/first"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="Y3853992.ecore#//Conflict/second"/>
+  </links>
+  <links>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
@@ -83,22 +100,6 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="Y3853992.ecore#//Requirement/decomposition"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="Y3853992.gmfgraph#RequirementConflictsExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="Y3853992.gmftool#//@palette/@tools.1/@tools.0"/>
-    <diagramLink
-        href="Y3853992.gmfgraph#RequirementConflicts"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="Y3853992.ecore#//Requirement/conflicts"/>
   </links>
   <links>
     <labelMappings

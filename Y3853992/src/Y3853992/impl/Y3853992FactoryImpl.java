@@ -65,6 +65,7 @@ public class Y3853992FactoryImpl extends EFactoryImpl implements Y3853992Factory
 		switch (eClass.getClassifierID()) {
 			case Y3853992Package.REQUIREMENTS_MODEL: return createRequirementsModel();
 			case Y3853992Package.REQUIREMENT: return createRequirement();
+			case Y3853992Package.CONFLICT: return createConflict();
 			case Y3853992Package.TEST_CASE: return createTestCase();
 			case Y3853992Package.TEAM_MEMBER: return createTeamMember();
 			default:
@@ -120,6 +121,16 @@ public class Y3853992FactoryImpl extends EFactoryImpl implements Y3853992Factory
 	public Requirement createRequirement() {
 		RequirementImpl requirement = new RequirementImpl();
 		return requirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Conflict createConflict() {
+		ConflictImpl conflict = new ConflictImpl();
+		return conflict;
 	}
 
 	/**

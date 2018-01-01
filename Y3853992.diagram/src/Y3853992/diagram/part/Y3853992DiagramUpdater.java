@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
+import Y3853992.Conflict;
 import Y3853992.Requirement;
 import Y3853992.RequirementsModel;
 import Y3853992.TeamMember;
 import Y3853992.TestCase;
 import Y3853992.Y3853992Package;
-import Y3853992.diagram.edit.parts.RequirementConflictsEditPart;
+import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
 import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
@@ -103,6 +104,8 @@ public class Y3853992DiagramUpdater {
 			return getTestCase_2008ContainedLinks(view);
 		case TeamMemberEditPart.VISUAL_ID:
 			return getTeamMember_2009ContainedLinks(view);
+		case ConflictEditPart.VISUAL_ID:
+			return getConflict_4008ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -118,6 +121,8 @@ public class Y3853992DiagramUpdater {
 			return getTestCase_2008IncomingLinks(view);
 		case TeamMemberEditPart.VISUAL_ID:
 			return getTeamMember_2009IncomingLinks(view);
+		case ConflictEditPart.VISUAL_ID:
+			return getConflict_4008IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -133,6 +138,8 @@ public class Y3853992DiagramUpdater {
 			return getTestCase_2008OutgoingLinks(view);
 		case TeamMemberEditPart.VISUAL_ID:
 			return getTeamMember_2009OutgoingLinks(view);
+		case ConflictEditPart.VISUAL_ID:
+			return getConflict_4008OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -141,7 +148,10 @@ public class Y3853992DiagramUpdater {
 	* @generated
 	*/
 	public static List<Y3853992LinkDescriptor> getRequirementsModel_1000ContainedLinks(View view) {
-		return Collections.emptyList();
+		RequirementsModel modelElement = (RequirementsModel) view.getElement();
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_Conflict_4008(modelElement));
+		return result;
 	}
 
 	/**
@@ -151,7 +161,6 @@ public class Y3853992DiagramUpdater {
 		Requirement modelElement = (Requirement) view.getElement();
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_Decomposition_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_Conflicts_4007(modelElement));
 		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_TeamMembers_4005(modelElement));
 		return result;
 	}
@@ -176,13 +185,20 @@ public class Y3853992DiagramUpdater {
 	/**
 	* @generated
 	*/
+	public static List<Y3853992LinkDescriptor> getConflict_4008ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	* @generated
+	*/
 	public static List<Y3853992LinkDescriptor> getRequirement_2007IncomingLinks(View view) {
 		Requirement modelElement = (Requirement) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_Conflict_4008(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_Requirement_Decomposition_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_Requirement_Conflicts_4007(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_TestCase_Verifies_4004(modelElement, crossReferences));
 		return result;
 	}
@@ -209,11 +225,18 @@ public class Y3853992DiagramUpdater {
 	/**
 	* @generated
 	*/
+	public static List<Y3853992LinkDescriptor> getConflict_4008IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	* @generated
+	*/
 	public static List<Y3853992LinkDescriptor> getRequirement_2007OutgoingLinks(View view) {
 		Requirement modelElement = (Requirement) view.getElement();
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_Conflict_4008(modelElement));
 		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_Decomposition_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_Conflicts_4007(modelElement));
 		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_TeamMembers_4005(modelElement));
 		return result;
 	}
@@ -236,6 +259,59 @@ public class Y3853992DiagramUpdater {
 	}
 
 	/**
+	* @generated
+	*/
+	public static List<Y3853992LinkDescriptor> getConflict_4008OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	* @generated
+	*/
+	private static Collection<Y3853992LinkDescriptor> getContainedTypeModelFacetLinks_Conflict_4008(
+			RequirementsModel container) {
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		for (Iterator<?> links = container.getConflicts().iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Conflict) {
+				continue;
+			}
+			Conflict link = (Conflict) linkObject;
+			if (ConflictEditPart.VISUAL_ID != Y3853992VisualIDRegistry.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Requirement dst = link.getSecond();
+			Requirement src = link.getFirst();
+			result.add(new Y3853992LinkDescriptor(src, dst, link, Y3853992ElementTypes.Conflict_4008,
+					ConflictEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
+	private static Collection<Y3853992LinkDescriptor> getIncomingTypeModelFacetLinks_Conflict_4008(Requirement target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != Y3853992Package.eINSTANCE.getConflict_Second()
+					|| false == setting.getEObject() instanceof Conflict) {
+				continue;
+			}
+			Conflict link = (Conflict) setting.getEObject();
+			if (ConflictEditPart.VISUAL_ID != Y3853992VisualIDRegistry.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Requirement src = link.getFirst();
+			result.add(new Y3853992LinkDescriptor(src, target, link, Y3853992ElementTypes.Conflict_4008,
+					ConflictEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
 	 * @generated
 	 */
 	private static Collection<Y3853992LinkDescriptor> getIncomingFeatureModelFacetLinks_Requirement_Decomposition_4001(
@@ -247,22 +323,6 @@ public class Y3853992DiagramUpdater {
 				result.add(new Y3853992LinkDescriptor(setting.getEObject(), target,
 						Y3853992ElementTypes.RequirementDecomposition_4001,
 						RequirementDecompositionEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	private static Collection<Y3853992LinkDescriptor> getIncomingFeatureModelFacetLinks_Requirement_Conflicts_4007(
-			Requirement target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == Y3853992Package.eINSTANCE.getRequirement_Conflicts()) {
-				result.add(new Y3853992LinkDescriptor(setting.getEObject(), target,
-						Y3853992ElementTypes.RequirementConflicts_4007, RequirementConflictsEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -303,13 +363,36 @@ public class Y3853992DiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<Y3853992LinkDescriptor> getOutgoingFeatureModelFacetLinks_Requirement_Decomposition_4001(
-			Requirement source) {
+	private static Collection<Y3853992LinkDescriptor> getOutgoingTypeModelFacetLinks_Conflict_4008(Requirement source) {
+		RequirementsModel container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element.eContainer()) {
+			if (element instanceof RequirementsModel) {
+				container = (RequirementsModel) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
-		for (Iterator<?> destinations = source.getDecomposition().iterator(); destinations.hasNext();) {
-			Requirement destination = (Requirement) destinations.next();
-			result.add(new Y3853992LinkDescriptor(source, destination,
-					Y3853992ElementTypes.RequirementDecomposition_4001, RequirementDecompositionEditPart.VISUAL_ID));
+		for (Iterator<?> links = container.getConflicts().iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Conflict) {
+				continue;
+			}
+			Conflict link = (Conflict) linkObject;
+			if (ConflictEditPart.VISUAL_ID != Y3853992VisualIDRegistry.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Requirement dst = link.getSecond();
+			Requirement src = link.getFirst();
+			if (src != source) {
+				continue;
+			}
+			result.add(new Y3853992LinkDescriptor(src, dst, link, Y3853992ElementTypes.Conflict_4008,
+					ConflictEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -317,13 +400,13 @@ public class Y3853992DiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<Y3853992LinkDescriptor> getOutgoingFeatureModelFacetLinks_Requirement_Conflicts_4007(
+	private static Collection<Y3853992LinkDescriptor> getOutgoingFeatureModelFacetLinks_Requirement_Decomposition_4001(
 			Requirement source) {
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
-		for (Iterator<?> destinations = source.getConflicts().iterator(); destinations.hasNext();) {
+		for (Iterator<?> destinations = source.getDecomposition().iterator(); destinations.hasNext();) {
 			Requirement destination = (Requirement) destinations.next();
-			result.add(new Y3853992LinkDescriptor(source, destination, Y3853992ElementTypes.RequirementConflicts_4007,
-					RequirementConflictsEditPart.VISUAL_ID));
+			result.add(new Y3853992LinkDescriptor(source, destination,
+					Y3853992ElementTypes.RequirementDecomposition_4001, RequirementDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
 	}

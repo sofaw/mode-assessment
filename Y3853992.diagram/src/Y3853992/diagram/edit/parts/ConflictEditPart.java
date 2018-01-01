@@ -12,22 +12,22 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import Y3853992.diagram.edit.policies.RequirementConflictsItemSemanticEditPolicy;
+import Y3853992.diagram.edit.policies.ConflictItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class RequirementConflictsEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class ConflictEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 4007;
+	public static final int VISUAL_ID = 4008;
 
 	/**
 	* @generated
 	*/
-	public RequirementConflictsEditPart(View view) {
+	public ConflictEditPart(View view) {
 		super(view);
 	}
 
@@ -36,7 +36,7 @@ public class RequirementConflictsEditPart extends ConnectionNodeEditPart impleme
 	*/
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new RequirementConflictsItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ConflictItemSemanticEditPolicy());
 	}
 
 	/**
@@ -49,25 +49,25 @@ public class RequirementConflictsEditPart extends ConnectionNodeEditPart impleme
 	*/
 
 	protected Connection createConnectionFigure() {
-		return new RequirementConflictsFigure();
+		return new ConflictFigure();
 	}
 
 	/**
 	* @generated
 	*/
-	public RequirementConflictsFigure getPrimaryShape() {
-		return (RequirementConflictsFigure) getFigure();
+	public ConflictFigure getPrimaryShape() {
+		return (ConflictFigure) getFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class RequirementConflictsFigure extends PolylineConnectionEx {
+	public class ConflictFigure extends PolylineConnectionEx {
 
 		/**
 		 * @generated
 		 */
-		public RequirementConflictsFigure() {
+		public ConflictFigure() {
 			this.setLineStyle(Graphics.LINE_DOT);
 			this.setForegroundColor(THIS_FORE);
 

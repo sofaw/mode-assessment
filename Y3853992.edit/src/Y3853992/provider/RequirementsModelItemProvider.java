@@ -80,6 +80,7 @@ public class RequirementsModelItemProvider
 			childrenFeatures.add(Y3853992Package.Literals.REQUIREMENTS_MODEL__REQUIREMENTS);
 			childrenFeatures.add(Y3853992Package.Literals.REQUIREMENTS_MODEL__TEST_CASES);
 			childrenFeatures.add(Y3853992Package.Literals.REQUIREMENTS_MODEL__TEAM_MEMBERS);
+			childrenFeatures.add(Y3853992Package.Literals.REQUIREMENTS_MODEL__CONFLICTS);
 		}
 		return childrenFeatures;
 	}
@@ -135,6 +136,7 @@ public class RequirementsModelItemProvider
 			case Y3853992Package.REQUIREMENTS_MODEL__REQUIREMENTS:
 			case Y3853992Package.REQUIREMENTS_MODEL__TEST_CASES:
 			case Y3853992Package.REQUIREMENTS_MODEL__TEAM_MEMBERS:
+			case Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,6 +168,11 @@ public class RequirementsModelItemProvider
 			(createChildParameter
 				(Y3853992Package.Literals.REQUIREMENTS_MODEL__TEAM_MEMBERS,
 				 Y3853992Factory.eINSTANCE.createTeamMember()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Y3853992Package.Literals.REQUIREMENTS_MODEL__CONFLICTS,
+				 Y3853992Factory.eINSTANCE.createConflict()));
 	}
 
 	/**

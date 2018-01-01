@@ -28,7 +28,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
-import Y3853992.diagram.edit.parts.RequirementConflictsEditPart;
+import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
 import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
@@ -249,10 +249,10 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 					Y3853992VisualIDRegistry.getType(TeamMemberEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(ConflictEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementConflictsEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
 					Y3853992VisualIDRegistry.getType(RequirementTeamMembersEditPart.VISUAL_ID));
@@ -277,16 +277,16 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(ConflictEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(ConflictEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementConflictsEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementConflictsEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					Y3853992VisualIDRegistry.getType(RequirementTeamMembersEditPart.VISUAL_ID));
@@ -410,15 +410,13 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			return result.toArray();
 		}
 
-		case RequirementConflictsEditPart.VISUAL_ID: {
+		case ConflictEditPart.VISUAL_ID: {
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Edge sv = (Edge) view;
-			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_RequirementConflicts_4007_target, "icons/linkTargetNavigatorGroup.gif", //$NON-NLS-1$
-					parentElement);
-			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_RequirementConflicts_4007_source, "icons/linkSourceNavigatorGroup.gif", //$NON-NLS-1$
-					parentElement);
+			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(Messages.NavigatorGroupName_Conflict_4008_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(Messages.NavigatorGroupName_Conflict_4008_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
 					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));

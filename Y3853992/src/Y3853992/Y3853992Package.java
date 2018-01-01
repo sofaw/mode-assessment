@@ -94,13 +94,22 @@ public interface Y3853992Package extends EPackage {
 	int REQUIREMENTS_MODEL__TEAM_MEMBERS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Conflicts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENTS_MODEL__CONFLICTS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Requirements Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENTS_MODEL_FEATURE_COUNT = 3;
+	int REQUIREMENTS_MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link Y3853992.impl.RequirementImpl <em>Requirement</em>}' class.
@@ -149,31 +158,22 @@ public interface Y3853992Package extends EPackage {
 	int REQUIREMENT__TYPE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Parent Decomposition</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__PARENT_DECOMPOSITION = 4;
-
-	/**
 	 * The feature id for the '<em><b>Decomposition</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__DECOMPOSITION = 5;
+	int REQUIREMENT__DECOMPOSITION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Conflicts</b></em>' reference list.
+	 * The feature id for the '<em><b>Parent Decomposition</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__CONFLICTS = 6;
+	int REQUIREMENT__PARENT_DECOMPOSITION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Team Members</b></em>' reference list.
@@ -182,7 +182,7 @@ public interface Y3853992Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__TEAM_MEMBERS = 7;
+	int REQUIREMENT__TEAM_MEMBERS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Test Cases</b></em>' reference list.
@@ -191,7 +191,7 @@ public interface Y3853992Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__TEST_CASES = 8;
+	int REQUIREMENT__TEST_CASES = 7;
 
 	/**
 	 * The number of structural features of the '<em>Requirement</em>' class.
@@ -200,7 +200,44 @@ public interface Y3853992Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT_FEATURE_COUNT = 9;
+	int REQUIREMENT_FEATURE_COUNT = 8;
+
+	/**
+	 * The meta object id for the '{@link Y3853992.impl.ConflictImpl <em>Conflict</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Y3853992.impl.ConflictImpl
+	 * @see Y3853992.impl.Y3853992PackageImpl#getConflict()
+	 * @generated
+	 */
+	int CONFLICT = 2;
+
+	/**
+	 * The feature id for the '<em><b>First</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFLICT__FIRST = 0;
+
+	/**
+	 * The feature id for the '<em><b>Second</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFLICT__SECOND = 1;
+
+	/**
+	 * The number of structural features of the '<em>Conflict</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFLICT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link Y3853992.impl.TestCaseImpl <em>Test Case</em>}' class.
@@ -210,7 +247,7 @@ public interface Y3853992Package extends EPackage {
 	 * @see Y3853992.impl.Y3853992PackageImpl#getTestCase()
 	 * @generated
 	 */
-	int TEST_CASE = 2;
+	int TEST_CASE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -247,7 +284,7 @@ public interface Y3853992Package extends EPackage {
 	 * @see Y3853992.impl.Y3853992PackageImpl#getTeamMember()
 	 * @generated
 	 */
-	int TEAM_MEMBER = 3;
+	int TEAM_MEMBER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -284,7 +321,7 @@ public interface Y3853992Package extends EPackage {
 	 * @see Y3853992.impl.Y3853992PackageImpl#getRequirementType()
 	 * @generated
 	 */
-	int REQUIREMENT_TYPE = 4;
+	int REQUIREMENT_TYPE = 5;
 
 
 	/**
@@ -329,6 +366,17 @@ public interface Y3853992Package extends EPackage {
 	 * @generated
 	 */
 	EReference getRequirementsModel_TeamMembers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Y3853992.RequirementsModel#getConflicts <em>Conflicts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Conflicts</em>'.
+	 * @see Y3853992.RequirementsModel#getConflicts()
+	 * @see #getRequirementsModel()
+	 * @generated
+	 */
+	EReference getRequirementsModel_Conflicts();
 
 	/**
 	 * Returns the meta object for class '{@link Y3853992.Requirement <em>Requirement</em>}'.
@@ -407,17 +455,6 @@ public interface Y3853992Package extends EPackage {
 	EReference getRequirement_Decomposition();
 
 	/**
-	 * Returns the meta object for the reference list '{@link Y3853992.Requirement#getConflicts <em>Conflicts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Conflicts</em>'.
-	 * @see Y3853992.Requirement#getConflicts()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EReference getRequirement_Conflicts();
-
-	/**
 	 * Returns the meta object for the reference list '{@link Y3853992.Requirement#getTeamMembers <em>Team Members</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,6 +475,38 @@ public interface Y3853992Package extends EPackage {
 	 * @generated
 	 */
 	EReference getRequirement_TestCases();
+
+	/**
+	 * Returns the meta object for class '{@link Y3853992.Conflict <em>Conflict</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conflict</em>'.
+	 * @see Y3853992.Conflict
+	 * @generated
+	 */
+	EClass getConflict();
+
+	/**
+	 * Returns the meta object for the reference '{@link Y3853992.Conflict#getFirst <em>First</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>First</em>'.
+	 * @see Y3853992.Conflict#getFirst()
+	 * @see #getConflict()
+	 * @generated
+	 */
+	EReference getConflict_First();
+
+	/**
+	 * Returns the meta object for the reference '{@link Y3853992.Conflict#getSecond <em>Second</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Second</em>'.
+	 * @see Y3853992.Conflict#getSecond()
+	 * @see #getConflict()
+	 * @generated
+	 */
+	EReference getConflict_Second();
 
 	/**
 	 * Returns the meta object for class '{@link Y3853992.TestCase <em>Test Case</em>}'.
@@ -570,6 +639,14 @@ public interface Y3853992Package extends EPackage {
 		EReference REQUIREMENTS_MODEL__TEAM_MEMBERS = eINSTANCE.getRequirementsModel_TeamMembers();
 
 		/**
+		 * The meta object literal for the '<em><b>Conflicts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIREMENTS_MODEL__CONFLICTS = eINSTANCE.getRequirementsModel_Conflicts();
+
+		/**
 		 * The meta object literal for the '{@link Y3853992.impl.RequirementImpl <em>Requirement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -628,14 +705,6 @@ public interface Y3853992Package extends EPackage {
 		EReference REQUIREMENT__DECOMPOSITION = eINSTANCE.getRequirement_Decomposition();
 
 		/**
-		 * The meta object literal for the '<em><b>Conflicts</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIREMENT__CONFLICTS = eINSTANCE.getRequirement_Conflicts();
-
-		/**
 		 * The meta object literal for the '<em><b>Team Members</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -650,6 +719,32 @@ public interface Y3853992Package extends EPackage {
 		 * @generated
 		 */
 		EReference REQUIREMENT__TEST_CASES = eINSTANCE.getRequirement_TestCases();
+
+		/**
+		 * The meta object literal for the '{@link Y3853992.impl.ConflictImpl <em>Conflict</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Y3853992.impl.ConflictImpl
+		 * @see Y3853992.impl.Y3853992PackageImpl#getConflict()
+		 * @generated
+		 */
+		EClass CONFLICT = eINSTANCE.getConflict();
+
+		/**
+		 * The meta object literal for the '<em><b>First</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFLICT__FIRST = eINSTANCE.getConflict_First();
+
+		/**
+		 * The meta object literal for the '<em><b>Second</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFLICT__SECOND = eINSTANCE.getConflict_Second();
 
 		/**
 		 * The meta object literal for the '{@link Y3853992.impl.TestCaseImpl <em>Test Case</em>}' class.

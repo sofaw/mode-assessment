@@ -35,7 +35,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
+import Y3853992.Conflict;
 import Y3853992.Requirement;
+import Y3853992.RequirementsModel;
 import Y3853992.TeamMember;
 import Y3853992.TestCase;
 import Y3853992.diagram.part.Y3853992DiagramEditorPlugin;
@@ -309,8 +311,15 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
+		public boolean canCreateConflict_4008(RequirementsModel container, Requirement source, Requirement target) {
+			return canExistConflict_4008(container, null, source, target);
+		}
+
+		/**
+			 * @generated
+			 */
 		public boolean canCreateRequirementDecomposition_4001(Requirement source, Requirement target) {
 			if (source != null) {
 				if (source.getDecomposition().contains(target)) {
@@ -322,19 +331,6 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 			}
 
 			return canExistRequirementDecomposition_4001(source, target);
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canCreateRequirementConflicts_4007(Requirement source, Requirement target) {
-			if (source != null) {
-				if (source.getConflicts().contains(target)) {
-					return false;
-				}
-			}
-
-			return canExistRequirementConflicts_4007(source, target);
 		}
 
 		/**
@@ -354,8 +350,8 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 
 		/**
-				 * @generated
-				 */
+					 * @generated
+					 */
 		public boolean canCreateTestCaseVerifies_4004(TestCase source, Requirement target) {
 			if (source != null) {
 				if (source.getVerifies().contains(target)) {
@@ -372,14 +368,15 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		* @generated
 		*/
-		public boolean canExistRequirementDecomposition_4001(Requirement source, Requirement target) {
+		public boolean canExistConflict_4008(RequirementsModel container, Conflict linkInstance, Requirement source,
+				Requirement target) {
 			return true;
 		}
 
 		/**
-		* @generated
-		*/
-		public boolean canExistRequirementConflicts_4007(Requirement source, Requirement target) {
+			* @generated
+			*/
+		public boolean canExistRequirementDecomposition_4001(Requirement source, Requirement target) {
 			return true;
 		}
 
@@ -391,8 +388,8 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 
 		/**
-				* @generated
-				*/
+					* @generated
+					*/
 		public boolean canExistTestCaseVerifies_4004(TestCase source, Requirement target) {
 			return true;
 		}

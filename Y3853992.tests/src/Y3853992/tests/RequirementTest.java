@@ -17,7 +17,6 @@ import junit.textui.TestRunner;
  * The following features are tested:
  * <ul>
  *   <li>{@link Y3853992.Requirement#getProgress() <em>Progress</em>}</li>
- *   <li>{@link Y3853992.Requirement#getConflicts() <em>Conflicts</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -115,19 +114,6 @@ public class RequirementTest extends TestCase {
 	 */
 	public void testSetProgress() {
 		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link Y3853992.Requirement#getConflicts() <em>Conflicts</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Y3853992.Requirement#getConflicts()
-	 * @generated
-	 */
-	public void testGetConflicts() {
-		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

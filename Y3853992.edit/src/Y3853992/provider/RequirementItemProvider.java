@@ -64,9 +64,8 @@ public class RequirementItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addProgressPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
-			addParentDecompositionPropertyDescriptor(object);
 			addDecompositionPropertyDescriptor(object);
-			addConflictsPropertyDescriptor(object);
+			addParentDecompositionPropertyDescriptor(object);
 			addTeamMembersPropertyDescriptor(object);
 			addTestCasesPropertyDescriptor(object);
 		}
@@ -197,28 +196,6 @@ public class RequirementItemProvider
 				 getString("_UI_Requirement_decomposition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_decomposition_feature", "_UI_Requirement_type"),
 				 Y3853992Package.Literals.REQUIREMENT__DECOMPOSITION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Conflicts feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConflictsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_conflicts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_conflicts_feature", "_UI_Requirement_type"),
-				 Y3853992Package.Literals.REQUIREMENT__CONFLICTS,
 				 true,
 				 false,
 				 true,

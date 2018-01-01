@@ -118,6 +118,29 @@ public class Y3853992ItemProviderAdapterFactory extends Y3853992AdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link Y3853992.Conflict} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConflictItemProvider conflictItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link Y3853992.Conflict}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConflictAdapter() {
+		if (conflictItemProvider == null) {
+			conflictItemProvider = new ConflictItemProvider(this);
+		}
+
+		return conflictItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link Y3853992.TestCase} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +287,7 @@ public class Y3853992ItemProviderAdapterFactory extends Y3853992AdapterFactory i
 	public void dispose() {
 		if (requirementsModelItemProvider != null) requirementsModelItemProvider.dispose();
 		if (requirementItemProvider != null) requirementItemProvider.dispose();
+		if (conflictItemProvider != null) conflictItemProvider.dispose();
 		if (testCaseItemProvider != null) testCaseItemProvider.dispose();
 		if (teamMemberItemProvider != null) teamMemberItemProvider.dispose();
 	}

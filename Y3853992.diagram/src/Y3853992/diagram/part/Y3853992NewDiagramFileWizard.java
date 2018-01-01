@@ -79,7 +79,7 @@ public class Y3853992NewDiagramFileWizard extends Wizard {
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage
-				.setFileName(Y3853992DiagramEditorUtil.getUniqueFileName(filePath, fileName, "y3853992_diagram")); //$NON-NLS-1$
+				.setFileName(Y3853992DiagramEditorUtil.getUniqueFileName(filePath, fileName, "Y3853992_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.Y3853992NewDiagramFileWizard_RootSelectionPageName);

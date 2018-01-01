@@ -80,6 +80,10 @@ public class Y3853992AdapterFactory extends AdapterFactoryImpl {
 				return createRequirementAdapter();
 			}
 			@Override
+			public Adapter caseConflict(Conflict object) {
+				return createConflictAdapter();
+			}
+			@Override
 			public Adapter caseTestCase(TestCase object) {
 				return createTestCaseAdapter();
 			}
@@ -132,6 +136,20 @@ public class Y3853992AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequirementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link Y3853992.Conflict <em>Conflict</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see Y3853992.Conflict
+	 * @generated
+	 */
+	public Adapter createConflictAdapter() {
 		return null;
 	}
 

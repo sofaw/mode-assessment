@@ -18,7 +18,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
 import Y3853992.Y3853992Package;
-import Y3853992.diagram.edit.parts.RequirementConflictsEditPart;
+import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
 import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
@@ -78,14 +78,13 @@ public class Y3853992ElementTypes {
 	/**
 	* @generated
 	*/
-	public static final IElementType RequirementDecomposition_4001 = getElementType(
-			"Y3853992.diagram.RequirementDecomposition_4001"); //$NON-NLS-1$
+	public static final IElementType Conflict_4008 = getElementType("Y3853992.diagram.Conflict_4008"); //$NON-NLS-1$
+
 	/**
 	* @generated
 	*/
-	public static final IElementType RequirementConflicts_4007 = getElementType(
-			"Y3853992.diagram.RequirementConflicts_4007"); //$NON-NLS-1$
-
+	public static final IElementType RequirementDecomposition_4001 = getElementType(
+			"Y3853992.diagram.RequirementDecomposition_4001"); //$NON-NLS-1$
 	/**
 	* @generated
 	*/
@@ -143,9 +142,9 @@ public class Y3853992ElementTypes {
 
 			elements.put(TeamMember_2009, Y3853992Package.eINSTANCE.getTeamMember());
 
-			elements.put(RequirementDecomposition_4001, Y3853992Package.eINSTANCE.getRequirement_Decomposition());
+			elements.put(Conflict_4008, Y3853992Package.eINSTANCE.getConflict());
 
-			elements.put(RequirementConflicts_4007, Y3853992Package.eINSTANCE.getRequirement_Conflicts());
+			elements.put(RequirementDecomposition_4001, Y3853992Package.eINSTANCE.getRequirement_Decomposition());
 
 			elements.put(RequirementTeamMembers_4005, Y3853992Package.eINSTANCE.getRequirement_TeamMembers());
 
@@ -171,8 +170,8 @@ public class Y3853992ElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Requirement_2007);
 			KNOWN_ELEMENT_TYPES.add(TestCase_2008);
 			KNOWN_ELEMENT_TYPES.add(TeamMember_2009);
+			KNOWN_ELEMENT_TYPES.add(Conflict_4008);
 			KNOWN_ELEMENT_TYPES.add(RequirementDecomposition_4001);
-			KNOWN_ELEMENT_TYPES.add(RequirementConflicts_4007);
 			KNOWN_ELEMENT_TYPES.add(RequirementTeamMembers_4005);
 			KNOWN_ELEMENT_TYPES.add(TestCaseVerifies_4004);
 		}
@@ -192,10 +191,10 @@ public class Y3853992ElementTypes {
 			return TestCase_2008;
 		case TeamMemberEditPart.VISUAL_ID:
 			return TeamMember_2009;
+		case ConflictEditPart.VISUAL_ID:
+			return Conflict_4008;
 		case RequirementDecompositionEditPart.VISUAL_ID:
 			return RequirementDecomposition_4001;
-		case RequirementConflictsEditPart.VISUAL_ID:
-			return RequirementConflicts_4007;
 		case RequirementTeamMembersEditPart.VISUAL_ID:
 			return RequirementTeamMembers_4005;
 		case TestCaseVerifiesEditPart.VISUAL_ID:

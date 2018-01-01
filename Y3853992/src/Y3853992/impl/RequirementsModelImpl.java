@@ -2,6 +2,7 @@
  */
 package Y3853992.impl;
 
+import Y3853992.Conflict;
 import Y3853992.Requirement;
 import Y3853992.RequirementsModel;
 import Y3853992.TeamMember;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link Y3853992.impl.RequirementsModelImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementsModelImpl#getTestCases <em>Test Cases</em>}</li>
  *   <li>{@link Y3853992.impl.RequirementsModelImpl#getTeamMembers <em>Team Members</em>}</li>
+ *   <li>{@link Y3853992.impl.RequirementsModelImpl#getConflicts <em>Conflicts</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +69,16 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 	 * @ordered
 	 */
 	protected EList<TeamMember> teamMembers;
+
+	/**
+	 * The cached value of the '{@link #getConflicts() <em>Conflicts</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConflicts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Conflict> conflicts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +140,18 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Conflict> getConflicts() {
+		if (conflicts == null) {
+			conflicts = new EObjectContainmentEList<Conflict>(Conflict.class, this, Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS);
+		}
+		return conflicts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -137,6 +161,8 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 				return ((InternalEList<?>)getTestCases()).basicRemove(otherEnd, msgs);
 			case Y3853992Package.REQUIREMENTS_MODEL__TEAM_MEMBERS:
 				return ((InternalEList<?>)getTeamMembers()).basicRemove(otherEnd, msgs);
+			case Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS:
+				return ((InternalEList<?>)getConflicts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -155,6 +181,8 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 				return getTestCases();
 			case Y3853992Package.REQUIREMENTS_MODEL__TEAM_MEMBERS:
 				return getTeamMembers();
+			case Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS:
+				return getConflicts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +208,10 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 				getTeamMembers().clear();
 				getTeamMembers().addAll((Collection<? extends TeamMember>)newValue);
 				return;
+			case Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS:
+				getConflicts().clear();
+				getConflicts().addAll((Collection<? extends Conflict>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +233,9 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 			case Y3853992Package.REQUIREMENTS_MODEL__TEAM_MEMBERS:
 				getTeamMembers().clear();
 				return;
+			case Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS:
+				getConflicts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -219,6 +254,8 @@ public class RequirementsModelImpl extends EObjectImpl implements RequirementsMo
 				return testCases != null && !testCases.isEmpty();
 			case Y3853992Package.REQUIREMENTS_MODEL__TEAM_MEMBERS:
 				return teamMembers != null && !teamMembers.isEmpty();
+			case Y3853992Package.REQUIREMENTS_MODEL__CONFLICTS:
+				return conflicts != null && !conflicts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

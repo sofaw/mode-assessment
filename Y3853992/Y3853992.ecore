@@ -3,13 +3,15 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Y3853992" nsURI="http://Y3853992" nsPrefix="">
   <eAnnotations source="gmf"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementsModel">
-    <eAnnotations source="gmf.diagram"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" lowerBound="1"
-        upperBound="-1" eType="#//Requirement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="testCases" lowerBound="1"
-        upperBound="-1" eType="#//TestCase" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="teamMembers" lowerBound="1"
-        upperBound="-1" eType="#//TeamMember" containment="true"/>
+    <eAnnotations source="gmf.diagram">
+      <details key="model.extension" value="Y3853992"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//Requirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testCases" upperBound="-1"
+        eType="#//TestCase" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teamMembers" upperBound="-1"
+        eType="#//TeamMember" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conflicts" upperBound="-1"
         eType="#//Conflict" containment="true"/>
   </eClassifiers>
@@ -44,15 +46,13 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testCases" upperBound="-1"
-        eType="#//TestCase" eOpposite="#//TestCase/verifies">
-      <eAnnotations source="gmf.link">
-        <details key="style" value="dot"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        eType="#//TestCase" eOpposite="#//TestCase/verifies"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Conflict">
     <eAnnotations source="gmf.link">
-      <details key="target.decoration" value="dot"/>
+      <details key="source" value="first"/>
+      <details key="target" value="second"/>
+      <details key="style" value="dot"/>
       <details key="color" value="255,0,0"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//Requirement"/>
