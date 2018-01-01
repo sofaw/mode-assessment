@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992">
   <requirements identifier="1" description="System req 1" type="System" decomposition="//@requirements.1" teamMembers="//@teamMembers.0" testCases="//@testCases.0"/>
-  <requirements identifier="2" description="System req 2" type="System" parentDecomposition="//@requirements.0" testCases="//@testCases.0"/>
+  <requirements identifier="2" description="System req 2" type="System" parentDecomposition="//@requirements.0" teamMembers="//@teamMembers.0" testCases="//@testCases.0"/>
   <testCases description="Tests all" verifies="//@requirements.0 //@requirements.1"/>
-  <teamMembers name="Richard" requirements="//@requirements.0"/>
+  <teamMembers name="Richard" requirements="//@requirements.0 //@requirements.1"/>
 </RequirementsModel>
