@@ -1,6 +1,45 @@
 <!doctype html>
 <style> .indented {padding-left: 50pt;} </style>
 <html>
+<style>
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+
 <head>
 	<title>Y3853992</title>
     <meta charset="utf-8">
@@ -10,30 +49,60 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
-<div class="container">
-	<div class="row">
-    	<div class="col-sm-4">
-      		<h3>Requirements</h3>
-			[%for (rootReq in rm.requirements.select(r | r.parentDecomposition.size() == 0)) {%]
-				[% rootReq.generateRequirementTree(); %]
-			[%}%]
-    	</div>
-    	<div class="col-sm-4">
-      		<h3>Team Members</h3>
-     		[%for (teamMember in rm.teamMembers) {%]
-				[% teamMember.showAssignedRequirements(); %]
-			[%}%]    	</div>
-    	<div class="col-sm-4">
-      		<h3>Test Cases</h3>        
-      		[%for (testCase in rm.testCases) {%]
-				[% testCase.showVerifies(); %]
-			[%}%] 
-    	</div>
-  	</div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Requirements')" id="defaultOpen">Requirements</button>
+  <button class="tablinks" onclick="openTab(event, 'TeamMembers')">Team Members</button>
+  <button class="tablinks" onclick="openTab(event, 'TestCases')">Test Cases</button>
+  <button class="tablinks" onclick="openTab(event, 'Conflicts')">Conflicts</button>
 </div>
+
+<div id="Requirements" class="tabcontent">
+  <h3>Requirements</h3>
+  <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
+  [%for (rootReq in rm.requirements.select(r | r.parentDecomposition.size() == 0)) {%]
+    [% rootReq.generateRequirementTree(); %]
+  [%}%]
+</div>
+
+<div id="TeamMembers" class="tabcontent">
+  <h3>Team Members</h3>
+  [%for (teamMember in rm.teamMembers) {%]
+    [% teamMember.showAssignedRequirements(); %]
+  [%}%]
+</div>
+
+<div id="TestCases" class="tabcontent">
+  <h3>Test Cases</h3>      
+  [%for (testCase in rm.testCases) {%]
+    [% testCase.showVerifies(); %]
+  [%}%] 
+</div>
+
+<div id="Conflicts" class="tabcontent">
+  <h3>Conflicts</h3> 
+  <p>There are conflicts between the following pairs of requirements:</p>  
+  <ul>   
+    [%for (conflict in rm.conflicts) {%]
+      <li>[%=conflict.first.identifier%] and [%=conflict.second.identifier%]</li>
+    [%}%] 
+  </ul>
+</div>
+
+
 <script>
+document.getElementById("defaultOpen").click();
+
 function hideCompleted() {
+	// Change button text
+	var hcButton = document.getElementById("hideCompleted");
+    if (hcButton.innerHTML=="Hide completed"){
+    	hcButton.innerHTML = "Show completed";
+    } else {
+    	hcButton.innerHTML = "Hide completed";
+    }
+    
+    // Toggle completed requirements
     var completedRequirements = document.getElementsByClassName("completed");
     var i;
 	for (i = 0; i < completedRequirements.length; i++) {
@@ -43,6 +112,23 @@ function hideCompleted() {
         	completedRequirements[i].style.display = "none";
     	}
 	}
+}
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 </script>
 </body>
@@ -55,13 +141,24 @@ function hideCompleted() {
 		<div class="notCompleted">
 	[%}%]
 		<details>
-  			<summary>ID:[%=self.identifier%];Description:"[%=self.description%]
+  			<summary>Requirement: [%=self.identifier%]
   			<div class="container" style="max-width:100%">
   				<div class="progress">
   					[% var progressPercent = self.progress * 100; %]
   					<div class="progress-bar" role="progressbar" aria-valuenow="[%=progressPercent%]" aria-valuemin="0" aria-valuemax="100" style="width:[%=progressPercent%]%">[%=progressPercent%]%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: [%=self.type%]</p>
+  			      <p>Description:"[%=self.description%]"</p>
+  			      <p>Team Members: [% self.printTeamMembers(); %]</p>
+  			      [% if(self.type == RequirementType#System) { %]
+  			        <p>Test Cases: [% self.printTestCases(); %]</p>
+  			      [% } %]
+  			  </details>
+  			</div>	
   			</summary>
 			[%for (req in self.decomposition) {%]
   				<div class="indented">
@@ -82,7 +179,7 @@ function hideCompleted() {
 [% } %]
 
 [% operation TestCase showVerifies() { %]
-	<h4>[%=self.description%]</h4>
+	<h4>Test case: "[%=self.description%]"</h4>
 	<p>Verifies requirements:</p>
 	<ul>
 		[% for(req in self.verifies) { %]
@@ -90,3 +187,20 @@ function hideCompleted() {
 		[% } %]
 	</ul>
 [% } %]
+
+[% operation Requirement printTeamMembers() { %]
+	<ul>
+		[% for(tm in self.teamMembers) { %]
+			<li>[%=tm.name%]</li>
+		[% } %]
+	</ul>
+[% } %]
+
+[% operation Requirement printTestCases() { %]
+	<ul>
+		[% for(tc in self.testCases) { %]
+			<li>"[%=tc.description%]"</li>
+		[% } %]
+	</ul>
+[% } %]
+

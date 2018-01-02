@@ -1,6 +1,45 @@
 <!doctype html>
 <style> .indented {padding-left: 50pt;} </style>
 <html>
+<style>
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+
 <head>
 	<title>Y3853992</title>
     <meta charset="utf-8">
@@ -10,49 +49,114 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
-<div class="container">
-	<div class="row">
-    	<div class="col-sm-4">
-      		<h3>Requirements</h3>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Requirements')" id="defaultOpen">Requirements</button>
+  <button class="tablinks" onclick="openTab(event, 'TeamMembers')">Team Members</button>
+  <button class="tablinks" onclick="openTab(event, 'TestCases')">Test Cases</button>
+  <button class="tablinks" onclick="openTab(event, 'Conflicts')">Conflicts</button>
+</div>
+
+<div id="Requirements" class="tabcontent">
+  <h3>Requirements</h3>
+  <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:0;Description:"Requirement 0
+  			<summary>Requirement: 0
   			<div class="container" style="max-width:100%">
   				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
+  					<div class="progress-bar" role="progressbar" aria-valuenow="70.0" aria-valuemin="0" aria-valuemax="100" style="width:70.0%">70.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: Customer</p>
+  			      <p>Description:"Requirement 0"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Richard</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:1;Description:"Requirement 1
+  			<summary>Requirement: 1
   			<div class="container" style="max-width:100%">
   				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
+  					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 1"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Richard</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 1"</li>
+			<li>"Verifies 1, 2, 3, 4"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:2;Description:"Requirement 2
+  			<summary>Requirement: 2
   			<div class="container" style="max-width:100%">
   				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
+  					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 2"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Richard</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 1, 2, 3, 4"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:3;Description:"Requirement 3
+  			<summary>Requirement: 3
   			<div class="container" style="max-width:100%">
   				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
+  					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 3"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Richard</li>
+			<li>Pauline</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 3, 4, 7, 9"</li>
+			<li>"Verifies 1, 2, 3, 4"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
 		
 		</details>
@@ -62,46 +166,6 @@
 		</details>
 	</div>
   				</div>	
-		
-		</details>
-	</div>
-  				</div>	
-  				<div class="indented">
-		<div class="notCompleted">
-		<details>
-  			<summary>ID:4;Description:"Requirement 4
-  			<div class="container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
-  				</div>	
-  			</div>
-  			</summary>
-		
-		</details>
-	</div>
-  				</div>	
-		
-		</details>
-	</div>
-		<div class="notCompleted">
-		<details>
-  			<summary>ID:5;Description:"Requirement 5
-  			<div class="container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
-  				</div>	
-  			</div>
-  			</summary>
-  				<div class="indented">
-		<div class="notCompleted">
-		<details>
-  			<summary>ID:6;Description:"Requirement 6
-  			<div class="container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
-  				</div>	
-  			</div>
-  			</summary>
 		
 		</details>
 	</div>
@@ -109,12 +173,29 @@
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:7;Description:"Requirement 7
+  			<summary>Requirement: 4
   			<div class="container" style="max-width:100%">
   				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
+  					<div class="progress-bar" role="progressbar" aria-valuenow="90.0" aria-valuemin="0" aria-valuemax="100" style="width:90.0%">90.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 4"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Richard</li>
+			<li>Pauline</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 3, 4, 7, 9"</li>
+			<li>"Verifies 1, 2, 3, 4"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
 		
 		</details>
@@ -125,22 +206,80 @@
 	</div>
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:8;Description:"Requirement 8
+  			<summary>Requirement: 5
   			<div class="container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: Customer</p>
+  			      <p>Description:"Requirement 5"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Lauren</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>ID:9;Description:"Requirement 9
+  			<summary>Requirement: 6
   			<div class="container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
   				</div>	
   			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 6"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Lauren</li>
+			<li>Pauline</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 6, 7"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
+  			</summary>
+		
+		</details>
+	</div>
+  				</div>	
+  				<div class="indented">
+		<div class="notCompleted">
+		<details>
+  			<summary>Requirement: 7
+  			<div class="container" style="max-width:100%">
+  				<div class="progress">
+  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
+  				</div>	
+  			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 7"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Lauren</li>
+			<li>Pauline</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 3, 4, 7, 9"</li>
+			<li>"Verifies 6, 7"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
   			</summary>
 		
 		</details>
@@ -149,9 +288,64 @@
 		
 		</details>
 	</div>
-    	</div>
-    	<div class="col-sm-4">
-      		<h3>Team Members</h3>
+		<div class="completed">
+		<details>
+  			<summary>Requirement: 8
+  			<div class="container" style="max-width:100%">
+  				<div class="progress">
+  					<div class="progress-bar" role="progressbar" aria-valuenow="100.0" aria-valuemin="0" aria-valuemax="100" style="width:100.0%">100.0%</div>
+  				</div>	
+  			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: Customer</p>
+  			      <p>Description:"Requirement 8"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Sam</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
+  			</summary>
+  				<div class="indented">
+		<div class="completed">
+		<details>
+  			<summary>Requirement: 9
+  			<div class="container" style="max-width:100%">
+  				<div class="progress">
+  					<div class="progress-bar" role="progressbar" aria-valuenow="100.0" aria-valuemin="0" aria-valuemax="100" style="width:100.0%">100.0%</div>
+  				</div>	
+  			</div>
+  			<div class="indented">
+  			  <details>
+  			    <summary>show details</summary>
+  			      <p>Type: System</p>
+  			      <p>Description:"Requirement 9"</p>
+  			      <p>Team Members: 	<ul>
+			<li>Sam</li>
+			<li>Pauline</li>
+	</ul>
+</p>
+  			        <p>Test Cases: 	<ul>
+			<li>"Verifies 3, 4, 7, 9"</li>
+			<li>"Verifies 9"</li>
+	</ul>
+</p>
+  			  </details>
+  			</div>	
+  			</summary>
+		
+		</details>
+	</div>
+  				</div>	
+		
+		</details>
+	</div>
+</div>
+
+<div id="TeamMembers" class="tabcontent">
+  <h3>Team Members</h3>
 	<h4>Richard</h4>
 	<ul>
 			<li>Requirement: 0</li>
@@ -179,10 +373,11 @@
 			<li>Requirement: 3</li>
 			<li>Requirement: 7</li>
 	</ul>
-    	</div>
-    	<div class="col-sm-4">
-      		<h3>Test Cases</h3>        
-	<h4>Verifies 3, 4, 7, 9</h4>
+</div>
+
+<div id="TestCases" class="tabcontent">
+  <h3>Test Cases</h3>      
+	<h4>Test case: "Verifies 3, 4, 7, 9"</h4>
 	<p>Verifies requirements:</p>
 	<ul>
 			<li>Requirement: 3</li>
@@ -190,12 +385,12 @@
 			<li>Requirement: 7</li>
 			<li>Requirement: 9</li>
 	</ul>
-	<h4>Verifies 1</h4>
+	<h4>Test case: "Verifies 1"</h4>
 	<p>Verifies requirements:</p>
 	<ul>
 			<li>Requirement: 1</li>
 	</ul>
-	<h4>Verifies 1, 2, 3, 4</h4>
+	<h4>Test case: "Verifies 1, 2, 3, 4"</h4>
 	<p>Verifies requirements:</p>
 	<ul>
 			<li>Requirement: 1</li>
@@ -203,23 +398,45 @@
 			<li>Requirement: 3</li>
 			<li>Requirement: 4</li>
 	</ul>
-	<h4>Verifies 6, 7</h4>
+	<h4>Test case: "Verifies 6, 7"</h4>
 	<p>Verifies requirements:</p>
 	<ul>
 			<li>Requirement: 6</li>
 			<li>Requirement: 7</li>
 	</ul>
-	<h4>Verifies 9</h4>
+	<h4>Test case: "Verifies 9"</h4>
 	<p>Verifies requirements:</p>
 	<ul>
 			<li>Requirement: 9</li>
 	</ul>
  
-    	</div>
-  	</div>
 </div>
+
+<div id="Conflicts" class="tabcontent">
+  <h3>Conflicts</h3> 
+  <p>There are conflicts between the following pairs of requirements:</p>  
+  <ul>   
+      <li>0 and 5</li>
+      <li>3 and 4</li>
+      <li>7 and 9</li>
+ 
+  </ul>
+</div>
+
+
 <script>
+document.getElementById("defaultOpen").click();
+
 function hideCompleted() {
+	// Change button text
+	var hcButton = document.getElementById("hideCompleted");
+    if (hcButton.innerHTML=="Hide completed"){
+    	hcButton.innerHTML = "Show completed";
+    } else {
+    	hcButton.innerHTML = "Hide completed";
+    }
+    
+    // Toggle completed requirements
     var completedRequirements = document.getElementsByClassName("completed");
     var i;
 	for (i = 0; i < completedRequirements.length; i++) {
@@ -229,6 +446,23 @@ function hideCompleted() {
         	completedRequirements[i].style.display = "none";
     	}
 	}
+}
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 </script>
 </body>
