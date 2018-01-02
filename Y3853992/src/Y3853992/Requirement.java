@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Y3853992.Y3853992Package#getRequirement()
- * @model annotation="gmf.node label='type,description'"
+ * @model annotation="gmf.node label='identifier, type' label.view.pattern='{1} requirement {0}' border.color='0,0,0' border.width='3'"
  * @generated
  */
 public interface Requirement extends EObject {
@@ -68,6 +68,7 @@ public interface Requirement extends EObject {
 	 * @see #setDescription(String)
 	 * @see Y3853992.Y3853992Package#getRequirement_Description()
 	 * @model required="true"
+	 *        annotation="gmf.label label.pattern='Description: {0}'"
 	 * @generated
 	 */
 	String getDescription();
@@ -94,6 +95,7 @@ public interface Requirement extends EObject {
 	 * @see #setProgress(float)
 	 * @see Y3853992.Y3853992Package#getRequirement_Progress()
 	 * @model required="true" derived="true"
+	 *        annotation="gmf.label label.pattern='Progress: {0}'"
 	 * @generated
 	 */
 	float getProgress();
@@ -169,7 +171,7 @@ public interface Requirement extends EObject {
 	 * @see Y3853992.Y3853992Package#getRequirement_Decomposition()
 	 * @see Y3853992.Requirement#getParentDecomposition
 	 * @model opposite="parentDecomposition"
-	 *        annotation="gmf.link target.decoration='arrow' color='0,0,0'"
+	 *        annotation="gmf.link target.decoration='arrow' color='0,0,0' width='3'"
 	 * @generated
 	 */
 	EList<Requirement> getDecomposition();
@@ -188,7 +190,6 @@ public interface Requirement extends EObject {
 	 * @see Y3853992.Y3853992Package#getRequirement_TeamMembers()
 	 * @see Y3853992.TeamMember#getRequirements
 	 * @model opposite="requirements" required="true"
-	 *        annotation="gmf.link style='dot'"
 	 * @generated
 	 */
 	EList<TeamMember> getTeamMembers();

@@ -25,9 +25,9 @@ import Y3853992.Y3853992Package;
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
 import Y3853992.diagram.providers.Y3853992ElementTypes;
@@ -161,7 +161,6 @@ public class Y3853992DiagramUpdater {
 		Requirement modelElement = (Requirement) view.getElement();
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_Decomposition_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_TeamMembers_4005(modelElement));
 		return result;
 	}
 
@@ -179,7 +178,10 @@ public class Y3853992DiagramUpdater {
 	* @generated
 	*/
 	public static List<Y3853992LinkDescriptor> getTeamMember_2009ContainedLinks(View view) {
-		return Collections.emptyList();
+		TeamMember modelElement = (TeamMember) view.getElement();
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_TeamMember_Requirements_4009(modelElement));
+		return result;
 	}
 
 	/**
@@ -200,6 +202,7 @@ public class Y3853992DiagramUpdater {
 		result.addAll(getIncomingTypeModelFacetLinks_Conflict_4008(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_Requirement_Decomposition_4001(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_TestCase_Verifies_4004(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TeamMember_Requirements_4009(modelElement, crossReferences));
 		return result;
 	}
 
@@ -214,12 +217,7 @@ public class Y3853992DiagramUpdater {
 	* @generated
 	*/
 	public static List<Y3853992LinkDescriptor> getTeamMember_2009IncomingLinks(View view) {
-		TeamMember modelElement = (TeamMember) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Requirement_TeamMembers_4005(modelElement, crossReferences));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -237,7 +235,6 @@ public class Y3853992DiagramUpdater {
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_Conflict_4008(modelElement));
 		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_Decomposition_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Requirement_TeamMembers_4005(modelElement));
 		return result;
 	}
 
@@ -255,7 +252,10 @@ public class Y3853992DiagramUpdater {
 	* @generated
 	*/
 	public static List<Y3853992LinkDescriptor> getTeamMember_2009OutgoingLinks(View view) {
-		return Collections.emptyList();
+		TeamMember modelElement = (TeamMember) view.getElement();
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_TeamMember_Requirements_4009(modelElement));
+		return result;
 	}
 
 	/**
@@ -329,22 +329,6 @@ public class Y3853992DiagramUpdater {
 	}
 
 	/**
-	* @generated
-	*/
-	private static Collection<Y3853992LinkDescriptor> getIncomingFeatureModelFacetLinks_Requirement_TeamMembers_4005(
-			TeamMember target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == Y3853992Package.eINSTANCE.getRequirement_TeamMembers()) {
-				result.add(new Y3853992LinkDescriptor(setting.getEObject(), target,
-						Y3853992ElementTypes.RequirementTeamMembers_4005, RequirementTeamMembersEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
 	 * @generated
 	 */
 	private static Collection<Y3853992LinkDescriptor> getIncomingFeatureModelFacetLinks_TestCase_Verifies_4004(
@@ -355,6 +339,22 @@ public class Y3853992DiagramUpdater {
 			if (setting.getEStructuralFeature() == Y3853992Package.eINSTANCE.getTestCase_Verifies()) {
 				result.add(new Y3853992LinkDescriptor(setting.getEObject(), target,
 						Y3853992ElementTypes.TestCaseVerifies_4004, TestCaseVerifiesEditPart.VISUAL_ID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
+	private static Collection<Y3853992LinkDescriptor> getIncomingFeatureModelFacetLinks_TeamMember_Requirements_4009(
+			Requirement target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() == Y3853992Package.eINSTANCE.getTeamMember_Requirements()) {
+				result.add(new Y3853992LinkDescriptor(setting.getEObject(), target,
+						Y3853992ElementTypes.TeamMemberRequirements_4009, TeamMemberRequirementsEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -414,20 +414,6 @@ public class Y3853992DiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<Y3853992LinkDescriptor> getOutgoingFeatureModelFacetLinks_Requirement_TeamMembers_4005(
-			Requirement source) {
-		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
-		for (Iterator<?> destinations = source.getTeamMembers().iterator(); destinations.hasNext();) {
-			TeamMember destination = (TeamMember) destinations.next();
-			result.add(new Y3853992LinkDescriptor(source, destination, Y3853992ElementTypes.RequirementTeamMembers_4005,
-					RequirementTeamMembersEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
 	private static Collection<Y3853992LinkDescriptor> getOutgoingFeatureModelFacetLinks_TestCase_Verifies_4004(
 			TestCase source) {
 		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
@@ -435,6 +421,20 @@ public class Y3853992DiagramUpdater {
 			Requirement destination = (Requirement) destinations.next();
 			result.add(new Y3853992LinkDescriptor(source, destination, Y3853992ElementTypes.TestCaseVerifies_4004,
 					TestCaseVerifiesEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
+	private static Collection<Y3853992LinkDescriptor> getOutgoingFeatureModelFacetLinks_TeamMember_Requirements_4009(
+			TeamMember source) {
+		LinkedList<Y3853992LinkDescriptor> result = new LinkedList<Y3853992LinkDescriptor>();
+		for (Iterator<?> destinations = source.getRequirements().iterator(); destinations.hasNext();) {
+			Requirement destination = (Requirement) destinations.next();
+			result.add(new Y3853992LinkDescriptor(source, destination, Y3853992ElementTypes.TeamMemberRequirements_4009,
+					TeamMemberRequirementsEditPart.VISUAL_ID));
 		}
 		return result;
 	}

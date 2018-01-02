@@ -21,9 +21,9 @@ import Y3853992.Y3853992Package;
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
 import Y3853992.diagram.part.Y3853992DiagramEditorPlugin;
@@ -88,13 +88,13 @@ public class Y3853992ElementTypes {
 	/**
 	* @generated
 	*/
-	public static final IElementType RequirementTeamMembers_4005 = getElementType(
-			"Y3853992.diagram.RequirementTeamMembers_4005"); //$NON-NLS-1$
+	public static final IElementType TestCaseVerifies_4004 = getElementType("Y3853992.diagram.TestCaseVerifies_4004"); //$NON-NLS-1$
 
 	/**
 	* @generated
 	*/
-	public static final IElementType TestCaseVerifies_4004 = getElementType("Y3853992.diagram.TestCaseVerifies_4004"); //$NON-NLS-1$
+	public static final IElementType TeamMemberRequirements_4009 = getElementType(
+			"Y3853992.diagram.TeamMemberRequirements_4009"); //$NON-NLS-1$
 
 	/**
 	* @generated
@@ -146,9 +146,9 @@ public class Y3853992ElementTypes {
 
 			elements.put(RequirementDecomposition_4001, Y3853992Package.eINSTANCE.getRequirement_Decomposition());
 
-			elements.put(RequirementTeamMembers_4005, Y3853992Package.eINSTANCE.getRequirement_TeamMembers());
-
 			elements.put(TestCaseVerifies_4004, Y3853992Package.eINSTANCE.getTestCase_Verifies());
+
+			elements.put(TeamMemberRequirements_4009, Y3853992Package.eINSTANCE.getTeamMember_Requirements());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -172,8 +172,8 @@ public class Y3853992ElementTypes {
 			KNOWN_ELEMENT_TYPES.add(TeamMember_2009);
 			KNOWN_ELEMENT_TYPES.add(Conflict_4008);
 			KNOWN_ELEMENT_TYPES.add(RequirementDecomposition_4001);
-			KNOWN_ELEMENT_TYPES.add(RequirementTeamMembers_4005);
 			KNOWN_ELEMENT_TYPES.add(TestCaseVerifies_4004);
+			KNOWN_ELEMENT_TYPES.add(TeamMemberRequirements_4009);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -195,10 +195,10 @@ public class Y3853992ElementTypes {
 			return Conflict_4008;
 		case RequirementDecompositionEditPart.VISUAL_ID:
 			return RequirementDecomposition_4001;
-		case RequirementTeamMembersEditPart.VISUAL_ID:
-			return RequirementTeamMembers_4005;
 		case TestCaseVerifiesEditPart.VISUAL_ID:
 			return TestCaseVerifies_4004;
+		case TeamMemberRequirementsEditPart.VISUAL_ID:
+			return TeamMemberRequirements_4009;
 		}
 		return null;
 	}

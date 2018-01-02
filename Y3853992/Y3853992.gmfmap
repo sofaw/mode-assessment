@@ -13,13 +13,34 @@
       <domainMetaElement
           href="Y3853992.ecore#//Requirement"/>
       <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="{1} requirement {0}">
         <diagramLabel
             href="Y3853992.gmfgraph#RequirementLabel"/>
         <features
-            href="Y3853992.ecore#//Requirement/description"/>
+            href="Y3853992.ecore#//Requirement/identifier"/>
         <features
             href="Y3853992.ecore#//Requirement/type"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="Description: {0}"
+          editorPattern="Description: {0}"
+          editPattern="Description: {0}">
+        <diagramLabel
+            href="Y3853992.gmfgraph#RequirementDescriptionLabel"/>
+        <features
+            href="Y3853992.ecore#//Requirement/description"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="Progress: {0}"
+          editorPattern="Progress: {0}"
+          editPattern="Progress: {0}">
+        <diagramLabel
+            href="Y3853992.gmfgraph#RequirementProgressLabel"/>
+        <features
+            href="Y3853992.ecore#//Requirement/progress"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -35,7 +56,8 @@
       <domainMetaElement
           href="Y3853992.ecore#//TestCase"/>
       <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="Test case: {0}">
         <diagramLabel
             href="Y3853992.gmfgraph#TestCaseLabel"/>
         <features
@@ -55,7 +77,8 @@
       <domainMetaElement
           href="Y3853992.ecore#//TeamMember"/>
       <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="Team member: {0}">
         <diagramLabel
             href="Y3853992.gmfgraph#TeamMemberLabel"/>
         <features
@@ -106,22 +129,6 @@
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="Y3853992.gmfgraph#RequirementTeamMembersExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="Y3853992.gmftool#//@palette/@tools.1/@tools.2"/>
-    <diagramLink
-        href="Y3853992.gmfgraph#RequirementTeamMembers"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="Y3853992.ecore#//Requirement/teamMembers"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
           href="Y3853992.gmfgraph#TestCaseVerifiesExternalLabel"/>
     </labelMappings>
     <tool
@@ -132,6 +139,22 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="Y3853992.ecore#//TestCase/verifies"/>
+  </links>
+  <links>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="Y3853992.gmfgraph#TeamMemberRequirementsExternalLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="Y3853992.gmftool#//@palette/@tools.1/@tools.2"/>
+    <diagramLink
+        href="Y3853992.gmfgraph#TeamMemberRequirements"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="Y3853992.ecore#//TeamMember/requirements"/>
   </links>
   <diagram>
     <diagramCanvas

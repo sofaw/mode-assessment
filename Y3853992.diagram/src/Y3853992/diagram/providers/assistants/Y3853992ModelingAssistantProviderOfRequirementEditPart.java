@@ -36,10 +36,9 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 	* @generated
 	*/
 	public List<IElementType> doGetRelTypesOnSource(RequirementEditPart source) {
-		List<IElementType> types = new ArrayList<IElementType>(3);
+		List<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(Y3853992ElementTypes.Conflict_4008);
 		types.add(Y3853992ElementTypes.RequirementDecomposition_4001);
-		types.add(Y3853992ElementTypes.RequirementTeamMembers_4005);
 		return types;
 	}
 
@@ -66,9 +65,6 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 		if (targetEditPart instanceof RequirementEditPart) {
 			types.add(Y3853992ElementTypes.RequirementDecomposition_4001);
 		}
-		if (targetEditPart instanceof TeamMemberEditPart) {
-			types.add(Y3853992ElementTypes.RequirementTeamMembers_4005);
-		}
 		return types;
 	}
 
@@ -91,8 +87,6 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 			types.add(Y3853992ElementTypes.Requirement_2007);
 		} else if (relationshipType == Y3853992ElementTypes.RequirementDecomposition_4001) {
 			types.add(Y3853992ElementTypes.Requirement_2007);
-		} else if (relationshipType == Y3853992ElementTypes.RequirementTeamMembers_4005) {
-			types.add(Y3853992ElementTypes.TeamMember_2009);
 		}
 		return types;
 	}
@@ -111,10 +105,11 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 	* @generated
 	*/
 	public List<IElementType> doGetRelTypesOnTarget(RequirementEditPart target) {
-		List<IElementType> types = new ArrayList<IElementType>(3);
+		List<IElementType> types = new ArrayList<IElementType>(4);
 		types.add(Y3853992ElementTypes.Conflict_4008);
 		types.add(Y3853992ElementTypes.RequirementDecomposition_4001);
 		types.add(Y3853992ElementTypes.TestCaseVerifies_4004);
+		types.add(Y3853992ElementTypes.TeamMemberRequirements_4009);
 		return types;
 	}
 
@@ -139,6 +134,8 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 			types.add(Y3853992ElementTypes.Requirement_2007);
 		} else if (relationshipType == Y3853992ElementTypes.TestCaseVerifies_4004) {
 			types.add(Y3853992ElementTypes.TestCase_2008);
+		} else if (relationshipType == Y3853992ElementTypes.TeamMemberRequirements_4009) {
+			types.add(Y3853992ElementTypes.TeamMember_2009);
 		}
 		return types;
 	}

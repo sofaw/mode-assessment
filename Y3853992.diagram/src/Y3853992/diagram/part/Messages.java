@@ -306,12 +306,12 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String TeamMembers3CreationTool_title;
+	public static String Requirements3CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String TeamMembers3CreationTool_desc;
+	public static String Requirements3CreationTool_desc;
 
 	/**
 	* @generated
@@ -351,7 +351,7 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TeamMember_2009_incominglinks;
+	public static String NavigatorGroupName_TeamMember_2009_outgoinglinks;
 
 	/**
 	* @generated
@@ -376,22 +376,22 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_RequirementTeamMembers_4005_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_RequirementTeamMembers_4005_source;
-
-	/**
-	* @generated
-	*/
 	public static String NavigatorGroupName_Conflict_4008_target;
 
 	/**
 	* @generated
 	*/
 	public static String NavigatorGroupName_Conflict_4008_source;
+
+	/**
+	* @generated
+	*/
+	public static String NavigatorGroupName_TeamMemberRequirements_4009_target;
+
+	/**
+	* @generated
+	*/
+	public static String NavigatorGroupName_TeamMemberRequirements_4009_source;
 
 	/**
 	* @generated

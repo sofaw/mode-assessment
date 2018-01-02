@@ -31,8 +31,14 @@ public class Y3853992EditPartFactory implements EditPartFactory {
 			case RequirementEditPart.VISUAL_ID:
 				return new RequirementEditPart(view);
 
-			case RequirementDescriptionTypeEditPart.VISUAL_ID:
-				return new RequirementDescriptionTypeEditPart(view);
+			case RequirementIdentifierTypeEditPart.VISUAL_ID:
+				return new RequirementIdentifierTypeEditPart(view);
+
+			case RequirementDescriptionEditPart.VISUAL_ID:
+				return new RequirementDescriptionEditPart(view);
+
+			case RequirementProgressEditPart.VISUAL_ID:
+				return new RequirementProgressEditPart(view);
 
 			case TestCaseEditPart.VISUAL_ID:
 				return new TestCaseEditPart(view);
@@ -55,14 +61,14 @@ public class Y3853992EditPartFactory implements EditPartFactory {
 			case WrappingLabelEditPart.VISUAL_ID:
 				return new WrappingLabelEditPart(view);
 
-			case RequirementTeamMembersEditPart.VISUAL_ID:
-				return new RequirementTeamMembersEditPart(view);
+			case TestCaseVerifiesEditPart.VISUAL_ID:
+				return new TestCaseVerifiesEditPart(view);
 
 			case WrappingLabel2EditPart.VISUAL_ID:
 				return new WrappingLabel2EditPart(view);
 
-			case TestCaseVerifiesEditPart.VISUAL_ID:
-				return new TestCaseVerifiesEditPart(view);
+			case TeamMemberRequirementsEditPart.VISUAL_ID:
+				return new TeamMemberRequirementsEditPart(view);
 
 			case WrappingLabel3EditPart.VISUAL_ID:
 				return new WrappingLabel3EditPart(view);

@@ -23,13 +23,13 @@ import Y3853992.diagram.edit.commands.ConflictCreateCommand;
 import Y3853992.diagram.edit.commands.ConflictReorientCommand;
 import Y3853992.diagram.edit.commands.RequirementDecompositionCreateCommand;
 import Y3853992.diagram.edit.commands.RequirementDecompositionReorientCommand;
-import Y3853992.diagram.edit.commands.RequirementTeamMembersCreateCommand;
-import Y3853992.diagram.edit.commands.RequirementTeamMembersReorientCommand;
+import Y3853992.diagram.edit.commands.TeamMemberRequirementsCreateCommand;
+import Y3853992.diagram.edit.commands.TeamMemberRequirementsReorientCommand;
 import Y3853992.diagram.edit.commands.TestCaseVerifiesCreateCommand;
 import Y3853992.diagram.edit.commands.TestCaseVerifiesReorientCommand;
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
 import Y3853992.diagram.part.Y3853992VisualIDRegistry;
 import Y3853992.diagram.providers.Y3853992ElementTypes;
@@ -75,6 +75,13 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
+			if (Y3853992VisualIDRegistry.getVisualID(incomingLink) == TeamMemberRequirementsEditPart.VISUAL_ID) {
+				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
+						incomingLink.getTarget().getElement(), false);
+				cmd.add(new DestroyReferenceCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
@@ -85,13 +92,6 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 				continue;
 			}
 			if (Y3853992VisualIDRegistry.getVisualID(outgoingLink) == RequirementDecompositionEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
-						outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (Y3853992VisualIDRegistry.getVisualID(outgoingLink) == RequirementTeamMembersEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
@@ -130,10 +130,10 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 		if (Y3853992ElementTypes.RequirementDecomposition_4001 == req.getElementType()) {
 			return getGEFWrapper(new RequirementDecompositionCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.RequirementTeamMembers_4005 == req.getElementType()) {
-			return getGEFWrapper(new RequirementTeamMembersCreateCommand(req, req.getSource(), req.getTarget()));
-		}
 		if (Y3853992ElementTypes.TestCaseVerifies_4004 == req.getElementType()) {
+			return null;
+		}
+		if (Y3853992ElementTypes.TeamMemberRequirements_4009 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -149,11 +149,11 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 		if (Y3853992ElementTypes.RequirementDecomposition_4001 == req.getElementType()) {
 			return getGEFWrapper(new RequirementDecompositionCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.RequirementTeamMembers_4005 == req.getElementType()) {
-			return null;
-		}
 		if (Y3853992ElementTypes.TestCaseVerifies_4004 == req.getElementType()) {
 			return getGEFWrapper(new TestCaseVerifiesCreateCommand(req, req.getSource(), req.getTarget()));
+		}
+		if (Y3853992ElementTypes.TeamMemberRequirements_4009 == req.getElementType()) {
+			return getGEFWrapper(new TeamMemberRequirementsCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -182,10 +182,10 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 		switch (getVisualID(req)) {
 		case RequirementDecompositionEditPart.VISUAL_ID:
 			return getGEFWrapper(new RequirementDecompositionReorientCommand(req));
-		case RequirementTeamMembersEditPart.VISUAL_ID:
-			return getGEFWrapper(new RequirementTeamMembersReorientCommand(req));
 		case TestCaseVerifiesEditPart.VISUAL_ID:
 			return getGEFWrapper(new TestCaseVerifiesReorientCommand(req));
+		case TeamMemberRequirementsEditPart.VISUAL_ID:
+			return getGEFWrapper(new TeamMemberRequirementsReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

@@ -15,36 +15,38 @@ enum RequirementType {
 	System;
 }
 
-@gmf.node(label = "type,description")
+@gmf.node(label="identifier, type", label.view.pattern="{1} requirement {0}", border.color="0,0,0", border.width="3")
 class Requirement {
 	attr int[1] identifier;
+	@gmf.label(label.pattern="Description: {0}")
 	attr String[1] description;
+	@gmf.label(label.pattern="Progress: {0}")
 	derived attr float[1] progress;
 	attr RequirementType[1] type;
-	@gmf.link(target.decoration="arrow", color="0,0,0")
+	@gmf.link(target.decoration="arrow", color="0,0,0", width="3")
 	ref Requirement[*]#parentDecomposition decomposition;
 	ref Requirement[*]#decomposition parentDecomposition;
-	@gmf.link(style="dot")
 	ref TeamMember[1..*]#requirements teamMembers;
 	ref TestCase[*]#verifies testCases;
 
 }
 
-@gmf.link(source="first", target="second", style="dot", color="255,0,0")
+@gmf.link(source="first", target="second", style="dot", color="255,0,0", width="2")
 class Conflict {
 	ref Requirement first;
 	ref Requirement second;
 }
 
-@gmf.node(label="description")
+@gmf.node(figure="polygon", polygon.x="40 80 40 0", polygon.y="0 60 120 60", margin="20", label="description", label.view.pattern="Test case: {0}", border.color="0,0,255", border.width="3")
 class TestCase {
 	attr String[1] description;
 	@gmf.link(style="dash", target.decoration="arrow", color="0,0,255")
 	ref Requirement[1..*]#testCases verifies;
 }
 
-@gmf.node(label="name")
+@gmf.node(figure="ellipse", margin="10", label="name", label.view.pattern="Team member: {0}", border.color="0,255,0", border.width="3")
 class TeamMember {
 	attr String[1] name;
+	@gmf.link(style="dot", target.decoration="arrow", color="0,255,0")
 	ref Requirement[*]#teamMembers requirements;
 }

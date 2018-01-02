@@ -25,7 +25,6 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
-import org.eclipse.gmf.runtime.notation.Connector;
 import org.eclipse.gmf.runtime.notation.DecorationNode;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
@@ -37,7 +36,6 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.RelativeBendpoints;
 import org.eclipse.gmf.runtime.notation.Routing;
-import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.datatype.RelativeBendpoint;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -47,12 +45,18 @@ import org.eclipse.swt.graphics.FontData;
 
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
+import Y3853992.diagram.edit.parts.RequirementDescription2EditPart;
+import Y3853992.diagram.edit.parts.RequirementDescriptionEditPart;
 import Y3853992.diagram.edit.parts.RequirementDescriptionTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
+import Y3853992.diagram.edit.parts.RequirementIdentifierEditPart;
+import Y3853992.diagram.edit.parts.RequirementIdentifierTypeEditPart;
+import Y3853992.diagram.edit.parts.RequirementProgressEditPart;
+import Y3853992.diagram.edit.parts.RequirementTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberNameEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseDescriptionEditPart;
 import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
@@ -230,10 +234,10 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 					preferencesHint);
 		case RequirementDecompositionEditPart.VISUAL_ID:
 			return createRequirementDecomposition_4001(containerView, index, persisted, preferencesHint);
-		case RequirementTeamMembersEditPart.VISUAL_ID:
-			return createRequirementTeamMembers_4005(containerView, index, persisted, preferencesHint);
 		case TestCaseVerifiesEditPart.VISUAL_ID:
 			return createTestCaseVerifies_4004(containerView, index, persisted, preferencesHint);
+		case TeamMemberRequirementsEditPart.VISUAL_ID:
+			return createTeamMemberRequirements_4009(containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
@@ -244,7 +248,10 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	*/
 	public Node createRequirement_2007(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -252,11 +259,6 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
 			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
@@ -273,7 +275,9 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5007 = createLabel(node,
-				Y3853992VisualIDRegistry.getType(RequirementDescriptionTypeEditPart.VISUAL_ID));
+				Y3853992VisualIDRegistry.getType(RequirementIdentifierTypeEditPart.VISUAL_ID));
+		Node label5010 = createLabel(node, Y3853992VisualIDRegistry.getType(RequirementDescriptionEditPart.VISUAL_ID));
+		Node label5011 = createLabel(node, Y3853992VisualIDRegistry.getType(RequirementProgressEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -282,7 +286,10 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	*/
 	public Node createTestCase_2008(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(Y3853992VisualIDRegistry.getType(TestCaseEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -290,11 +297,6 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
 			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
@@ -319,7 +321,10 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	*/
 	public Node createTeamMember_2009(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(Y3853992VisualIDRegistry.getType(TeamMemberEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -327,11 +332,6 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
 			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
@@ -434,53 +434,6 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	/**
 	* @generated
 	*/
-	public Edge createRequirementTeamMembers_4005(View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Connector edge = NotationFactory.eINSTANCE.createConnector();
-		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
-		points.add(new RelativeBendpoint());
-		points.add(new RelativeBendpoint());
-		bendpoints.setPoints(points);
-		edge.setBendpoints(bendpoints);
-		ViewUtil.insertChildView(containerView, edge, index, persisted);
-		edge.setType(Y3853992VisualIDRegistry.getType(RequirementTeamMembersEditPart.VISUAL_ID));
-		edge.setElement(null);
-		// initializePreferences
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (edgeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			edgeFontStyle.setFontName(fontData.getName());
-			edgeFontStyle.setFontHeight(fontData.getHeight());
-			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-		if (routing != null) {
-			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
-		}
-		Node label6005 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
-		label6005.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6005.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6005 = (Location) label6005.getLayoutConstraint();
-		location6005.setX(0);
-		location6005.setY(40);
-		return edge;
-	}
-
-	/**
-	* @generated
-	*/
 	public Edge createTestCaseVerifies_4004(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
@@ -512,12 +465,55 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6004 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
+		Node label6004 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
 		label6004.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		label6004.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
 		Location location6004 = (Location) label6004.getLayoutConstraint();
 		location6004.setX(0);
 		location6004.setY(40);
+		return edge;
+	}
+
+	/**
+	* @generated
+	*/
+	public Edge createTeamMemberRequirements_4009(View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Edge edge = NotationFactory.eINSTANCE.createEdge();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
+		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(Y3853992VisualIDRegistry.getType(TeamMemberRequirementsEditPart.VISUAL_ID));
+		edge.setElement(null);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+		FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
+		}
+		Node label6006 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
+		label6006.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6006.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6006 = (Location) label6006.getLayoutConstraint();
+		location6006.setX(0);
+		location6006.setY(40);
 		return edge;
 	}
 

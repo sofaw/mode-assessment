@@ -23,12 +23,15 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
+import Y3853992.diagram.edit.parts.RequirementDescriptionEditPart;
 import Y3853992.diagram.edit.parts.RequirementDescriptionTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
+import Y3853992.diagram.edit.parts.RequirementIdentifierTypeEditPart;
+import Y3853992.diagram.edit.parts.RequirementTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberNameEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseDescriptionEditPart;
 import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
@@ -114,11 +117,11 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 		case TestCaseVerifiesEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?http://Y3853992?TestCase?verifies", //$NON-NLS-1$
 					Y3853992ElementTypes.TestCaseVerifies_4004);
-		case RequirementTeamMembersEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://Y3853992?Requirement?teamMembers", //$NON-NLS-1$
-					Y3853992ElementTypes.RequirementTeamMembers_4005);
 		case ConflictEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?http://Y3853992?Conflict", Y3853992ElementTypes.Conflict_4008); //$NON-NLS-1$
+		case TeamMemberRequirementsEditPart.VISUAL_ID:
+			return getImage("Navigator?Link?http://Y3853992?TeamMember?requirements", //$NON-NLS-1$
+					Y3853992ElementTypes.TeamMemberRequirements_4009);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -189,10 +192,10 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 			return getRequirementDecomposition_4001Text(view);
 		case TestCaseVerifiesEditPart.VISUAL_ID:
 			return getTestCaseVerifies_4004Text(view);
-		case RequirementTeamMembersEditPart.VISUAL_ID:
-			return getRequirementTeamMembers_4005Text(view);
 		case ConflictEditPart.VISUAL_ID:
 			return getConflict_4008Text(view);
+		case TeamMemberRequirementsEditPart.VISUAL_ID:
+			return getTeamMemberRequirements_4009Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -210,7 +213,7 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	private String getRequirement_2007Text(View view) {
 		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2007,
 				view.getElement() != null ? view.getElement() : view,
-				Y3853992VisualIDRegistry.getType(RequirementDescriptionTypeEditPart.VISUAL_ID));
+				Y3853992VisualIDRegistry.getType(RequirementIdentifierTypeEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
@@ -285,23 +288,23 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getRequirementTeamMembers_4005Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.RequirementTeamMembers_4005,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6005); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
+	private String getConflict_4008Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**
 	* @generated
 	*/
-	private String getConflict_4008Text(View view) {
-		return ""; //$NON-NLS-1$
+	private String getTeamMemberRequirements_4009Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMemberRequirements_4009,
+				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**

@@ -3,51 +3,59 @@
   <figures name="Default">
     <figures xsi:type="gmfgraph:PolylineDecoration" name="RequirementDecompositionFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TestCaseVerifiesFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="TeamMemberRequirementsFigureTargetDecoration"/>
     <descriptors name="RequirementFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RequirementFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RequirementFigure" lineWidth="3">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="5" left="5" bottom="5" right="5"/>
         </border>
-        <children xsi:type="gmfgraph:Label" name="RequirementLabelFigure" text="Requirement"/>
+        <children xsi:type="gmfgraph:Label" name="RequirementLabelFigure" text="Requirement">
+          <font xsi:type="gmfgraph:BasicFont" style="BOLD"/>
+        </children>
+        <children xsi:type="gmfgraph:Label" name="RequirementDescriptionLabelFigure"/>
+        <children xsi:type="gmfgraph:Label" name="RequirementProgressLabelFigure"/>
       </actualFigure>
       <accessors accessor="getFigureRequirementLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors accessor="getFigureRequirementDescriptionLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors accessor="getFigureRequirementProgressLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors name="TestCaseFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TestCaseFigure">
+      <actualFigure xsi:type="gmfgraph:ScalablePolygon" name="TestCaseFigure" lineWidth="3">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" blue="255"/>
         <border xsi:type="gmfgraph:MarginBorder">
-          <insets top="5" left="5" bottom="5" right="5"/>
+          <insets top="20" left="20" bottom="20" right="20"/>
         </border>
         <children xsi:type="gmfgraph:Label" name="TestCaseLabelFigure" text="TestCase"/>
+        <template x="40"/>
+        <template x="80" y="60"/>
+        <template x="40" y="120"/>
+        <template y="60"/>
       </actualFigure>
       <accessors accessor="getFigureTestCaseLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="TeamMemberFigure">
-      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="TeamMemberFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse" name="TeamMemberFigure" lineWidth="3">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" green="255"/>
         <border xsi:type="gmfgraph:MarginBorder">
-          <insets top="5" left="5" bottom="5" right="5"/>
+          <insets top="10" left="10" bottom="10" right="10"/>
         </border>
         <children xsi:type="gmfgraph:Label" name="TeamMemberLabelFigure" text="TeamMember"/>
       </actualFigure>
       <accessors accessor="getFigureTeamMemberLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors name="ConflictFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ConflictFigure" lineKind="LINE_DOT">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="ConflictFigure" lineWidth="2" lineKind="LINE_DOT">
         <foregroundColor xsi:type="gmfgraph:RGBColor" red="255"/>
       </actualFigure>
     </descriptors>
     <descriptors name="RequirementDecompositionFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RequirementDecompositionFigure" targetDecoration="//@figures.0/@figures.0">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RequirementDecompositionFigure" lineWidth="3" targetDecoration="//@figures.0/@figures.0">
         <foregroundColor xsi:type="gmfgraph:RGBColor"/>
       </actualFigure>
     </descriptors>
     <descriptors name="RequirementDecompositionExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="RequirementDecompositionExternalLabel"/>
-    </descriptors>
-    <descriptors name="RequirementTeamMembersFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RequirementTeamMembersFigure" lineKind="LINE_DOT"/>
-    </descriptors>
-    <descriptors name="RequirementTeamMembersExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="RequirementTeamMembersExternalLabel"/>
     </descriptors>
     <descriptors name="TestCaseVerifiesFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TestCaseVerifiesFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.1">
@@ -57,18 +65,28 @@
     <descriptors name="TestCaseVerifiesExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TestCaseVerifiesExternalLabel"/>
     </descriptors>
+    <descriptors name="TeamMemberRequirementsFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TeamMemberRequirementsFigure" lineKind="LINE_DOT" targetDecoration="//@figures.0/@figures.2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" green="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="TeamMemberRequirementsExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="TeamMemberRequirementsExternalLabel"/>
+    </descriptors>
   </figures>
   <nodes name="Requirement" figure="RequirementFigure"/>
   <nodes name="TestCase" figure="TestCaseFigure"/>
   <nodes name="TeamMember" figure="TeamMemberFigure"/>
   <connections name="Conflict" figure="ConflictFigure"/>
   <connections name="RequirementDecomposition" figure="RequirementDecompositionFigure"/>
-  <connections name="RequirementTeamMembers" figure="RequirementTeamMembersFigure"/>
   <connections name="TestCaseVerifies" figure="TestCaseVerifiesFigure"/>
+  <connections name="TeamMemberRequirements" figure="TeamMemberRequirementsFigure"/>
   <labels name="RequirementLabel" figure="RequirementFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="RequirementDescriptionLabel" figure="RequirementFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels name="RequirementProgressLabel" figure="RequirementFigure" elementIcon="false" accessor="//@figures.0/@descriptors.0/@accessors.2"/>
   <labels name="TestCaseLabel" figure="TestCaseFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels name="TeamMemberLabel" figure="TeamMemberFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
   <labels name="RequirementDecompositionExternalLabel" figure="RequirementDecompositionExternalLabelFigure" elementIcon="false"/>
-  <labels name="RequirementTeamMembersExternalLabel" figure="RequirementTeamMembersExternalLabelFigure" elementIcon="false"/>
   <labels name="TestCaseVerifiesExternalLabel" figure="TestCaseVerifiesExternalLabelFigure" elementIcon="false"/>
+  <labels name="TeamMemberRequirementsExternalLabel" figure="TeamMemberRequirementsExternalLabelFigure" elementIcon="false"/>
 </gmfgraph:Canvas>

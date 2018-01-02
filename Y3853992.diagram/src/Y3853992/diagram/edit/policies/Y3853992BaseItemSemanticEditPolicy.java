@@ -334,22 +334,6 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 
 		/**
-			* @generated
-			*/
-		public boolean canCreateRequirementTeamMembers_4005(Requirement source, TeamMember target) {
-			if (source != null) {
-				if (source.getTeamMembers().contains(target)) {
-					return false;
-				}
-			}
-			if (target != null && (target.getRequirements().contains(target))) {
-				return false;
-			}
-
-			return canExistRequirementTeamMembers_4005(source, target);
-		}
-
-		/**
 					 * @generated
 					 */
 		public boolean canCreateTestCaseVerifies_4004(TestCase source, Requirement target) {
@@ -368,6 +352,22 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		* @generated
 		*/
+		public boolean canCreateTeamMemberRequirements_4009(TeamMember source, Requirement target) {
+			if (source != null) {
+				if (source.getRequirements().contains(target)) {
+					return false;
+				}
+			}
+			if (target != null && (target.getTeamMembers().contains(target))) {
+				return false;
+			}
+
+			return canExistTeamMemberRequirements_4009(source, target);
+		}
+
+		/**
+			* @generated
+			*/
 		public boolean canExistConflict_4008(RequirementsModel container, Conflict linkInstance, Requirement source,
 				Requirement target) {
 			return true;
@@ -381,16 +381,16 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		}
 
 		/**
-			* @generated
-			*/
-		public boolean canExistRequirementTeamMembers_4005(Requirement source, TeamMember target) {
+					* @generated
+					*/
+		public boolean canExistTestCaseVerifies_4004(TestCase source, Requirement target) {
 			return true;
 		}
 
 		/**
-					* @generated
-					*/
-		public boolean canExistTestCaseVerifies_4004(TestCase source, Requirement target) {
+		* @generated
+		*/
+		public boolean canExistTeamMemberRequirements_4009(TeamMember source, Requirement target) {
 			return true;
 		}
 	}

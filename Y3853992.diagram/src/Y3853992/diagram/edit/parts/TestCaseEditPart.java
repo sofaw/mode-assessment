@@ -6,9 +6,11 @@ package Y3853992.diagram.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
+import org.eclipse.draw2d.ScalablePolygonShape;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
@@ -264,7 +266,7 @@ public class TestCaseEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class TestCaseFigure extends RoundedRectangle {
+	public class TestCaseFigure extends ScalablePolygonShape {
 
 		/**
 		 * @generated
@@ -275,9 +277,15 @@ public class TestCaseEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public TestCaseFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
+			this.addPoint(new Point(getMapMode().DPtoLP(40), getMapMode().DPtoLP(0)));
+			this.addPoint(new Point(getMapMode().DPtoLP(80), getMapMode().DPtoLP(60)));
+			this.addPoint(new Point(getMapMode().DPtoLP(40), getMapMode().DPtoLP(120)));
+			this.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode().DPtoLP(60)));
+			this.setFill(true);
+			this.setLineWidth(3);
+			this.setForegroundColor(THIS_FORE);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20), getMapMode().DPtoLP(20),
+					getMapMode().DPtoLP(20)));
 			createContents();
 		}
 
@@ -302,5 +310,10 @@ public class TestCaseEditPart extends ShapeNodeEditPart {
 		}
 
 	}
+
+	/**
+	* @generated
+	*/
+	static final Color THIS_FORE = new Color(null, 0, 0, 255);
 
 }

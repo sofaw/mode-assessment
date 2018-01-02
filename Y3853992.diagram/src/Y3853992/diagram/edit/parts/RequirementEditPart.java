@@ -26,8 +26,11 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import Y3853992.diagram.edit.policies.RequirementItemSemanticEditPolicy;
 import Y3853992.diagram.part.Y3853992VisualIDRegistry;
 
@@ -112,9 +115,19 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RequirementDescriptionTypeEditPart) {
-			((RequirementDescriptionTypeEditPart) childEditPart)
+		if (childEditPart instanceof RequirementIdentifierTypeEditPart) {
+			((RequirementIdentifierTypeEditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureRequirementLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof RequirementDescriptionEditPart) {
+			((RequirementDescriptionEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureRequirementDescriptionLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof RequirementProgressEditPart) {
+			((RequirementProgressEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureRequirementProgressLabelFigure());
 			return true;
 		}
 		return false;
@@ -124,7 +137,13 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RequirementDescriptionTypeEditPart) {
+		if (childEditPart instanceof RequirementIdentifierTypeEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof RequirementDescriptionEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof RequirementProgressEditPart) {
 			return true;
 		}
 		return false;
@@ -247,7 +266,7 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(Y3853992VisualIDRegistry.getType(RequirementDescriptionTypeEditPart.VISUAL_ID));
+		return getChildBySemanticHint(Y3853992VisualIDRegistry.getType(RequirementIdentifierTypeEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -273,10 +292,22 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 		private WrappingLabel fFigureRequirementLabelFigure;
 
 		/**
-		 * @generated
-		 */
+			* @generated
+			*/
+		private WrappingLabel fFigureRequirementDescriptionLabelFigure;
+
+		/**
+		* @generated
+		*/
+		private WrappingLabel fFigureRequirementProgressLabelFigure;
+
+		/**
+				 * @generated
+				 */
 		public RequirementFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			this.setLineWidth(3);
+			this.setForegroundColor(THIS_FORE);
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
 			createContents();
@@ -291,7 +322,21 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 
 			fFigureRequirementLabelFigure.setText("Requirement");
 
+			fFigureRequirementLabelFigure.setFont(FFIGUREREQUIREMENTLABELFIGURE_FONT);
+
 			this.add(fFigureRequirementLabelFigure);
+
+			fFigureRequirementDescriptionLabelFigure = new WrappingLabel();
+
+			fFigureRequirementDescriptionLabelFigure.setText("");
+
+			this.add(fFigureRequirementDescriptionLabelFigure);
+
+			fFigureRequirementProgressLabelFigure = new WrappingLabel();
+
+			fFigureRequirementProgressLabelFigure.setText("");
+
+			this.add(fFigureRequirementProgressLabelFigure);
 
 		}
 
@@ -302,6 +347,31 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 			return fFigureRequirementLabelFigure;
 		}
 
+		/**
+			* @generated
+			*/
+		public WrappingLabel getFigureRequirementDescriptionLabelFigure() {
+			return fFigureRequirementDescriptionLabelFigure;
+		}
+
+		/**
+		* @generated
+		*/
+		public WrappingLabel getFigureRequirementProgressLabelFigure() {
+			return fFigureRequirementProgressLabelFigure;
+		}
+
 	}
+
+	/**
+	* @generated
+	*/
+	static final Color THIS_FORE = new Color(null, 0, 0, 0);
+
+	/**
+	* @generated
+	*/
+	static final Font FFIGUREREQUIREMENTLABELFIGURE_FONT = new Font(Display.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9, SWT.BOLD);
 
 }

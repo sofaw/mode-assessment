@@ -69,6 +69,7 @@ public class RequirementDecompositionEditPart extends ConnectionNodeEditPart imp
 		 * @generated
 		 */
 		public RequirementDecompositionFigure() {
+			this.setLineWidth(3);
 			this.setForegroundColor(THIS_FORE);
 
 			setTargetDecoration(createTargetDecoration());

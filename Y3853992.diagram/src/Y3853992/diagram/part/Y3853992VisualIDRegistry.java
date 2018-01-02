@@ -14,12 +14,18 @@ import Y3853992.RequirementsModel;
 import Y3853992.Y3853992Package;
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
+import Y3853992.diagram.edit.parts.RequirementDescription2EditPart;
+import Y3853992.diagram.edit.parts.RequirementDescriptionEditPart;
 import Y3853992.diagram.edit.parts.RequirementDescriptionTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
+import Y3853992.diagram.edit.parts.RequirementIdentifierEditPart;
+import Y3853992.diagram.edit.parts.RequirementIdentifierTypeEditPart;
+import Y3853992.diagram.edit.parts.RequirementProgressEditPart;
+import Y3853992.diagram.edit.parts.RequirementTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberNameEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseDescriptionEditPart;
 import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
@@ -174,7 +180,13 @@ public class Y3853992VisualIDRegistry {
 			}
 			break;
 		case RequirementEditPart.VISUAL_ID:
-			if (RequirementDescriptionTypeEditPart.VISUAL_ID == nodeVisualID) {
+			if (RequirementIdentifierTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (RequirementDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (RequirementProgressEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -193,12 +205,12 @@ public class Y3853992VisualIDRegistry {
 				return true;
 			}
 			break;
-		case RequirementTeamMembersEditPart.VISUAL_ID:
+		case TestCaseVerifiesEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case TestCaseVerifiesEditPart.VISUAL_ID:
+		case TeamMemberRequirementsEditPart.VISUAL_ID:
 			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

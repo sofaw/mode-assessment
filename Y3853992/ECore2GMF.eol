@@ -1,0 +1,4 @@
+// Make node label names bold
+var requirementLabel = GmfGraph!Label.all.selectOne(l | l.name = "RequirementLabelFigure");
+requirementLabel.font = new GmfGraph!BasicFont;
+requirementLabel.font.style = GmfGraph!FontStyle#BOLD;

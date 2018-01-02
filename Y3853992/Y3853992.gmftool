@@ -62,8 +62,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="TeamMembers"
-          description="Create new TeamMembers">
+          title="Requirements"
+          description="Create new Requirements">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

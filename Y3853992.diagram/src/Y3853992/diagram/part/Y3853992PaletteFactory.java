@@ -50,7 +50,7 @@ public class Y3853992PaletteFactory {
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
 		paletteContainer.add(createConflict1CreationTool());
 		paletteContainer.add(createDecomposition2CreationTool());
-		paletteContainer.add(createTeamMembers3CreationTool());
+		paletteContainer.add(createRequirements3CreationTool());
 		paletteContainer.add(createVerifies4CreationTool());
 		return paletteContainer;
 	}
@@ -120,12 +120,12 @@ public class Y3853992PaletteFactory {
 	/**
 	* @generated
 	*/
-	private ToolEntry createTeamMembers3CreationTool() {
-		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.TeamMembers3CreationTool_title,
-				Messages.TeamMembers3CreationTool_desc,
-				Collections.singletonList(Y3853992ElementTypes.RequirementTeamMembers_4005));
-		entry.setId("createTeamMembers3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(Y3853992ElementTypes.getImageDescriptor(Y3853992ElementTypes.RequirementTeamMembers_4005));
+	private ToolEntry createRequirements3CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(Messages.Requirements3CreationTool_title,
+				Messages.Requirements3CreationTool_desc,
+				Collections.singletonList(Y3853992ElementTypes.TeamMemberRequirements_4009));
+		entry.setId("createRequirements3CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(Y3853992ElementTypes.getImageDescriptor(Y3853992ElementTypes.TeamMemberRequirements_4009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

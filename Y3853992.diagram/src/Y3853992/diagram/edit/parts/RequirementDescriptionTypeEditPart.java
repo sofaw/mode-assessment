@@ -502,7 +502,7 @@ public class RequirementDescriptionTypeEditPart extends CompartmentEditPart impl
 	* @generated
 	*/
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**

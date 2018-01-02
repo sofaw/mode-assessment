@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Y3853992.Y3853992Package#getTeamMember()
- * @model annotation="gmf.node label='name'"
+ * @model annotation="gmf.node figure='ellipse' margin='10' label='name' label.view.pattern='Team member: {0}' border.color='0,255,0' border.width='3'"
  * @generated
  */
 public interface TeamMember extends EObject {
@@ -64,6 +64,7 @@ public interface TeamMember extends EObject {
 	 * @see Y3853992.Y3853992Package#getTeamMember_Requirements()
 	 * @see Y3853992.Requirement#getTeamMembers
 	 * @model opposite="teamMembers"
+	 *        annotation="gmf.link style='dot' target.decoration='arrow' color='0,255,0'"
 	 * @generated
 	 */
 	EList<Requirement> getRequirements();

@@ -3,6 +3,7 @@
  */
 package Y3853992.diagram.edit.parts;
 
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RoundedRectangle;
@@ -264,26 +265,27 @@ public class TeamMemberEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class TeamMemberFigure extends RoundedRectangle {
+	public class TeamMemberFigure extends Ellipse {
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private WrappingLabel fFigureTeamMemberLabelFigure;
 
 		/**
-		 * @generated
-		 */
+			 * @generated
+			 */
 		public TeamMemberFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5), getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
+			this.setLineWidth(3);
+			this.setForegroundColor(THIS_FORE);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(10)));
 			createContents();
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		private void createContents() {
 
 			fFigureTeamMemberLabelFigure = new WrappingLabel();
@@ -295,12 +297,17 @@ public class TeamMemberEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated
-		 */
+		* @generated
+		*/
 		public WrappingLabel getFigureTeamMemberLabelFigure() {
 			return fFigureTeamMemberLabelFigure;
 		}
 
 	}
+
+	/**
+	* @generated
+	*/
+	static final Color THIS_FORE = new Color(null, 0, 255, 0);
 
 }

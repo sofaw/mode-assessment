@@ -31,9 +31,9 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementTeamMembersEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
+import Y3853992.diagram.edit.parts.TeamMemberRequirementsEditPart;
 import Y3853992.diagram.edit.parts.TestCaseEditPart;
 import Y3853992.diagram.edit.parts.TestCaseVerifiesEditPart;
 import Y3853992.diagram.part.Messages;
@@ -255,10 +255,10 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementTeamMembersEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(TestCaseVerifiesEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(TestCaseVerifiesEditPart.VISUAL_ID));
+					Y3853992VisualIDRegistry.getType(TeamMemberRequirementsEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			if (!links.isEmpty()) {
 				result.add(links);
@@ -288,11 +288,11 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					Y3853992VisualIDRegistry.getType(RequirementDecompositionEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementTeamMembersEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					Y3853992VisualIDRegistry.getType(TestCaseVerifiesEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					Y3853992VisualIDRegistry.getType(TeamMemberRequirementsEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
@@ -322,15 +322,15 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 		case TeamMemberEditPart.VISUAL_ID: {
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Node sv = (Node) view;
-			Y3853992NavigatorGroup incominglinks = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TeamMember_2009_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
+			Y3853992NavigatorGroup outgoinglinks = new Y3853992NavigatorGroup(
+					Messages.NavigatorGroupName_TeamMember_2009_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementTeamMembersEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					Y3853992VisualIDRegistry.getType(TeamMemberRequirementsEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
 			}
 			return result.toArray();
 		}
@@ -385,31 +385,6 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			return result.toArray();
 		}
 
-		case RequirementTeamMembersEditPart.VISUAL_ID: {
-			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_RequirementTeamMembers_4005_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_RequirementTeamMembers_4005_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(TeamMemberEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target, true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source, true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
 		case ConflictEditPart.VISUAL_ID: {
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Edge sv = (Edge) view;
@@ -423,6 +398,31 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			target.addChildren(createNavigatorItems(connectedViews, target, true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
 					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source, true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case TeamMemberRequirementsEditPart.VISUAL_ID: {
+			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(
+					Messages.NavigatorGroupName_TeamMemberRequirements_4009_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(
+					Messages.NavigatorGroupName_TeamMemberRequirements_4009_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					Y3853992VisualIDRegistry.getType(TeamMemberEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source, true));
 			if (!target.isEmpty()) {
 				result.add(target);

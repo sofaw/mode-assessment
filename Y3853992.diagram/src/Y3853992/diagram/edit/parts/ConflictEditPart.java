@@ -68,6 +68,7 @@ public class ConflictEditPart extends ConnectionNodeEditPart implements ITreeBra
 		 * @generated
 		 */
 		public ConflictFigure() {
+			this.setLineWidth(2);
 			this.setLineStyle(Graphics.LINE_DOT);
 			this.setForegroundColor(THIS_FORE);
 

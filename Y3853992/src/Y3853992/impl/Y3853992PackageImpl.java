@@ -479,8 +479,10 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		createGmf_1Annotations();
 		// gmf.node
 		createGmf_2Annotations();
-		// gmf.link
+		// gmf.label
 		createGmf_3Annotations();
+		// gmf.link
+		createGmf_4Annotations();
 	}
 
 	/**
@@ -526,19 +528,56 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		  (requirementEClass, 
 		   source, 
 		   new String[] {
-			 "label", "type,description"
+			 "label", "identifier, type",
+			 "label.view.pattern", "{1} requirement {0}",
+			 "border.color", "0,0,0",
+			 "border.width", "3"
 		   });	
 		addAnnotation
 		  (testCaseEClass, 
 		   source, 
 		   new String[] {
-			 "label", "description"
+			 "figure", "polygon",
+			 "polygon.x", "40 80 40 0",
+			 "polygon.y", "0 60 120 60",
+			 "margin", "20",
+			 "label", "description",
+			 "label.view.pattern", "Test case: {0}",
+			 "border.color", "0,0,255",
+			 "border.width", "3"
 		   });	
 		addAnnotation
 		  (teamMemberEClass, 
 		   source, 
 		   new String[] {
-			 "label", "name"
+			 "figure", "ellipse",
+			 "margin", "10",
+			 "label", "name",
+			 "label.view.pattern", "Team member: {0}",
+			 "border.color", "0,255,0",
+			 "border.width", "3"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>gmf.label</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGmf_3Annotations() {
+		String source = "gmf.label";	
+		addAnnotation
+		  (getRequirement_Description(), 
+		   source, 
+		   new String[] {
+			 "label.pattern", "Description: {0}"
+		   });	
+		addAnnotation
+		  (getRequirement_Progress(), 
+		   source, 
+		   new String[] {
+			 "label.pattern", "Progress: {0}"
 		   });
 	}
 
@@ -548,20 +587,15 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createGmf_3Annotations() {
+	protected void createGmf_4Annotations() {
 		String source = "gmf.link";	
 		addAnnotation
 		  (getRequirement_Decomposition(), 
 		   source, 
 		   new String[] {
 			 "target.decoration", "arrow",
-			 "color", "0,0,0"
-		   });	
-		addAnnotation
-		  (getRequirement_TeamMembers(), 
-		   source, 
-		   new String[] {
-			 "style", "dot"
+			 "color", "0,0,0",
+			 "width", "3"
 		   });	
 		addAnnotation
 		  (conflictEClass, 
@@ -570,7 +604,8 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 			 "source", "first",
 			 "target", "second",
 			 "style", "dot",
-			 "color", "255,0,0"
+			 "color", "255,0,0",
+			 "width", "2"
 		   });	
 		addAnnotation
 		  (getTestCase_Verifies(), 
@@ -579,6 +614,14 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 			 "style", "dash",
 			 "target.decoration", "arrow",
 			 "color", "0,0,255"
+		   });	
+		addAnnotation
+		  (getTeamMember_Requirements(), 
+		   source, 
+		   new String[] {
+			 "style", "dot",
+			 "target.decoration", "arrow",
+			 "color", "0,255,0"
 		   });
 	}
 
