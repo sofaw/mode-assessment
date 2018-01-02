@@ -1,17 +1,52 @@
-<!doctype html>
-<style> .indented {padding-left: 50pt;} </style>
+<!DOCTYPE html>
 <html>
 <style>
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+.indented {
+	padding-left: 50pt;
 }
 
-/* Style the buttons inside the tab */
+#progress-container {
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
+
+#showDetails {
+	padding-top: 0px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+}
+
+#showDetails summary::-webkit-details-marker { 
+	display: none;
+}
+
+#showDetails summary {
+	text-decoration: underline;
+	color: #0000ff;
+}
+
+#showDetails:hover {
+	cursor: pointer;
+}
+
+details summary::-webkit-details-marker:hover {
+	cursor: pointer;
+}
+
+#hideCompleted {
+	background-color: #f1f1f1;
+	margin: 20px;
+	font-size: 17px;
+	border-style: hidden;
+	border-radius: 5px;
+}
+
+#hideCompleted:hover {
+    box-shadow: 5px 10px 8px #888888;
+}
+
 .tab button {
-    background-color: inherit;
+	background-color: inherit;
     float: left;
     border: none;
     outline: none;
@@ -21,9 +56,15 @@
     font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #ddd;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
 }
 
 /* Create an active/current tablink class */
@@ -63,100 +104,100 @@
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 0
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="70.0" aria-valuemin="0" aria-valuemax="100" style="width:70.0%">70.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: Customer</p>
-  			      <p>Description:"Requirement 0"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: Customer</p>
+  		        <p>Description:"Requirement 0"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Richard</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 1
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 1"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 1"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Richard</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 1"</li>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 2
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 2"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 2"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Richard</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 3
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 3"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 3"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Richard</li>
 			<li>Pauline</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
 		
 		</details>
@@ -174,28 +215,28 @@
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 4
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="90.0" aria-valuemin="0" aria-valuemax="100" style="width:90.0%">90.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 4"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 4"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Richard</li>
 			<li>Pauline</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
 		
 		</details>
@@ -207,48 +248,48 @@
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 5
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: Customer</p>
-  			      <p>Description:"Requirement 5"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: Customer</p>
+  		        <p>Description:"Requirement 5"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Lauren</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 6
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 6"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 6"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Lauren</li>
 			<li>Pauline</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 6, 7"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
 		
 		</details>
@@ -258,28 +299,28 @@
 		<div class="notCompleted">
 		<details>
   			<summary>Requirement: 7
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 7"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 7"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Lauren</li>
 			<li>Pauline</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 6, 7"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
 		
 		</details>
@@ -291,49 +332,49 @@
 		<div class="completed">
 		<details>
   			<summary>Requirement: 8
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="100.0" aria-valuemin="0" aria-valuemax="100" style="width:100.0%">100.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: Customer</p>
-  			      <p>Description:"Requirement 8"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: Customer</p>
+  		        <p>Description:"Requirement 8"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Sam</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
   				<div class="indented">
 		<div class="completed">
 		<details>
   			<summary>Requirement: 9
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					<div class="progress-bar" role="progressbar" aria-valuenow="100.0" aria-valuemin="0" aria-valuemax="100" style="width:100.0%">100.0%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: System</p>
-  			      <p>Description:"Requirement 9"</p>
-  			      <p>Team Members: 	<ul>
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: System</p>
+  		        <p>Description:"Requirement 9"</p>
+  		        <p>Team Members: 	<ul>
 			<li>Sam</li>
 			<li>Pauline</li>
 	</ul>
 </p>
-  			        <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul>
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 9"</li>
 	</ul>
 </p>
-  			  </details>
-  			</div>	
+  		    </details>
+  			
   			</summary>
 		
 		</details>

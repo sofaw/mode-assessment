@@ -1,17 +1,52 @@
-<!doctype html>
-<style> .indented {padding-left: 50pt;} </style>
+<!DOCTYPE html>
 <html>
 <style>
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+.indented {
+	padding-left: 50pt;
 }
 
-/* Style the buttons inside the tab */
+#progress-container {
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
+
+#showDetails {
+	padding-top: 0px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+}
+
+#showDetails summary::-webkit-details-marker { 
+	display: none;
+}
+
+#showDetails summary {
+	text-decoration: underline;
+	color: #0000ff;
+}
+
+#showDetails:hover {
+	cursor: pointer;
+}
+
+details summary::-webkit-details-marker:hover {
+	cursor: pointer;
+}
+
+#hideCompleted {
+	background-color: #f1f1f1;
+	margin: 20px;
+	font-size: 17px;
+	border-style: hidden;
+	border-radius: 5px;
+}
+
+#hideCompleted:hover {
+    box-shadow: 5px 10px 8px #888888;
+}
+
 .tab button {
-    background-color: inherit;
+	background-color: inherit;
     float: left;
     border: none;
     outline: none;
@@ -21,9 +56,15 @@
     font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #ddd;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
 }
 
 /* Create an active/current tablink class */
@@ -142,23 +183,23 @@ function openTab(evt, tabName) {
 	[%}%]
 		<details>
   			<summary>Requirement: [%=self.identifier%]
-  			<div class="container" style="max-width:100%">
+  			<div class="container" id="progress-container" style="max-width:100%">
   				<div class="progress">
   					[% var progressPercent = self.progress * 100; %]
   					<div class="progress-bar" role="progressbar" aria-valuenow="[%=progressPercent%]" aria-valuemin="0" aria-valuemax="100" style="width:[%=progressPercent%]%">[%=progressPercent%]%</div>
   				</div>	
   			</div>
-  			<div class="indented">
-  			  <details>
-  			    <summary>show details</summary>
-  			      <p>Type: [%=self.type%]</p>
-  			      <p>Description:"[%=self.description%]"</p>
-  			      <p>Team Members: [% self.printTeamMembers(); %]</p>
-  			      [% if(self.type == RequirementType#System) { %]
-  			        <p>Test Cases: [% self.printTestCases(); %]</p>
-  			      [% } %]
-  			  </details>
-  			</div>	
+  			
+  			<details id="showDetails">
+  			  <summary>show details</summary>
+  			    <p>Type: [%=self.type%]</p>
+  		        <p>Description:"[%=self.description%]"</p>
+  		        <p>Team Members: [% self.printTeamMembers(); %]</p>
+  		        [% if(self.type == RequirementType#System) { %]
+  		          <p>Test Cases: [% self.printTestCases(); %]</p>
+  		        [% } %]
+  		    </details>
+  			
   			</summary>
 			[%for (req in self.decomposition) {%]
   				<div class="indented">
