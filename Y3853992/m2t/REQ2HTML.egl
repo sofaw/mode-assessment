@@ -5,6 +5,10 @@ body {
 	font-family: "Arial";
 }
 
+p {
+  font-size: 18px;
+}
+
 .indented {
 	padding-left: 50pt;
 }
@@ -270,7 +274,7 @@ function openTab(evt, tabName) {
 [% } %]
 
 [% operation TeamMember showAssignedRequirements() { %]
-	<h4>[%=self.name%]</h4>
+	<h2>[%=self.name%]</h2>
 	<ul style="background-color: #00ff00; width: 30%;">
 		[% for(req in self.requirements) { %]
 			<li>Requirement: [%=req.identifier%]</li>
@@ -279,7 +283,7 @@ function openTab(evt, tabName) {
 [% } %]
 
 [% operation TestCase showVerifies() { %]
-	<h4>Test case: "[%=self.description%]"</h4>
+	<h2>Test case: "[%=self.description%]"</h2>
 	<p>Verifies requirements:</p>
 	<ul style="background-color: #00ffff; width: 30%;">
 		[% for(req in self.verifies) { %]
