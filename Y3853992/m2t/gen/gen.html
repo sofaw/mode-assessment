@@ -9,15 +9,12 @@ body {
 	padding-left: 50pt;
 }
 
-#progress-container {
-	padding-top: 15px;
-	padding-bottom: 0px;
+#leafNode::-webkit-details-marker { 
+	display: none;
 }
 
 #showDetails {
-	padding-top: 0px;
-	padding-left: 15px;
-	padding-bottom: 10px;
+	padding: 10px 20px;
 }
 
 #showDetails summary::-webkit-details-marker { 
@@ -39,10 +36,11 @@ details summary::-webkit-details-marker:hover {
 
 #hideCompleted {
 	background-color: #f1f1f1;
-	margin: 20px;
+	margin-bottom: 20px;
 	font-size: 17px;
 	border-style: hidden;
 	border-radius: 5px;
+	display: inline;
 }
 
 #hideCompleted:hover {
@@ -85,14 +83,15 @@ details summary::-webkit-details-marker:hover {
 }
 
 #progressContainer {
-    width: 100%;
+    width: inherit;
     background-color: grey;
+    margin: 10px 20px;
 }
 
 #progressBar {
     width: 0;
     height: 30px;
-    background-color: #4CAF50;
+    background-color: #0000FF;
     text-align: center;
     line-height: 30px;
     color: white; 
@@ -102,13 +101,6 @@ details summary::-webkit-details-marker:hover {
 
 <head>
 	<title>Y3853992</title>
-	<!--
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    -->
 </head>
 <body>
 
@@ -123,33 +115,38 @@ details summary::-webkit-details-marker:hover {
   <h3>Requirements</h3> 
   <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
 		<div class="notCompleted">
+
 		<details>
-  			<summary>Requirement: 0  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 70.0%;">70.0%</div>
-			</div>
+			<summary>
+  			Requirement: 0  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: Customer</p>
   		        <p>Description:"Requirement 0"</p>
   		        <p>Team Members: 	<ul>
 			<li>Richard</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 70.0%;">70.0%</div>
+			</div>
   			
   			</summary>
   				<div class="indented">
 		<div class="notCompleted">
+
 		<details>
-  			<summary>Requirement: 1  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
-			</div>
+			<summary>
+  			Requirement: 1  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 1"</p>
   		        <p>Team Members: 	<ul>
@@ -161,19 +158,24 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
-  			
-  			</summary>
-  				<div class="indented">
-		<div class="notCompleted">
-		<details>
-  			<summary>Requirement: 2  			
+  						
   			<div id="progressContainer">
  			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
 			</div>
   			
+  			</summary>
+  				<div class="indented">
+		<div class="notCompleted">
+
+		<details>
+			<summary>
+  			Requirement: 2  
+  			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 2"</p>
   		        <p>Team Members: 	<ul>
@@ -184,19 +186,24 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
-  			
-  			</summary>
-  				<div class="indented">
-		<div class="notCompleted">
-		<details>
-  			<summary>Requirement: 3  			
+  						
   			<div id="progressContainer">
  			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
 			</div>
   			
+  			</summary>
+  				<div class="indented">
+		<div class="notCompleted">
+
+		<details>
+			<summary id="leafNode">
+  			Requirement: 3  
+  			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 3"</p>
   		        <p>Team Members: 	<ul>
@@ -209,7 +216,12 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
+			</div>
   			
   			</summary>
 		
@@ -226,14 +238,14 @@ details summary::-webkit-details-marker:hover {
   				</div>	
   				<div class="indented">
 		<div class="notCompleted">
+
 		<details>
-  			<summary>Requirement: 4  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 90.0%;">90.0%</div>
-			</div>
+			<summary id="leafNode">
+  			Requirement: 4  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 4"</p>
   		        <p>Team Members: 	<ul>
@@ -246,7 +258,12 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 90.0%;">90.0%</div>
+			</div>
   			
   			</summary>
 		
@@ -257,33 +274,38 @@ details summary::-webkit-details-marker:hover {
 		</details>
 	</div>
 		<div class="notCompleted">
+
 		<details>
-  			<summary>Requirement: 5  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
-			</div>
+			<summary>
+  			Requirement: 5  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: Customer</p>
   		        <p>Description:"Requirement 5"</p>
   		        <p>Team Members: 	<ul>
 			<li>Lauren</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
+			</div>
   			
   			</summary>
   				<div class="indented">
 		<div class="completed">
+
 		<details>
-  			<summary>Requirement: 6  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
-			</div>
+			<summary id="leafNode">
+  			Requirement: 6  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 6"</p>
   		        <p>Team Members: 	<ul>
@@ -295,7 +317,12 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 6, 7"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
+			</div>
   			
   			</summary>
 		
@@ -304,14 +331,14 @@ details summary::-webkit-details-marker:hover {
   				</div>	
   				<div class="indented">
 		<div class="notCompleted">
+
 		<details>
-  			<summary>Requirement: 7  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 0.0%;">0.0%</div>
-			</div>
+			<summary id="leafNode">
+  			Requirement: 7  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 7"</p>
   		        <p>Team Members: 	<ul>
@@ -324,7 +351,12 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 6, 7"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 0.0%;">0.0%</div>
+			</div>
   			
   			</summary>
 		
@@ -335,33 +367,38 @@ details summary::-webkit-details-marker:hover {
 		</details>
 	</div>
 		<div class="completed">
+
 		<details>
-  			<summary>Requirement: 8  			
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
-			</div>
+			<summary>
+  			Requirement: 8  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: Customer</p>
   		        <p>Description:"Requirement 8"</p>
   		        <p>Team Members: 	<ul>
 			<li>Sam</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
-  			
-  			</summary>
-  				<div class="indented">
-		<div class="completed">
-		<details>
-  			<summary>Requirement: 9  			
+  						
   			<div id="progressContainer">
  			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
 			</div>
   			
+  			</summary>
+  				<div class="indented">
+		<div class="completed">
+
+		<details>
+			<summary id="leafNode">
+  			Requirement: 9  
+  			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: System</p>
   		        <p>Description:"Requirement 9"</p>
   		        <p>Team Members: 	<ul>
@@ -374,7 +411,12 @@ details summary::-webkit-details-marker:hover {
 			<li>"Verifies 9"</li>
 	</ul>
 </p>
+  		       </div>
   		    </details>
+  						
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
+			</div>
   			
   			</summary>
 		

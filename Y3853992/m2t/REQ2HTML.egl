@@ -9,15 +9,12 @@ body {
 	padding-left: 50pt;
 }
 
-#progress-container {
-	padding-top: 15px;
-	padding-bottom: 0px;
+#leafNode::-webkit-details-marker { 
+	display: none;
 }
 
 #showDetails {
-	padding-top: 0px;
-	padding-left: 15px;
-	padding-bottom: 10px;
+	padding: 10px 20px;
 }
 
 #showDetails summary::-webkit-details-marker { 
@@ -39,10 +36,11 @@ details summary::-webkit-details-marker:hover {
 
 #hideCompleted {
 	background-color: #f1f1f1;
-	margin: 20px;
+	margin-bottom: 20px;
 	font-size: 17px;
 	border-style: hidden;
 	border-radius: 5px;
+	display: inline;
 }
 
 #hideCompleted:hover {
@@ -85,14 +83,15 @@ details summary::-webkit-details-marker:hover {
 }
 
 #progressContainer {
-    width: 100%;
+    width: inherit;
     background-color: grey;
+    margin: 10px 20px;
 }
 
 #progressBar {
     width: 0;
     height: 30px;
-    background-color: #4CAF50;
+    background-color: #0000FF;
     text-align: center;
     line-height: 30px;
     color: white; 
@@ -102,13 +101,6 @@ details summary::-webkit-details-marker:hover {
 
 <head>
 	<title>Y3853992</title>
-	<!--
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    -->
 </head>
 <body>
 
@@ -202,22 +194,31 @@ function openTab(evt, tabName) {
 	[%} else {%]
 		<div class="notCompleted">
 	[%}%]
+
 		<details>
-  			<summary>Requirement: [%=self.identifier%]  			
-  			[% var progressPercent = self.progress * 100; %]
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: [%=progressPercent%]%;">[%=progressPercent%]%</div>
-			</div>
+  		[% if(self.decomposition.size() == 0) {%]
+			<summary id="leafNode">
+		[%} else {%]
+			<summary>
+		[%}%]
+  			Requirement: [%=self.identifier%]  
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
+  			  <div class="indented">
   			    <p>Type: [%=self.type%]</p>
   		        <p>Description:"[%=self.description%]"</p>
   		        <p>Team Members: [% self.printTeamMembers(); %]</p>
   		        [% if(self.type == RequirementType#System) { %]
   		          <p>Test Cases: [% self.printTestCases(); %]</p>
   		        [% } %]
+  		       </div>
   		    </details>
+  						
+  			[% var progressPercent = self.progress * 100; %]
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: [%=progressPercent%]%;">[%=progressPercent%]%</div>
+			</div>
   			
   			</summary>
 			[%for (req in self.decomposition) {%]
