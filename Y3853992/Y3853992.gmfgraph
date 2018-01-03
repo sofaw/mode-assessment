@@ -6,7 +6,7 @@
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TeamMemberRequirementsFigureTargetDecoration"/>
     <descriptors name="RequirementFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RequirementFigure" lineWidth="3">
-        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <foregroundColor xsi:type="gmfgraph:RGBColor" blue="255"/>
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="5" left="5" bottom="5" right="5"/>
         </border>
@@ -22,7 +22,7 @@
     </descriptors>
     <descriptors name="TestCaseFigure">
       <actualFigure xsi:type="gmfgraph:ScalablePolygon" name="TestCaseFigure" lineWidth="3">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" blue="255"/>
+        <foregroundColor xsi:type="gmfgraph:RGBColor" green="255" blue="255"/>
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="20" left="20" bottom="20" right="20"/>
         </border>
@@ -51,7 +51,7 @@
     </descriptors>
     <descriptors name="RequirementDecompositionFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="RequirementDecompositionFigure" lineWidth="3" targetDecoration="//@figures.0/@figures.0">
-        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+        <foregroundColor xsi:type="gmfgraph:RGBColor" blue="255"/>
       </actualFigure>
     </descriptors>
     <descriptors name="RequirementDecompositionExternalLabelFigure">
@@ -59,7 +59,7 @@
     </descriptors>
     <descriptors name="TestCaseVerifiesFigure">
       <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TestCaseVerifiesFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.1">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" blue="255"/>
+        <foregroundColor xsi:type="gmfgraph:RGBColor" green="255" blue="255"/>
       </actualFigure>
     </descriptors>
     <descriptors name="TestCaseVerifiesExternalLabelFigure">

@@ -23,7 +23,7 @@
     <eAnnotations source="gmf.node">
       <details key="label" value="identifier, type"/>
       <details key="label.view.pattern" value="{1} requirement {0}"/>
-      <details key="border.color" value="0,0,0"/>
+      <details key="border.color" value="0,0,255"/>
       <details key="border.width" value="3"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
@@ -45,7 +45,7 @@
         eType="#//Requirement" eOpposite="#//Requirement/parentDecomposition">
       <eAnnotations source="gmf.link">
         <details key="target.decoration" value="arrow"/>
-        <details key="color" value="0,0,0"/>
+        <details key="color" value="0,0,255"/>
         <details key="width" value="3"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -75,7 +75,7 @@
       <details key="margin" value="20"/>
       <details key="label" value="description"/>
       <details key="label.view.pattern" value="Test case: {0}"/>
-      <details key="border.color" value="0,0,255"/>
+      <details key="border.color" value="0,255,255"/>
       <details key="border.width" value="3"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
@@ -85,7 +85,7 @@
       <eAnnotations source="gmf.link">
         <details key="style" value="dash"/>
         <details key="target.decoration" value="arrow"/>
-        <details key="color" value="0,0,255"/>
+        <details key="color" value="0,255,255"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

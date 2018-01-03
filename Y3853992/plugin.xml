@@ -12,5 +12,24 @@
             uri="http://Y3853992"
             class="Y3853992.Y3853992Package"/>
    </extension>
+   <extension
+         point="org.eclipse.epsilon.evl.emf.validation">
+      <constraintsBinding
+            compose="true"
+            constraints="validation/Y3853992.evl"
+            namespaceURI="http://Y3853992">
+      </constraintsBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+            markerType="org.eclipse.epsilon.eugenia.examples.filesystem.diagram.diagnostic">
+      </markerResolutionGenerator>
+      <markerResolutionGenerator
+            class="org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator"
+            markerType="org.eclipse.emf.ecore.diagnostic">
+      </markerResolutionGenerator>
+   </extension>
 
 </plugin>

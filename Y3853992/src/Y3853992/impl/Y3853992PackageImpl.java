@@ -530,7 +530,7 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		   new String[] {
 			 "label", "identifier, type",
 			 "label.view.pattern", "{1} requirement {0}",
-			 "border.color", "0,0,0",
+			 "border.color", "0,0,255",
 			 "border.width", "3"
 		   });	
 		addAnnotation
@@ -543,7 +543,7 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 			 "margin", "20",
 			 "label", "description",
 			 "label.view.pattern", "Test case: {0}",
-			 "border.color", "0,0,255",
+			 "border.color", "0,255,255",
 			 "border.width", "3"
 		   });	
 		addAnnotation
@@ -594,7 +594,7 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		   source, 
 		   new String[] {
 			 "target.decoration", "arrow",
-			 "color", "0,0,0",
+			 "color", "0,0,255",
 			 "width", "3"
 		   });	
 		addAnnotation
@@ -613,7 +613,7 @@ public class Y3853992PackageImpl extends EPackageImpl implements Y3853992Package
 		   new String[] {
 			 "style", "dash",
 			 "target.decoration", "arrow",
-			 "color", "0,0,255"
+			 "color", "0,255,255"
 		   });	
 		addAnnotation
 		  (getTeamMember_Requirements(), 
