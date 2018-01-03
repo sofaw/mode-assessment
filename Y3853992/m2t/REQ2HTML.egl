@@ -79,15 +79,32 @@ details summary::-webkit-details-marker:hover {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+#progressContainer {
+    width: 100%;
+    background-color: grey;
+}
+
+#progressBar {
+    width: 0;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    color: white; 
+}
+
 </style>
 
 <head>
 	<title>Y3853992</title>
+	<!--
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    -->
 </head>
 <body>
 
@@ -99,7 +116,7 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="Requirements" class="tabcontent">
-  <h3>Requirements</h3>
+  <h3>Requirements</h3> 
   <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
   [%for (rootReq in rm.requirements.select(r | r.parentDecomposition.size() == 0)) {%]
     [% rootReq.generateRequirementTree(); %]
@@ -182,13 +199,11 @@ function openTab(evt, tabName) {
 		<div class="notCompleted">
 	[%}%]
 		<details>
-  			<summary>Requirement: [%=self.identifier%]
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					[% var progressPercent = self.progress * 100; %]
-  					<div class="progress-bar" role="progressbar" aria-valuenow="[%=progressPercent%]" aria-valuemin="0" aria-valuemax="100" style="width:[%=progressPercent%]%">[%=progressPercent%]%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: [%=self.identifier%]  			
+  			[% var progressPercent = self.progress * 100; %]
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: [%=progressPercent%]%;">[%=progressPercent%]%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>

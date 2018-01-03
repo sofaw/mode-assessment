@@ -79,15 +79,32 @@ details summary::-webkit-details-marker:hover {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+#progressContainer {
+    width: 100%;
+    background-color: grey;
+}
+
+#progressBar {
+    width: 0;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    color: white; 
+}
+
 </style>
 
 <head>
 	<title>Y3853992</title>
+	<!--
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    -->
 </head>
 <body>
 
@@ -99,16 +116,14 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="Requirements" class="tabcontent">
-  <h3>Requirements</h3>
+  <h3>Requirements</h3> 
   <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 0
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="70.0" aria-valuemin="0" aria-valuemax="100" style="width:70.0%">70.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 0  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 70.0%;">70.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -124,12 +139,10 @@ details summary::-webkit-details-marker:hover {
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 1
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 1  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -150,12 +163,10 @@ details summary::-webkit-details-marker:hover {
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 2
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 2  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -175,12 +186,10 @@ details summary::-webkit-details-marker:hover {
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 3
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="50.0" aria-valuemin="0" aria-valuemax="100" style="width:50.0%">50.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 3  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -214,12 +223,10 @@ details summary::-webkit-details-marker:hover {
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 4
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="90.0" aria-valuemin="0" aria-valuemax="100" style="width:90.0%">90.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 4  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 90.0%;">90.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -247,12 +254,10 @@ details summary::-webkit-details-marker:hover {
 	</div>
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 5
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 5  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 50.0%;">50.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -266,14 +271,12 @@ details summary::-webkit-details-marker:hover {
   			
   			</summary>
   				<div class="indented">
-		<div class="notCompleted">
+		<div class="completed">
 		<details>
-  			<summary>Requirement: 6
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 6  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -298,12 +301,10 @@ details summary::-webkit-details-marker:hover {
   				<div class="indented">
 		<div class="notCompleted">
 		<details>
-  			<summary>Requirement: 7
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%">0.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 7  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 0.0%;">0.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -331,12 +332,10 @@ details summary::-webkit-details-marker:hover {
 	</div>
 		<div class="completed">
 		<details>
-  			<summary>Requirement: 8
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="100.0" aria-valuemin="0" aria-valuemax="100" style="width:100.0%">100.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 8  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>
@@ -352,12 +351,10 @@ details summary::-webkit-details-marker:hover {
   				<div class="indented">
 		<div class="completed">
 		<details>
-  			<summary>Requirement: 9
-  			<div class="container" id="progress-container" style="max-width:100%">
-  				<div class="progress">
-  					<div class="progress-bar" role="progressbar" aria-valuenow="100.0" aria-valuemin="0" aria-valuemax="100" style="width:100.0%">100.0%</div>
-  				</div>	
-  			</div>
+  			<summary>Requirement: 9  			
+  			<div id="progressContainer">
+ 			  <div id="progressBar" style="width: 100.0%;">100.0%</div>
+			</div>
   			
   			<details id="showDetails">
   			  <summary>show details</summary>

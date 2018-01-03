@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://Y3853992">
+  <requirements description="Requirement 0" progress="0.7" decomposition="//@requirements.1 //@requirements.4" teamMembers="//@teamMembers.0"/>
+  <requirements identifier="1" description="Requirement 1" progress="0.5" type="System" decomposition="//@requirements.2" parentDecomposition="//@requirements.0" teamMembers="//@teamMembers.0" testCases="//@testCases.1 //@testCases.2"/>
+  <requirements identifier="2" description="Requirement 2" progress="0.5" type="System" decomposition="//@requirements.3" parentDecomposition="//@requirements.1" teamMembers="//@teamMembers.0" testCases="//@testCases.2"/>
+  <requirements identifier="3" description="Requirement 3" progress="0.5" type="System" parentDecomposition="//@requirements.2" teamMembers="//@teamMembers.0 //@teamMembers.2" testCases="//@testCases.0 //@testCases.2"/>
+  <requirements identifier="4" description="Requirement 4" progress="0.9" type="System" parentDecomposition="//@requirements.0" teamMembers="//@teamMembers.0 //@teamMembers.2" testCases="//@testCases.0 //@testCases.2"/>
+  <requirements identifier="5" description="Requirement 5" progress="0.5" decomposition="//@requirements.6" teamMembers="//@teamMembers.1"/>
+  <requirements identifier="7" description="Requirement 7" type="System" parentDecomposition="//@requirements.5" teamMembers="//@teamMembers.1 //@teamMembers.2" testCases="//@testCases.0 //@testCases.3"/>
+  <testCases description="Verifies 3, 4, 7, 9" verifies="//@requirements.3 //@requirements.4 //@requirements.6"/>
+  <testCases description="Verifies 1" verifies="//@requirements.1"/>
+  <testCases description="Verifies 1, 2, 3, 4" verifies="//@requirements.1 //@requirements.2 //@requirements.3 //@requirements.4"/>
+  <testCases description="Verifies 6, 7" verifies="//@requirements.6"/>
+  <teamMembers name="Richard" requirements="//@requirements.0 //@requirements.1 //@requirements.2 //@requirements.3 //@requirements.4"/>
+  <teamMembers name="Lauren" requirements="//@requirements.5 //@requirements.6"/>
+  <teamMembers name="Pauline" requirements="//@requirements.4 //@requirements.3 //@requirements.6"/>
+</RequirementsModel>
