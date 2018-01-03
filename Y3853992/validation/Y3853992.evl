@@ -38,19 +38,16 @@ context Conflict {
 		}
 	}
 	
-	// TODO: Problem w this is that we get duplicate error messages
-	/*constraint NoDuplicateConflicts {
-		check : conflictIsNotDuplicate(self)
+	constraint NoDuplicateConflicts {
+		check {
+			var conflicts = Conflict.allInstances;
+			var duplicates = conflicts.select(c | (c.first == self.first and c.second == self.second) 
+				or (c.first == self.second and c.second == self.first));
+			return (duplicates.size() == 1); // conflict should only appear once
+		}
 		message : "Duplicate of conflict between requirements " + self.first.`identifier`
 			+ " and " + self.second.`identifier` + "\"."
-			
-		fix {
-			title : "Remove duplicate conflict."
-			do {
-				delete self;
-			}
-		}
-	}*/
+	}
 }
 
 context Requirement {
@@ -133,14 +130,3 @@ context TestCase {
 		}
 	}
 }
-
-// 1. TODO: check no conflicts w/n requirements decomposition tree ?
-// 2. TODO: check for duplicate conflicts
-/*operation conflictIsNotDuplicate(conflict : Conflict) : Boolean {
-	var conflicts = Conflict.allInstances;
-	var duplicates = conflicts.select(c | (c.first == conflict.first and c.second == conflict.second));
-	return (duplicates.size() == 1); // conflict should only appear once
-}*/
-
-
-	
