@@ -13,6 +13,31 @@ context Conflict {
 		}
 	}
 	
+	critique ConflictsWithinRequirementDecomposition {
+		check {
+			/* For 'first' and 'second' create a set of all requirements (including themselves) 
+			above them in the decomposition tree */
+			var firstParents = self.first.closure(r | r.parentDecomposition).asSet();
+			firstParents.add(self.first);
+			var secondParents = self.second.closure(r | r.parentDecomposition).asSet();
+			secondParents.add(self.second);
+			var disjoint = firstParents.excludingAll(secondParents);
+			
+			/* If removing all of the parents of 'second' from 'first' results in a different set from firstParents,
+			   then 'first' and 'second' have at least one parent in common and are therefore in the same tree */
+			return disjoint.size() == firstParents.size(); 
+		}
+		message : "There is a conflict within a decomposition tree at requirements " + self.first.`identifier` 
+						+ " and " + self.second.`identifier` + "\"."
+		fix {
+			title : "Delete conflict between requirements " + self.first.`identifier` 
+						+ " and " + self.second.`identifier` + "\"."
+    		do {
+    			delete self;
+    		}
+		}
+	}
+	
 	// TODO: Problem w this is that we get duplicate error messages
 	/*constraint NoDuplicateConflicts {
 		check : conflictIsNotDuplicate(self)
@@ -117,20 +142,5 @@ context TestCase {
 	return (duplicates.size() == 1); // conflict should only appear once
 }*/
 
-// Deleted redundant constraints
-/*constraint TeamMemberAssigned {
-	check : self.teamMembers.size() > 0
-	message : "Requirement must have at least one team member assigned at requirement \""
-		+ self.`identifier` + "\"."
-}*/
-/*constraint HasDescription {
-	check : self.description.isDefined()
-	message : "All test cases require a description."
-}*/
-/*constraint VerifiesAtLeastOneSystemReq {
-	guard : self.satisfies("VerifiesNoCustomerReqs")
-	check : self.verifies.size() > 0
-	message : "Test case should verify at least one System requirement at test case \"" + 
-		self.`description` + "\"."
-}*/
+
 	
