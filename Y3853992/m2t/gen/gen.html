@@ -9,12 +9,40 @@ body {
 	padding-left: 50pt;
 }
 
+details summary::-webkit-details-marker { 
+	color: #0000ff;
+}
+
+details {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  padding: 2px 6px;
+  margin: 10px 0px;
+}
+
 #leafNode::-webkit-details-marker { 
 	display: none;
 }
 
-#showDetails {
-	padding: 10px 20px;
+ul {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #ddd;
+  margin: 5px 0px;
+}
+
+summary {
+  font-size: 18px;
+}
+
+#detailsText {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 10px 20px;
+  margin: 10px 20px;
+  font-size: 16px;
 }
 
 #showDetails summary::-webkit-details-marker { 
@@ -24,6 +52,16 @@ body {
 #showDetails summary {
 	text-decoration: underline;
 	color: #0000ff;
+	padding-left: 20px;
+	font-size: 16px;
+}
+
+#showDetails summary:before {
+	content: "show details";
+}
+
+#showDetails[open] summary:before {
+	content: "hide details";
 }
 
 #showDetails:hover {
@@ -35,12 +73,13 @@ details summary::-webkit-details-marker:hover {
 }
 
 #hideCompleted {
-	background-color: #f1f1f1;
+	background-color: #0000ff;
 	margin-bottom: 20px;
-	font-size: 17px;
+	font-size: 18px;
 	border-style: hidden;
 	border-radius: 5px;
 	display: inline;
+	color: #ffffff;
 }
 
 #hideCompleted:hover {
@@ -55,7 +94,7 @@ details summary::-webkit-details-marker:hover {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .tab button:hover {
@@ -84,14 +123,14 @@ details summary::-webkit-details-marker:hover {
 
 #progressContainer {
     width: inherit;
-    background-color: grey;
+    background-color: #ddd;
     margin: 10px 20px;
 }
 
 #progressBar {
     width: 0;
     height: 30px;
-    background-color: #0000FF;
+    background-color: #0000ff;
     text-align: center;
     line-height: 30px;
     color: white; 
@@ -112,7 +151,7 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="Requirements" class="tabcontent">
-  <h3>Requirements</h3> 
+  <h1 style="color: #0000ff;">Requirements</h1> 
   <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
 		<div class="notCompleted">
 
@@ -121,12 +160,12 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 0  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: Customer</p>
-  		        <p>Description:"Requirement 0"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Richard</li>
+  		        <p>Description: "Requirement 0"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Richard</li>
 	</ul>
 </p>
   		       </div>
@@ -145,15 +184,15 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 1  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 1"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Richard</li>
+  		        <p>Description: "Requirement 1"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Richard</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 1"</li>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
@@ -174,15 +213,15 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 2  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 2"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Richard</li>
+  		        <p>Description: "Requirement 2"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Richard</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
 </p>
@@ -202,16 +241,16 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 3  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 3"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Richard</li>
-			<li>Pauline</li>
+  		        <p>Description: "Requirement 3"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Richard</li>
+			<li id="teamMember">Pauline</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
@@ -244,16 +283,16 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 4  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 4"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Richard</li>
-			<li>Pauline</li>
+  		        <p>Description: "Requirement 4"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Richard</li>
+			<li id="teamMember">Pauline</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 1, 2, 3, 4"</li>
 	</ul>
@@ -280,12 +319,12 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 5  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: Customer</p>
-  		        <p>Description:"Requirement 5"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Lauren</li>
+  		        <p>Description: "Requirement 5"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Lauren</li>
 	</ul>
 </p>
   		       </div>
@@ -304,16 +343,16 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 6  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 6"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Lauren</li>
-			<li>Pauline</li>
+  		        <p>Description: "Requirement 6"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Lauren</li>
+			<li id="teamMember">Pauline</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 6, 7"</li>
 	</ul>
 </p>
@@ -337,16 +376,16 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 7  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 7"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Lauren</li>
-			<li>Pauline</li>
+  		        <p>Description: "Requirement 7"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Lauren</li>
+			<li id="teamMember">Pauline</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 6, 7"</li>
 	</ul>
@@ -373,12 +412,12 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 8  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: Customer</p>
-  		        <p>Description:"Requirement 8"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Sam</li>
+  		        <p>Description: "Requirement 8"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Sam</li>
 	</ul>
 </p>
   		       </div>
@@ -397,16 +436,16 @@ details summary::-webkit-details-marker:hover {
   			Requirement: 9  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: System</p>
-  		        <p>Description:"Requirement 9"</p>
-  		        <p>Team Members: 	<ul>
-			<li>Sam</li>
-			<li>Pauline</li>
+  		        <p>Description: "Requirement 9"</p>
+  		        <p>Team Members: 	<ul style="background-color: #00ff00;">
+			<li id="teamMember">Sam</li>
+			<li id="teamMember">Pauline</li>
 	</ul>
 </p>
-  		          <p>Test Cases: 	<ul>
+  		          <p>Test Cases: 	<ul style="background-color: #00ffff;">
 			<li>"Verifies 3, 4, 7, 9"</li>
 			<li>"Verifies 9"</li>
 	</ul>
@@ -429,9 +468,9 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="TeamMembers" class="tabcontent">
-  <h3>Team Members</h3>
+  <h1 style="color: #00ff00;">Team Members</h1>
 	<h4>Richard</h4>
-	<ul>
+	<ul style="background-color: #00ff00; width: 30%;">
 			<li>Requirement: 0</li>
 			<li>Requirement: 1</li>
 			<li>Requirement: 2</li>
@@ -439,18 +478,18 @@ details summary::-webkit-details-marker:hover {
 			<li>Requirement: 4</li>
 	</ul>
 	<h4>Lauren</h4>
-	<ul>
+	<ul style="background-color: #00ff00; width: 30%;">
 			<li>Requirement: 5</li>
 			<li>Requirement: 6</li>
 			<li>Requirement: 7</li>
 	</ul>
 	<h4>Sam</h4>
-	<ul>
+	<ul style="background-color: #00ff00; width: 30%;">
 			<li>Requirement: 8</li>
 			<li>Requirement: 9</li>
 	</ul>
 	<h4>Pauline</h4>
-	<ul>
+	<ul style="background-color: #00ff00; width: 30%;">
 			<li>Requirement: 4</li>
 			<li>Requirement: 6</li>
 			<li>Requirement: 9</li>
@@ -460,10 +499,10 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="TestCases" class="tabcontent">
-  <h3>Test Cases</h3>      
+  <h1 style="color: #00ffff;">Test Cases</h1>      
 	<h4>Test case: "Verifies 3, 4, 7, 9"</h4>
 	<p>Verifies requirements:</p>
-	<ul>
+	<ul style="background-color: #00ffff; width: 30%;">
 			<li>Requirement: 3</li>
 			<li>Requirement: 4</li>
 			<li>Requirement: 7</li>
@@ -471,12 +510,12 @@ details summary::-webkit-details-marker:hover {
 	</ul>
 	<h4>Test case: "Verifies 1"</h4>
 	<p>Verifies requirements:</p>
-	<ul>
+	<ul style="background-color: #00ffff; width: 30%;">
 			<li>Requirement: 1</li>
 	</ul>
 	<h4>Test case: "Verifies 1, 2, 3, 4"</h4>
 	<p>Verifies requirements:</p>
-	<ul>
+	<ul style="background-color: #00ffff; width: 30%;">
 			<li>Requirement: 1</li>
 			<li>Requirement: 2</li>
 			<li>Requirement: 3</li>
@@ -484,22 +523,22 @@ details summary::-webkit-details-marker:hover {
 	</ul>
 	<h4>Test case: "Verifies 6, 7"</h4>
 	<p>Verifies requirements:</p>
-	<ul>
+	<ul style="background-color: #00ffff; width: 30%;">
 			<li>Requirement: 6</li>
 			<li>Requirement: 7</li>
 	</ul>
 	<h4>Test case: "Verifies 9"</h4>
 	<p>Verifies requirements:</p>
-	<ul>
+	<ul style="background-color: #00ffff; width: 30%;">
 			<li>Requirement: 9</li>
 	</ul>
  
 </div>
 
 <div id="Conflicts" class="tabcontent">
-  <h3>Conflicts</h3> 
+  <h1 style="color: #ff0000;">Conflicts</h1> 
   <p>There are conflicts between the following pairs of requirements:</p>  
-  <ul>   
+  <ul style="background-color: #ff0000; width: 30%;">   
       <li>0 and 5</li>
       <li>3 and 4</li>
       <li>7 and 9</li>

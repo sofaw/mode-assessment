@@ -9,12 +9,40 @@ body {
 	padding-left: 50pt;
 }
 
+details summary::-webkit-details-marker { 
+	color: #0000ff;
+}
+
+details {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  padding: 2px 6px;
+  margin: 10px 0px;
+}
+
 #leafNode::-webkit-details-marker { 
 	display: none;
 }
 
-#showDetails {
-	padding: 10px 20px;
+ul {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #ddd;
+  margin: 5px 0px;
+}
+
+summary {
+  font-size: 18px;
+}
+
+#detailsText {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 10px 20px;
+  margin: 10px 20px;
+  font-size: 16px;
 }
 
 #showDetails summary::-webkit-details-marker { 
@@ -24,6 +52,16 @@ body {
 #showDetails summary {
 	text-decoration: underline;
 	color: #0000ff;
+	padding-left: 20px;
+	font-size: 16px;
+}
+
+#showDetails summary:before {
+	content: "show details";
+}
+
+#showDetails[open] summary:before {
+	content: "hide details";
 }
 
 #showDetails:hover {
@@ -35,12 +73,13 @@ details summary::-webkit-details-marker:hover {
 }
 
 #hideCompleted {
-	background-color: #f1f1f1;
+	background-color: #0000ff;
 	margin-bottom: 20px;
-	font-size: 17px;
+	font-size: 18px;
 	border-style: hidden;
 	border-radius: 5px;
 	display: inline;
+	color: #ffffff;
 }
 
 #hideCompleted:hover {
@@ -55,7 +94,7 @@ details summary::-webkit-details-marker:hover {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .tab button:hover {
@@ -84,14 +123,14 @@ details summary::-webkit-details-marker:hover {
 
 #progressContainer {
     width: inherit;
-    background-color: grey;
+    background-color: #ddd;
     margin: 10px 20px;
 }
 
 #progressBar {
     width: 0;
     height: 30px;
-    background-color: #0000FF;
+    background-color: #0000ff;
     text-align: center;
     line-height: 30px;
     color: white; 
@@ -112,7 +151,7 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="Requirements" class="tabcontent">
-  <h3>Requirements</h3> 
+  <h1 style="color: #0000ff;">Requirements</h1> 
   <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
   [%for (rootReq in rm.requirements.select(r | r.parentDecomposition.size() == 0)) {%]
     [% rootReq.generateRequirementTree(); %]
@@ -120,23 +159,23 @@ details summary::-webkit-details-marker:hover {
 </div>
 
 <div id="TeamMembers" class="tabcontent">
-  <h3>Team Members</h3>
+  <h1 style="color: #00ff00;">Team Members</h1>
   [%for (teamMember in rm.teamMembers) {%]
     [% teamMember.showAssignedRequirements(); %]
   [%}%]
 </div>
 
 <div id="TestCases" class="tabcontent">
-  <h3>Test Cases</h3>      
+  <h1 style="color: #00ffff;">Test Cases</h1>      
   [%for (testCase in rm.testCases) {%]
     [% testCase.showVerifies(); %]
   [%}%] 
 </div>
 
 <div id="Conflicts" class="tabcontent">
-  <h3>Conflicts</h3> 
+  <h1 style="color: #ff0000;">Conflicts</h1> 
   <p>There are conflicts between the following pairs of requirements:</p>  
-  <ul>   
+  <ul style="background-color: #ff0000; width: 30%;">   
     [%for (conflict in rm.conflicts) {%]
       <li>[%=conflict.first.identifier%] and [%=conflict.second.identifier%]</li>
     [%}%] 
@@ -204,10 +243,10 @@ function openTab(evt, tabName) {
   			Requirement: [%=self.identifier%]  
   			
   			<details id="showDetails">
-  			  <summary>show details</summary>
-  			  <div class="indented">
+  			  <summary></summary>
+  			  <div class="indented" id="detailsText">
   			    <p>Type: [%=self.type%]</p>
-  		        <p>Description:"[%=self.description%]"</p>
+  		        <p>Description: "[%=self.description%]"</p>
   		        <p>Team Members: [% self.printTeamMembers(); %]</p>
   		        [% if(self.type == RequirementType#System) { %]
   		          <p>Test Cases: [% self.printTestCases(); %]</p>
@@ -232,7 +271,7 @@ function openTab(evt, tabName) {
 
 [% operation TeamMember showAssignedRequirements() { %]
 	<h4>[%=self.name%]</h4>
-	<ul>
+	<ul style="background-color: #00ff00; width: 30%;">
 		[% for(req in self.requirements) { %]
 			<li>Requirement: [%=req.identifier%]</li>
 		[% } %]
@@ -242,7 +281,7 @@ function openTab(evt, tabName) {
 [% operation TestCase showVerifies() { %]
 	<h4>Test case: "[%=self.description%]"</h4>
 	<p>Verifies requirements:</p>
-	<ul>
+	<ul style="background-color: #00ffff; width: 30%;">
 		[% for(req in self.verifies) { %]
 			<li>Requirement: [%=req.identifier%]</li>
 		[% } %]
@@ -250,15 +289,15 @@ function openTab(evt, tabName) {
 [% } %]
 
 [% operation Requirement printTeamMembers() { %]
-	<ul>
+	<ul style="background-color: #00ff00;">
 		[% for(tm in self.teamMembers) { %]
-			<li>[%=tm.name%]</li>
+			<li id="teamMember">[%=tm.name%]</li>
 		[% } %]
 	</ul>
 [% } %]
 
 [% operation Requirement printTestCases() { %]
-	<ul>
+	<ul style="background-color: #00ffff;">
 		[% for(tc in self.testCases) { %]
 			<li>"[%=tc.description%]"</li>
 		[% } %]
