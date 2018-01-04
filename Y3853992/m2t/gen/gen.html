@@ -3,422 +3,662 @@
 <head>
   <title>Y3853992</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../style.css">
+<style>
+/****** General ******/
+body {
+  font-family: "Arial";
+}
+
+p, li, ul {
+  margin: 5px;
+}
+
+.indented {
+  padding-left: 50pt;
+}
+
+/****** Buttons ******/
+button {
+  border-radius: 5px;
+  border: none;
+  color: white;	
+  background-color: inherit;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+}
+
+.hide-completed:hover {
+  box-shadow: 5px 10px 8px #888888;
+}
+
+#req-button {
+  background-color: dodgerblue;
+}
+
+#tm-button {
+	background-color: orange;
+}
+
+#tc-button {
+  background-color: mediumseagreen;
+}
+
+/****** Tab bar ******/
+.tab {
+  overflow: hidden;
+  border: 1px solid #bbb;
+  background-color: #ccc;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.tab button {
+  float: left;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #bbb;
+}
+
+
+/****** Tab content ******/
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.tabcontent ul {
+  width: 30%;
+  border-radius: 5px;
+}
+
+/****** Team members tab ******/
+#team-members-tab {
+  color: orange;
+  background-color: #ffedcc;
+}
+
+#team-members-tab ul{
+  background-color: #fff6e5;
+}
+
+/****** Test cases tab ******/
+#test-cases-tab {
+  color: mediumseagreen;
+  background-color: #d8efe2;
+}
+
+#test-cases-tab ul {
+  background-color: #ebf7f0;
+}
+
+/****** Conflicts tab ******/
+#conflicts-tab {
+  color: tomato;
+  background-color: #ffdfda;
+}
+
+#conflicts-tab ul {
+  background-color: #ffefec;
+}
+
+/****** Requirements tab ******/
+#requirements-tab {
+  color: dodgerblue;
+  background-color: #d2e8ff;
+}
+
+/****** Details ******/
+details:hover {
+  cursor: pointer;
+}
+
+details {
+  width: 95%;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin: 10px 0px;
+}
+
+/****** Requirement details ******/
+.req-details {
+  background-color: #e8f3ff;
+}
+
+/****** Requirement information details ******/
+.req-info-details summary {
+  text-decoration: underline;
+  margin-left: 15px;
+}
+
+.req-info-details summary::-webkit-details-marker { 
+  display: none;
+}
+
+.req-info-details summary:before {
+  content: "show details";
+}
+
+.req-info-details[open] summary:before {
+  content: "hide details";
+}
+
+/****** Progress bars ******/
+.progressContainer {
+  background-color: white;
+  margin: 10px 20px;
+}
+
+.progressBar {
+  width: 0;
+  height: 30px;
+  background-color: dodgerblue;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+</style>
 </head>
 <body>
 
 <div class="tab">
-  <button  id="defaultOpenTab" class="tablinks" onclick="openTab(event, 'requirements-tab')">Requirements</button>
+  <button  id="default-open-tab" class="tablinks" onclick="openTab(event, 'requirements-tab')">Requirements</button>
   <button class="tablinks" onclick="openTab(event, 'team-members-tab')">Team Members</button>
   <button class="tablinks" onclick="openTab(event, 'test-cases-tab')">Test Cases</button>
   <button class="tablinks" onclick="openTab(event, 'conflicts-tab')">Conflicts</button>
 </div>
 
 <div id="requirements-tab" class="tabcontent">
-  <h2>Requirements</h2> 
-  <details class="req-details">
+  <h2>Requirements</h2>
+  <button id="req-button" class="hide-completed" onclick="hideCompleted(this, 'requirements-tab')">Hide Completed Requirements</button>
+  <div>
+    <details class="req-details">
     
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 0
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 0
       
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
-        <div class="indented">
-          <p>Type: Customer</p>
-          <p>Description: "Requirement 0"</p>
-          <p>Team Members:   <ul>
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: Customer</p>
+            <p>Description: "Requirement 0"</p>
+            <p>Team Members:   <ul>
       <li>Richard</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 70.0%;">70.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 70.0%;">70.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 1
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+      <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 1"</p>
-          <p>Team Members:   <ul>
+  <div>
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 1
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 1"</p>
+            <p>Team Members:   <ul>
       <li>Richard</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 1"</li>
 	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 50.0%;">50.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 2
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+      <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 2"</p>
-          <p>Team Members:   <ul>
+  <div>
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 2
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 2"</p>
+            <p>Team Members:   <ul>
       <li>Richard</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 50.0%;">50.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 3
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+      <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 3"</p>
-          <p>Team Members:   <ul>
+  <div>
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 3
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 3"</p>
+            <p>Team Members:   <ul>
       <li>Richard</li>
       <li>Pauline</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 3, 4, 7, 9"</li>
 	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 50.0%;">50.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
+      <!-- generate summaries for requirements in self.decomposition -->
 	
     	
-  </details>
-      </div>	
+    </details>
+  </div>
+        </div>	
 	
     	
-  </details>
-      </div>	
+    </details>
+  </div>
+        </div>	
 	
     	
-  </details>
-      </div>	
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 4
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+    </details>
+  </div>
+        </div>	
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 4"</p>
-          <p>Team Members:   <ul>
+  <div>
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 4
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 4"</p>
+            <p>Team Members:   <ul>
       <li>Richard</li>
       <li>Pauline</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 3, 4, 7, 9"</li>
 	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 90.0%;">90.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 90.0%;">90.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
+      <!-- generate summaries for requirements in self.decomposition -->
 	
     	
-  </details>
-      </div>	
+    </details>
+  </div>
+        </div>	
 	
     	
-  </details>
-  <details class="req-details">
+    </details>
+  </div>
+  <div>
+    <details class="req-details">
     
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 5
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 5
       
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
-        <div class="indented">
-          <p>Type: Customer</p>
-          <p>Description: "Requirement 5"</p>
-          <p>Team Members:   <ul>
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: Customer</p>
+            <p>Description: "Requirement 5"</p>
+            <p>Team Members:   <ul>
       <li>Lauren</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 50.0%;">50.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 6
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+      <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 6"</p>
-          <p>Team Members:   <ul>
+  <div class="complete">
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 6
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 6"</p>
+            <p>Team Members:   <ul>
       <li>Lauren</li>
       <li>Pauline</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 6, 7"</li>
   </ul>
 </p>
-        </div>
-      </details>				
+          </div>
+        </details>				
       
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 100.0%;">100.0%</div>
-      </div>
-    </summary>
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 100.0%;">100.0%</div>
+        </div>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
+      <!-- generate summaries for requirements in self.decomposition -->
 	
     	
-  </details>
-      </div>	
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 7
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+    </details>
+  </div>
+        </div>	
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 7"</p>
-          <p>Team Members:   <ul>
+  <div>
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 7
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 7"</p>
+            <p>Team Members:   <ul>
       <li>Lauren</li>
       <li>Pauline</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 3, 4, 7, 9"</li>
 	  <li>"Verifies 6, 7"</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 0.0%;">0.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 0.0%;">0.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
+      <!-- generate summaries for requirements in self.decomposition -->
 	
     	
-  </details>
-      </div>	
+    </details>
+  </div>
+        </div>	
 	
     	
-  </details>
-  <details class="req-details">
+    </details>
+  </div>
+  <div class="complete">
+    <details class="req-details">
     
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 8
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 8
       
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
-        <div class="indented">
-          <p>Type: Customer</p>
-          <p>Description: "Requirement 8"</p>
-          <p>Team Members:   <ul>
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: Customer</p>
+            <p>Description: "Requirement 8"</p>
+            <p>Team Members:   <ul>
       <li>Sam</li>
   </ul>
 </p>
+          </div>
+        </details>				
+      
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 100.0%;">100.0%</div>
         </div>
-      </details>				
-      
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 100.0%;">100.0%</div>
-      </div>
-    </summary>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
-      <div class="indented">
-  <details class="req-details">
-    
-    <!-- info and progress bar for requirement -->
-    <summary>
-      Requirement: 9
-      
-      <!-- info hidden by default -->
-      <details class="req-info-details">
-        <summary></summary>
+      <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-          <p>Type: System</p>
-          <p>Description: "Requirement 9"</p>
-          <p>Team Members:   <ul>
+  <div class="complete">
+    <details class="req-details">
+    
+      <!-- info and progress bar for requirement -->
+      <summary>
+        Requirement: 9
+      
+        <!-- info hidden by default -->
+        <details class="req-info-details">
+          <summary></summary>
+          <div class="indented">
+            <p>Type: System</p>
+            <p>Description: "Requirement 9"</p>
+            <p>Team Members:   <ul>
       <li>Sam</li>
       <li>Pauline</li>
   </ul>
 </p>
-            <p>Test Cases:   <ul>
+              <p>Test Cases:   <ul>
 	  <li>"Verifies 3, 4, 7, 9"</li>
 	  <li>"Verifies 9"</li>
   </ul>
 </p>
-        </div>
-      </details>				
+          </div>
+        </details>				
       
-      <!-- progress bar -->
-      <div class="progressContainer">
-        <div class="progressBar" style="width: 100.0%;">100.0%</div>
-      </div>
-    </summary>
+        <!-- progress bar -->
+        <div class="progressContainer">
+          <div class="progressBar" style="width: 100.0%;">100.0%</div>
+        </div>
+      </summary>
     
-    <!-- generate summaries for requirements in self.decomposition -->
+      <!-- generate summaries for requirements in self.decomposition -->
 	
     	
-  </details>
-      </div>	
+    </details>
+  </div>
+        </div>	
 	
     	
-  </details>
+    </details>
+  </div>
 </div>
 
 <div id="team-members-tab" class="tabcontent">
   <h2>Team Members</h2>
+  <button id="tm-button" class="hide-completed" onclick="hideCompleted(this, 'team-members-tab')">Hide Completed Requirements</button>
     <h3>Richard</h3>
   <ul>
-      <li>Requirement: 0</li>
-      <li>Requirement: 1</li>
-      <li>Requirement: 2</li>
-      <li>Requirement: 3</li>
-      <li>Requirement: 4</li>
+      <div>
+        <li>Requirement: 0</li>
+      </div>
+      <div>
+        <li>Requirement: 1</li>
+      </div>
+      <div>
+        <li>Requirement: 2</li>
+      </div>
+      <div>
+        <li>Requirement: 3</li>
+      </div>
+      <div>
+        <li>Requirement: 4</li>
+      </div>
   </ul>
     <h3>Lauren</h3>
   <ul>
-      <li>Requirement: 5</li>
-      <li>Requirement: 6</li>
-      <li>Requirement: 7</li>
+      <div>
+        <li>Requirement: 5</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 6</li>
+      </div>
+      <div>
+        <li>Requirement: 7</li>
+      </div>
   </ul>
     <h3>Sam</h3>
   <ul>
-      <li>Requirement: 8</li>
-      <li>Requirement: 9</li>
+      <div class="complete">
+        <li>Requirement: 8</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 9</li>
+      </div>
   </ul>
     <h3>Pauline</h3>
   <ul>
-      <li>Requirement: 4</li>
-      <li>Requirement: 6</li>
-      <li>Requirement: 9</li>
-      <li>Requirement: 3</li>
-      <li>Requirement: 7</li>
+      <div>
+        <li>Requirement: 4</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 6</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 9</li>
+      </div>
+      <div>
+        <li>Requirement: 3</li>
+      </div>
+      <div>
+        <li>Requirement: 7</li>
+      </div>
   </ul>
 </div>
 
 <div id="test-cases-tab" class="tabcontent">
-  <h2>Test Cases</h2>     
+  <h2>Test Cases</h2>
+  <button id="tc-button" class="hide-completed" onclick="hideCompleted(this, 'test-cases-tab')">Hide Completed Requirements</button>     
     <h3>Test case: "Verifies 3, 4, 7, 9"</h3>
   <ul>
-      <li>Requirement: 3</li>
-      <li>Requirement: 4</li>
-      <li>Requirement: 7</li>
-      <li>Requirement: 9</li>
+      <div>
+        <li>Requirement: 3</li>
+      </div>
+      <div>
+        <li>Requirement: 4</li>
+      </div>
+      <div>
+        <li>Requirement: 7</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 9</li>
+      </div>
   </ul>
     <h3>Test case: "Verifies 1"</h3>
   <ul>
-      <li>Requirement: 1</li>
+      <div>
+        <li>Requirement: 1</li>
+      </div>
   </ul>
     <h3>Test case: "Verifies 1, 2, 3, 4"</h3>
   <ul>
-      <li>Requirement: 1</li>
-      <li>Requirement: 2</li>
-      <li>Requirement: 3</li>
-      <li>Requirement: 4</li>
+      <div>
+        <li>Requirement: 1</li>
+      </div>
+      <div>
+        <li>Requirement: 2</li>
+      </div>
+      <div>
+        <li>Requirement: 3</li>
+      </div>
+      <div>
+        <li>Requirement: 4</li>
+      </div>
   </ul>
     <h3>Test case: "Verifies 6, 7"</h3>
   <ul>
-      <li>Requirement: 6</li>
-      <li>Requirement: 7</li>
+      <div class="complete">
+        <li>Requirement: 6</li>
+      </div>
+      <div>
+        <li>Requirement: 7</li>
+      </div>
   </ul>
     <h3>Test case: "Verifies 9"</h3>
   <ul>
-      <li>Requirement: 9</li>
+      <div class="complete">
+        <li>Requirement: 9</li>
+      </div>
   </ul>
  
 </div>
@@ -436,7 +676,25 @@
 
 
 <script>
-document.getElementById("defaultOpenTab").click();
+document.getElementById("default-open-tab").click();
+
+function hideCompleted(button, tabName) {
+  if (button.innerHTML=="Hide Completed Requirements"){
+    button.innerHTML = "Show Completed Requirements";
+  } else {
+    button.innerHTML = "Hide Completed Requirements";
+  }
+
+  var completedRequirements = document.getElementById(tabName).getElementsByClassName("complete");
+  var i;
+  for (i = 0; i < completedRequirements.length; i++) {
+    if (completedRequirements[i].style.display === "none") {
+      completedRequirements[i].style.display = "block";
+    } else {
+      completedRequirements[i].style.display = "none";
+    }
+  }
+}
 
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
