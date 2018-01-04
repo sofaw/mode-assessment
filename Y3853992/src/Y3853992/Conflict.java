@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Y3853992.Y3853992Package#getConflict()
- * @model annotation="gmf.link source='first' target='second' style='dot' color='255,0,0' width='2'"
+ * @model annotation="gmf.link source='first' target='second' style='dot' color='255,99,71' width='2'"
  * @generated
  */
 public interface Conflict extends EObject {

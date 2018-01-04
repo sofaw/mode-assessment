@@ -88,6 +88,6 @@ public class RequirementDecompositionEditPart extends ConnectionNodeEditPart imp
 	/**
 	* @generated
 	*/
-	static final Color THIS_FORE = new Color(null, 0, 0, 255);
+	static final Color THIS_FORE = new Color(null, 30, 144, 255);
 
 }
