@@ -1,313 +1,134 @@
 <!DOCTYPE html>
 <html>
-<style>
-body {
-	font-family: "Arial";
-}
-
-p {
-  font-size: 18px;
-}
-
-.indented {
-	padding-left: 50pt;
-}
-
-details summary::-webkit-details-marker { 
-	color: #0000ff;
-}
-
-details {
-  width: 95%;
-  border-radius: 5px;
-  background-color: #f1f1f1;
-  padding: 2px 6px;
-  margin: 10px auto;
-}
-
-#leafNode::-webkit-details-marker { 
-	display: none;
-}
-
-ul {
-  width: 50%;
-  border-radius: 5px;
-  background-color: #ddd;
-  //margin: 5px 0px;
-}
-
-summary {
-  font-size: 18px;
-}
-
-#detailsText {
-  width: 50%;
-  border-radius: 5px;
-  background-color: #ddd;
-  padding: 10px 20px;
-  margin: 10px 20px;
-  font-size: 16px;
-}
-
-#showDetails summary::-webkit-details-marker { 
-	display: none;
-}
-
-#showDetails summary {
-	text-decoration: underline;
-	color: #0000ff;
-	padding-left: 20px;
-	font-size: 16px;
-}
-
-#showDetails summary:before {
-	content: "show details";
-}
-
-#showDetails[open] summary:before {
-	content: "hide details";
-}
-
-#showDetails:hover {
-	cursor: pointer;
-}
-
-details summary::-webkit-details-marker:hover {
-	cursor: pointer;
-}
-
-#hideCompleted {
-	background-color: #0000ff;
-	margin-bottom: 20px;
-	font-size: 18px;
-	border-style: hidden;
-	border-radius: 5px;
-	display: inline;
-	color: #ffffff;
-}
-
-#hideCompleted:hover {
-    box-shadow: 5px 10px 8px #888888;
-}
-
-.tab button {
-	background-color: inherit;
-    float: left;
-    border: hidden;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 18px;
-    border-radius: 5px;
-}
-
-.tab button:hover {
-    background-color: #ddd;
-}
-
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    border-radius: 5px 5px 0px 0px;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0px 0px 5px 5px;
-}
-
-#progressContainer {
-    width: inherit;
-    background-color: #ddd;
-    margin: 10px 20px;
-}
-
-#progressBar {
-    width: 0;
-    height: 30px;
-    background-color: #0000ff;
-    text-align: center;
-    line-height: 30px;
-    color: white; 
-}
-
-</style>
-
 <head>
-	<title>Y3853992</title>
+  <title>Y3853992</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Requirements')" id="defaultOpen">Requirements</button>
-  <button class="tablinks" onclick="openTab(event, 'TeamMembers')">Team Members</button>
-  <button class="tablinks" onclick="openTab(event, 'TestCases')">Test Cases</button>
-  <button class="tablinks" onclick="openTab(event, 'Conflicts')">Conflicts</button>
+  <button  id="defaultOpenTab" class="tablinks" onclick="openTab(event, 'requirements-tab')">Requirements</button>
+  <button class="tablinks" onclick="openTab(event, 'team-members-tab')">Team Members</button>
+  <button class="tablinks" onclick="openTab(event, 'test-cases-tab')">Test Cases</button>
+  <button class="tablinks" onclick="openTab(event, 'conflicts-tab')">Conflicts</button>
 </div>
 
-<div id="Requirements" class="tabcontent">
-  <h1 style="color: #0000ff;">Requirements</h1> 
-  <button id="hideCompleted" onclick="hideCompleted()">Hide completed</button>
+<div id="requirements-tab" class="tabcontent">
+  <h2>Requirements</h2> 
   [%for (rootReq in rm.requirements.select(r | r.parentDecomposition.size() == 0)) {%]
     [% rootReq.generateRequirementTree(); %]
   [%}%]
 </div>
 
-<div id="TeamMembers" class="tabcontent">
-  <h1 style="color: #00ff00;">Team Members</h1>
+<div id="team-members-tab" class="tabcontent">
+  <h2>Team Members</h2>
   [%for (teamMember in rm.teamMembers) {%]
-    [% teamMember.showAssignedRequirements(); %]
+    <h3>[%=teamMember.name%]</h3>
+    [% printRequirementsList(teamMember.requirements); %]
   [%}%]
 </div>
 
-<div id="TestCases" class="tabcontent">
-  <h1 style="color: #00ffff;">Test Cases</h1>      
+<div id="test-cases-tab" class="tabcontent">
+  <h2>Test Cases</h2>     
   [%for (testCase in rm.testCases) {%]
-    [% testCase.showVerifies(); %]
+    <h3>Test case: "[%=testCase.description%]"</h3>
+    [% printRequirementsList(testCase.verifies); %]
   [%}%] 
 </div>
 
-<div id="Conflicts" class="tabcontent">
-  <h1 style="color: #ff0000;">Conflicts</h1> 
+<div id="conflicts-tab" class="tabcontent">
+  <h2>Conflicts</h2> 
   <p>There are conflicts between the following pairs of requirements:</p>  
-  <ul style="background-color: #ff0000; width: 30%;">   
+  <ul>   
     [%for (conflict in rm.conflicts) {%]
-      <li>[%=conflict.first.identifier%] and [%=conflict.second.identifier%]</li>
+      <li>Requirement [%=conflict.first.identifier%] and Requirement [%=conflict.second.identifier%]</li>
     [%}%] 
   </ul>
 </div>
 
 
 <script>
-document.getElementById("defaultOpen").click();
-
-function hideCompleted() {
-	// Change button text
-	var hcButton = document.getElementById("hideCompleted");
-    if (hcButton.innerHTML=="Hide completed"){
-    	hcButton.innerHTML = "Show completed";
-    } else {
-    	hcButton.innerHTML = "Hide completed";
-    }
-    
-    // Toggle completed requirements
-    var completedRequirements = document.getElementsByClassName("completed");
-    var i;
-	for (i = 0; i < completedRequirements.length; i++) {
-    	if (completedRequirements[i].style.display === "none") {
-        	completedRequirements[i].style.display = "block";
-    	} else {
-        	completedRequirements[i].style.display = "none";
-    	}
-	}
-}
+document.getElementById("defaultOpenTab").click();
 
 function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
+  var i, tabcontent, tablinks;
 
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
 
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 </script>
 </body>
 </html>
 
 [% operation Requirement generateRequirementTree() { %]
-	[% if(self.progress == 1.0) {%]
-		<div class="completed">
-	[%} else {%]
-		<div class="notCompleted">
-	[%}%]
-
-		<details>
-  		[% if(self.decomposition.size() == 0) {%]
-			<summary id="leafNode">
-		[%} else {%]
-			<summary>
-		[%}%]
-  			Requirement: [%=self.identifier%]  
-  			
-  			<details id="showDetails">
-  			  <summary></summary>
-  			  <div class="indented" id="detailsText">
-  			    <p>Type: [%=self.type%]</p>
-  		        <p>Description: "[%=self.description%]"</p>
-  		        <p>Team Members: [% self.printTeamMembers(); %]</p>
-  		        [% if(self.type == RequirementType#System) { %]
-  		          <p>Test Cases: [% self.printTestCases(); %]</p>
-  		        [% } %]
-  		       </div>
-  		    </details>
-  						
-  			[% var progressPercent = self.progress * 100; %]
-  			<div id="progressContainer">
- 			  <div id="progressBar" style="width: [%=progressPercent%]%;">[%=progressPercent%]%</div>
-			</div>
-  			
-  			</summary>
-			[%for (req in self.decomposition) {%]
-  				<div class="indented">
-  					[% req.generateRequirementTree(); %]
-  				</div>	
-			[% } %]		
-		</details>
-	</div>
+  <details class="req-details">
+    
+    <!-- info and progress bar for requirement -->
+    <summary>
+      Requirement: [%=self.identifier%]
+      
+      <!-- info hidden by default -->
+      <details class="req-info-details">
+        <summary></summary>
+        <div class="indented">
+          <p>Type: [%=self.type%]</p>
+          <p>Description: "[%=self.description%]"</p>
+          <p>Team Members: [% self.printTeamMembers(); %]</p>
+          [% if(self.type == RequirementType#System) { %]
+            <p>Test Cases: [% self.printTestCases(); %]</p>
+          [% } %]
+        </div>
+      </details>				
+      
+      <!-- progress bar -->
+      [% var progressPercent = self.progress * 100; %]
+      <div class="progressContainer">
+        <div class="progressBar" style="width: [%=progressPercent%]%;">[%=progressPercent%]%</div>
+      </div>
+    </summary>
+    
+    <!-- generate summaries for requirements in self.decomposition -->
+    [%for (req in self.decomposition) {%]
+      <div class="indented">
+      [% req.generateRequirementTree(); %]
+      </div>	
+    [% } %]	
+    	
+  </details>
 [% } %]
 
-[% operation TeamMember showAssignedRequirements() { %]
-	<h2>[%=self.name%]</h2>
-	<ul style="background-color: #00ff00; width: 30%;">
-		[% for(req in self.requirements) { %]
-			<li>Requirement: [%=req.identifier%]</li>
-		[% } %]
-	</ul>
-[% } %]
-
-[% operation TestCase showVerifies() { %]
-	<h2>Test case: "[%=self.description%]"</h2>
-	<p>Verifies requirements:</p>
-	<ul style="background-color: #00ffff; width: 30%;">
-		[% for(req in self.verifies) { %]
-			<li>Requirement: [%=req.identifier%]</li>
-		[% } %]
-	</ul>
+[% operation printRequirementsList(list) { %]
+  <ul>
+    [% for(item in list) { %]
+      <li>Requirement: [%=item.identifier%]</li>
+    [% } %]
+  </ul>
 [% } %]
 
 [% operation Requirement printTeamMembers() { %]
-	<ul style="background-color: #00ff00;">
-		[% for(tm in self.teamMembers) { %]
-			<li id="teamMember">[%=tm.name%]</li>
-		[% } %]
-	</ul>
+  <ul>
+    [% for(tm in self.teamMembers) { %]
+      <li>[%=tm.name%]</li>
+    [% } %]
+  </ul>
 [% } %]
 
 [% operation Requirement printTestCases() { %]
-	<ul style="background-color: #00ffff;">
-		[% for(tc in self.testCases) { %]
-			<li>"[%=tc.description%]"</li>
-		[% } %]
-	</ul>
+  <ul>
+    [% for(tc in self.testCases) { %]
+	  <li>"[%=tc.description%]"</li>
+	[% } %]
+  </ul>
 [% } %]
 
