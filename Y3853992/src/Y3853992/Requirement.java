@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Y3853992.Y3853992Package#getRequirement()
- * @model annotation="gmf.node label='identifier, type' label.view.pattern='{1} requirement {0}' border.color='0,0,255' border.width='3'"
+ * @model annotation="gmf.node label='identifier, type' label.view.pattern='{1} requirement {0}' border.color='30,144,255' border.width='3'"
  * @generated
  */
 public interface Requirement extends EObject {
@@ -171,7 +171,7 @@ public interface Requirement extends EObject {
 	 * @see Y3853992.Y3853992Package#getRequirement_Decomposition()
 	 * @see Y3853992.Requirement#getParentDecomposition
 	 * @model opposite="parentDecomposition"
-	 *        annotation="gmf.link target.decoration='arrow' color='0,0,255' width='3'"
+	 *        annotation="gmf.link target.decoration='arrow' color='30,144,255' width='3'"
 	 * @generated
 	 */
 	EList<Requirement> getDecomposition();

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Y3853992.Y3853992Package#getTestCase()
- * @model annotation="gmf.node figure='polygon' polygon.x='40 80 40 0' polygon.y='0 60 120 60' margin='20' label='description' label.view.pattern='Test case: {0}' border.color='0,255,255' border.width='3'"
+ * @model annotation="gmf.node figure='polygon' polygon.x='40 80 40 0' polygon.y='0 60 120 60' margin='20' label='description' label.view.pattern='Test case: {0}' border.color='60,179,113' border.width='3'"
  * @generated
  */
 public interface TestCase extends EObject {
@@ -64,7 +64,7 @@ public interface TestCase extends EObject {
 	 * @see Y3853992.Y3853992Package#getTestCase_Verifies()
 	 * @see Y3853992.Requirement#getTestCases
 	 * @model opposite="testCases" required="true"
-	 *        annotation="gmf.link style='dash' target.decoration='arrow' color='0,255,255'"
+	 *        annotation="gmf.link style='dash' target.decoration='arrow' color='60,179,113'"
 	 * @generated
 	 */
 	EList<Requirement> getVerifies();

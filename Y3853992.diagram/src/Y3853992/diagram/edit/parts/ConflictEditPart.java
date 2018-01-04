@@ -79,6 +79,6 @@ public class ConflictEditPart extends ConnectionNodeEditPart implements ITreeBra
 	/**
 	 * @generated
 	 */
-	static final Color THIS_FORE = new Color(null, 255, 0, 0);
+	static final Color THIS_FORE = new Color(null, 255, 99, 71);
 
 }
