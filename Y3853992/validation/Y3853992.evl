@@ -13,31 +13,6 @@ context Conflict {
 		}
 	}
 	
-	critique ConflictsWithinRequirementDecomposition {
-		check {
-			/* For 'first' and 'second' create a set of all requirements (including themselves) 
-			above them in the decomposition tree */
-			var firstParents = self.first.closure(r | r.parentDecomposition).asSet();
-			firstParents.add(self.first);
-			var secondParents = self.second.closure(r | r.parentDecomposition).asSet();
-			secondParents.add(self.second);
-			var disjoint = firstParents.excludingAll(secondParents);
-			
-			/* If removing all of the parents of 'second' from 'first' results in a different set from firstParents,
-			   then 'first' and 'second' have at least one parent in common and are therefore in the same tree */
-			return disjoint.size() == firstParents.size(); 
-		}
-		message : "There is a conflict within a decomposition tree at requirements " + self.first.`identifier` 
-						+ " and " + self.second.`identifier` + "\"."
-		fix {
-			title : "Delete conflict between requirements " + self.first.`identifier` 
-						+ " and " + self.second.`identifier` + "\"."
-    		do {
-    			delete self;
-    		}
-		}
-	}
-	
 	constraint NoDuplicateConflicts {
 		check {
 			var conflicts = Conflict.allInstances;
@@ -47,6 +22,12 @@ context Conflict {
 		}
 		message : "Duplicate of conflict between requirements " + self.first.`identifier`
 			+ " and " + self.second.`identifier` + "\"."
+	}
+	
+	constraint NoConflictsWithBothComplete {
+		check : not ((self.first.progress == 1.0) and (self.second.progress == 1.0))
+		message : "Conflicting requirements cannot both be complete at requirements " + self.first.`identifier` 
+						+ " and " + self.second.`identifier` + "\"."
 	}
 }
 
