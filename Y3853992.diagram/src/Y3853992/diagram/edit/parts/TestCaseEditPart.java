@@ -41,7 +41,7 @@ public class TestCaseEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	* @generated

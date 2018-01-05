@@ -43,7 +43,7 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 	* @generated
 	*/
 	public RequirementItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.Requirement_2007);
+		super(Y3853992ElementTypes.Requirement_2001);
 	}
 
 	/**
@@ -124,16 +124,16 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (Y3853992ElementTypes.Conflict_4008 == req.getElementType()) {
+		if (Y3853992ElementTypes.Conflict_4001 == req.getElementType()) {
 			return getGEFWrapper(new ConflictCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.RequirementDecomposition_4001 == req.getElementType()) {
+		if (Y3853992ElementTypes.RequirementDecomposition_4002 == req.getElementType()) {
 			return getGEFWrapper(new RequirementDecompositionCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.TestCaseVerifies_4004 == req.getElementType()) {
+		if (Y3853992ElementTypes.TestCaseVerifies_4003 == req.getElementType()) {
 			return null;
 		}
-		if (Y3853992ElementTypes.TeamMemberRequirements_4009 == req.getElementType()) {
+		if (Y3853992ElementTypes.TeamMemberRequirements_4004 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -143,16 +143,16 @@ public class RequirementItemSemanticEditPolicy extends Y3853992BaseItemSemanticE
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (Y3853992ElementTypes.Conflict_4008 == req.getElementType()) {
+		if (Y3853992ElementTypes.Conflict_4001 == req.getElementType()) {
 			return getGEFWrapper(new ConflictCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.RequirementDecomposition_4001 == req.getElementType()) {
+		if (Y3853992ElementTypes.RequirementDecomposition_4002 == req.getElementType()) {
 			return getGEFWrapper(new RequirementDecompositionCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.TestCaseVerifies_4004 == req.getElementType()) {
+		if (Y3853992ElementTypes.TestCaseVerifies_4003 == req.getElementType()) {
 			return getGEFWrapper(new TestCaseVerifiesCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (Y3853992ElementTypes.TeamMemberRequirements_4009 == req.getElementType()) {
+		if (Y3853992ElementTypes.TeamMemberRequirements_4004 == req.getElementType()) {
 			return getGEFWrapper(new TeamMemberRequirementsCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;

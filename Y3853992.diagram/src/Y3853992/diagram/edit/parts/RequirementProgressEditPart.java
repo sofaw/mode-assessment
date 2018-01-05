@@ -60,7 +60,7 @@ public class RequirementProgressEditPart extends CompartmentEditPart implements 
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5011;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	* @generated
@@ -291,7 +291,7 @@ public class RequirementProgressEditPart extends CompartmentEditPart implements 
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2007, getParserElement(),
+			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2001, getParserElement(),
 					Y3853992VisualIDRegistry
 							.getType(Y3853992.diagram.edit.parts.RequirementProgressEditPart.VISUAL_ID));
 		}

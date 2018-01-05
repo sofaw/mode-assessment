@@ -76,7 +76,7 @@ public class TeamMemberRequirementsReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTeamMemberRequirements_4009(getNewSource(), getOldTarget());
+				.canExistTeamMemberRequirements_4004(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class TeamMemberRequirementsReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTeamMemberRequirements_4009(getOldSource(), getNewTarget());
+				.canExistTeamMemberRequirements_4004(getOldSource(), getNewTarget());
 	}
 
 	/**

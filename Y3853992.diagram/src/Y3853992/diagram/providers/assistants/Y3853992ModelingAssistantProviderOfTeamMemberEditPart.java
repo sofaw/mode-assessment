@@ -36,7 +36,7 @@ public class Y3853992ModelingAssistantProviderOfTeamMemberEditPart extends Y3853
 	*/
 	public List<IElementType> doGetRelTypesOnSource(TeamMemberEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(Y3853992ElementTypes.TeamMemberRequirements_4009);
+		types.add(Y3853992ElementTypes.TeamMemberRequirements_4004);
 		return types;
 	}
 
@@ -58,7 +58,7 @@ public class Y3853992ModelingAssistantProviderOfTeamMemberEditPart extends Y3853
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof RequirementEditPart) {
-			types.add(Y3853992ElementTypes.TeamMemberRequirements_4009);
+			types.add(Y3853992ElementTypes.TeamMemberRequirements_4004);
 		}
 		return types;
 	}
@@ -78,8 +78,8 @@ public class Y3853992ModelingAssistantProviderOfTeamMemberEditPart extends Y3853
 	*/
 	public List<IElementType> doGetTypesForTarget(TeamMemberEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == Y3853992ElementTypes.TeamMemberRequirements_4009) {
-			types.add(Y3853992ElementTypes.Requirement_2007);
+		if (relationshipType == Y3853992ElementTypes.TeamMemberRequirements_4004) {
+			types.add(Y3853992ElementTypes.Requirement_2001);
 		}
 		return types;
 	}

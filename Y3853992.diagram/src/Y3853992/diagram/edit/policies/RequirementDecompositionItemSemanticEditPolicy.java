@@ -18,7 +18,7 @@ public class RequirementDecompositionItemSemanticEditPolicy extends Y3853992Base
 	* @generated
 	*/
 	public RequirementDecompositionItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.RequirementDecomposition_4001);
+		super(Y3853992ElementTypes.RequirementDecomposition_4002);
 	}
 
 	/**

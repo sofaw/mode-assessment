@@ -63,38 +63,39 @@ public class Y3853992ElementTypes {
 	/**
 	* @generated
 	*/
-	public static final IElementType Requirement_2007 = getElementType("Y3853992.diagram.Requirement_2007"); //$NON-NLS-1$
+	public static final IElementType Requirement_2001 = getElementType("Y3853992.diagram.Requirement_2001"); //$NON-NLS-1$
 
 	/**
 	* @generated
 	*/
-	public static final IElementType TestCase_2008 = getElementType("Y3853992.diagram.TestCase_2008"); //$NON-NLS-1$
+	public static final IElementType TestCase_2002 = getElementType("Y3853992.diagram.TestCase_2002"); //$NON-NLS-1$
 
 	/**
 	* @generated
 	*/
-	public static final IElementType TeamMember_2009 = getElementType("Y3853992.diagram.TeamMember_2009"); //$NON-NLS-1$
+	public static final IElementType TeamMember_2003 = getElementType("Y3853992.diagram.TeamMember_2003"); //$NON-NLS-1$
 
 	/**
 	* @generated
 	*/
-	public static final IElementType Conflict_4008 = getElementType("Y3853992.diagram.Conflict_4008"); //$NON-NLS-1$
+	public static final IElementType Conflict_4001 = getElementType("Y3853992.diagram.Conflict_4001"); //$NON-NLS-1$
 
 	/**
 	* @generated
 	*/
-	public static final IElementType RequirementDecomposition_4001 = getElementType(
-			"Y3853992.diagram.RequirementDecomposition_4001"); //$NON-NLS-1$
-	/**
-	* @generated
-	*/
-	public static final IElementType TestCaseVerifies_4004 = getElementType("Y3853992.diagram.TestCaseVerifies_4004"); //$NON-NLS-1$
+	public static final IElementType RequirementDecomposition_4002 = getElementType(
+			"Y3853992.diagram.RequirementDecomposition_4002"); //$NON-NLS-1$
 
 	/**
 	* @generated
 	*/
-	public static final IElementType TeamMemberRequirements_4009 = getElementType(
-			"Y3853992.diagram.TeamMemberRequirements_4009"); //$NON-NLS-1$
+	public static final IElementType TestCaseVerifies_4003 = getElementType("Y3853992.diagram.TestCaseVerifies_4003"); //$NON-NLS-1$
+
+	/**
+	* @generated
+	*/
+	public static final IElementType TeamMemberRequirements_4004 = getElementType(
+			"Y3853992.diagram.TeamMemberRequirements_4004"); //$NON-NLS-1$
 
 	/**
 	* @generated
@@ -136,19 +137,19 @@ public class Y3853992ElementTypes {
 
 			elements.put(RequirementsModel_1000, Y3853992Package.eINSTANCE.getRequirementsModel());
 
-			elements.put(Requirement_2007, Y3853992Package.eINSTANCE.getRequirement());
+			elements.put(Requirement_2001, Y3853992Package.eINSTANCE.getRequirement());
 
-			elements.put(TestCase_2008, Y3853992Package.eINSTANCE.getTestCase());
+			elements.put(TestCase_2002, Y3853992Package.eINSTANCE.getTestCase());
 
-			elements.put(TeamMember_2009, Y3853992Package.eINSTANCE.getTeamMember());
+			elements.put(TeamMember_2003, Y3853992Package.eINSTANCE.getTeamMember());
 
-			elements.put(Conflict_4008, Y3853992Package.eINSTANCE.getConflict());
+			elements.put(Conflict_4001, Y3853992Package.eINSTANCE.getConflict());
 
-			elements.put(RequirementDecomposition_4001, Y3853992Package.eINSTANCE.getRequirement_Decomposition());
+			elements.put(RequirementDecomposition_4002, Y3853992Package.eINSTANCE.getRequirement_Decomposition());
 
-			elements.put(TestCaseVerifies_4004, Y3853992Package.eINSTANCE.getTestCase_Verifies());
+			elements.put(TestCaseVerifies_4003, Y3853992Package.eINSTANCE.getTestCase_Verifies());
 
-			elements.put(TeamMemberRequirements_4009, Y3853992Package.eINSTANCE.getTeamMember_Requirements());
+			elements.put(TeamMemberRequirements_4004, Y3853992Package.eINSTANCE.getTeamMember_Requirements());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -167,13 +168,13 @@ public class Y3853992ElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(RequirementsModel_1000);
-			KNOWN_ELEMENT_TYPES.add(Requirement_2007);
-			KNOWN_ELEMENT_TYPES.add(TestCase_2008);
-			KNOWN_ELEMENT_TYPES.add(TeamMember_2009);
-			KNOWN_ELEMENT_TYPES.add(Conflict_4008);
-			KNOWN_ELEMENT_TYPES.add(RequirementDecomposition_4001);
-			KNOWN_ELEMENT_TYPES.add(TestCaseVerifies_4004);
-			KNOWN_ELEMENT_TYPES.add(TeamMemberRequirements_4009);
+			KNOWN_ELEMENT_TYPES.add(Requirement_2001);
+			KNOWN_ELEMENT_TYPES.add(TestCase_2002);
+			KNOWN_ELEMENT_TYPES.add(TeamMember_2003);
+			KNOWN_ELEMENT_TYPES.add(Conflict_4001);
+			KNOWN_ELEMENT_TYPES.add(RequirementDecomposition_4002);
+			KNOWN_ELEMENT_TYPES.add(TestCaseVerifies_4003);
+			KNOWN_ELEMENT_TYPES.add(TeamMemberRequirements_4004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -186,19 +187,19 @@ public class Y3853992ElementTypes {
 		case RequirementsModelEditPart.VISUAL_ID:
 			return RequirementsModel_1000;
 		case RequirementEditPart.VISUAL_ID:
-			return Requirement_2007;
+			return Requirement_2001;
 		case TestCaseEditPart.VISUAL_ID:
-			return TestCase_2008;
+			return TestCase_2002;
 		case TeamMemberEditPart.VISUAL_ID:
-			return TeamMember_2009;
+			return TeamMember_2003;
 		case ConflictEditPart.VISUAL_ID:
-			return Conflict_4008;
+			return Conflict_4001;
 		case RequirementDecompositionEditPart.VISUAL_ID:
-			return RequirementDecomposition_4001;
+			return RequirementDecomposition_4002;
 		case TestCaseVerifiesEditPart.VISUAL_ID:
-			return TestCaseVerifies_4004;
+			return TestCaseVerifies_4003;
 		case TeamMemberRequirementsEditPart.VISUAL_ID:
-			return TeamMemberRequirements_4009;
+			return TeamMemberRequirements_4004;
 		}
 		return null;
 	}

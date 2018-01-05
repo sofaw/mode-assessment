@@ -24,9 +24,9 @@ public class Y3853992ModelingAssistantProviderOfRequirementsModelEditPart extend
 
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(3);
-		types.add(Y3853992ElementTypes.Requirement_2007);
-		types.add(Y3853992ElementTypes.TestCase_2008);
-		types.add(Y3853992ElementTypes.TeamMember_2009);
+		types.add(Y3853992ElementTypes.Requirement_2001);
+		types.add(Y3853992ElementTypes.TestCase_2002);
+		types.add(Y3853992ElementTypes.TeamMember_2003);
 		return types;
 	}
 

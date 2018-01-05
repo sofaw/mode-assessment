@@ -291,7 +291,7 @@ public class RequirementIdentifierEditPart extends CompartmentEditPart implement
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2007, getParserElement(),
+			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2001, getParserElement(),
 					Y3853992VisualIDRegistry
 							.getType(Y3853992.diagram.edit.parts.RequirementIdentifierEditPart.VISUAL_ID));
 		}

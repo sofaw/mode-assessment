@@ -16,7 +16,7 @@
          point="org.eclipse.epsilon.evl.emf.validation">
       <constraintsBinding
             compose="true"
-            constraints="validation/Y3853992.evl"
+            constraints="metamodel/Y3853992.evl"
             namespaceURI="http://Y3853992">
       </constraintsBinding>
    </extension>

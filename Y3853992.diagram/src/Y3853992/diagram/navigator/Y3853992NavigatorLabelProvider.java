@@ -106,22 +106,22 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 					Y3853992ElementTypes.RequirementsModel_1000);
 		case RequirementEditPart.VISUAL_ID:
 			return getImage("Navigator?TopLevelNode?http://Y3853992?Requirement", //$NON-NLS-1$
-					Y3853992ElementTypes.Requirement_2007);
+					Y3853992ElementTypes.Requirement_2001);
 		case TestCaseEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://Y3853992?TestCase", Y3853992ElementTypes.TestCase_2008); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://Y3853992?TestCase", Y3853992ElementTypes.TestCase_2002); //$NON-NLS-1$
 		case TeamMemberEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?http://Y3853992?TeamMember", Y3853992ElementTypes.TeamMember_2009); //$NON-NLS-1$
+			return getImage("Navigator?TopLevelNode?http://Y3853992?TeamMember", Y3853992ElementTypes.TeamMember_2003); //$NON-NLS-1$
+		case ConflictEditPart.VISUAL_ID:
+			return getImage("Navigator?Link?http://Y3853992?Conflict", Y3853992ElementTypes.Conflict_4001); //$NON-NLS-1$
 		case RequirementDecompositionEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?http://Y3853992?Requirement?decomposition", //$NON-NLS-1$
-					Y3853992ElementTypes.RequirementDecomposition_4001);
+					Y3853992ElementTypes.RequirementDecomposition_4002);
 		case TestCaseVerifiesEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?http://Y3853992?TestCase?verifies", //$NON-NLS-1$
-					Y3853992ElementTypes.TestCaseVerifies_4004);
-		case ConflictEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?http://Y3853992?Conflict", Y3853992ElementTypes.Conflict_4008); //$NON-NLS-1$
+					Y3853992ElementTypes.TestCaseVerifies_4003);
 		case TeamMemberRequirementsEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?http://Y3853992?TeamMember?requirements", //$NON-NLS-1$
-					Y3853992ElementTypes.TeamMemberRequirements_4009);
+					Y3853992ElementTypes.TeamMemberRequirements_4004);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -183,19 +183,19 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 		case RequirementsModelEditPart.VISUAL_ID:
 			return getRequirementsModel_1000Text(view);
 		case RequirementEditPart.VISUAL_ID:
-			return getRequirement_2007Text(view);
+			return getRequirement_2001Text(view);
 		case TestCaseEditPart.VISUAL_ID:
-			return getTestCase_2008Text(view);
+			return getTestCase_2002Text(view);
 		case TeamMemberEditPart.VISUAL_ID:
-			return getTeamMember_2009Text(view);
-		case RequirementDecompositionEditPart.VISUAL_ID:
-			return getRequirementDecomposition_4001Text(view);
-		case TestCaseVerifiesEditPart.VISUAL_ID:
-			return getTestCaseVerifies_4004Text(view);
+			return getTeamMember_2003Text(view);
 		case ConflictEditPart.VISUAL_ID:
-			return getConflict_4008Text(view);
+			return getConflict_4001Text(view);
+		case RequirementDecompositionEditPart.VISUAL_ID:
+			return getRequirementDecomposition_4002Text(view);
+		case TestCaseVerifiesEditPart.VISUAL_ID:
+			return getTestCaseVerifies_4003Text(view);
 		case TeamMemberRequirementsEditPart.VISUAL_ID:
-			return getTeamMemberRequirements_4009Text(view);
+			return getTeamMemberRequirements_4004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -210,15 +210,15 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getRequirement_2007Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2007,
+	private String getRequirement_2001Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2001,
 				view.getElement() != null ? view.getElement() : view,
 				Y3853992VisualIDRegistry.getType(RequirementIdentifierTypeEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5007); //$NON-NLS-1$
+			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -226,15 +226,15 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getTestCase_2008Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCase_2008,
+	private String getTestCase_2002Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCase_2002,
 				view.getElement() != null ? view.getElement() : view,
 				Y3853992VisualIDRegistry.getType(TestCaseDescriptionEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5008); //$NON-NLS-1$
+			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -242,15 +242,15 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getTeamMember_2009Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMember_2009,
+	private String getTeamMember_2003Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMember_2003,
 				view.getElement() != null ? view.getElement() : view,
 				Y3853992VisualIDRegistry.getType(TeamMemberNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5009); //$NON-NLS-1$
+			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -258,8 +258,15 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getRequirementDecomposition_4001Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.RequirementDecomposition_4001,
+	private String getConflict_4001Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	* @generated
+	*/
+	private String getRequirementDecomposition_4002Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.RequirementDecomposition_4002,
 				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
@@ -273,14 +280,14 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getTestCaseVerifies_4004Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCaseVerifies_4004,
+	private String getTestCaseVerifies_4003Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCaseVerifies_4003,
 				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6004); //$NON-NLS-1$
+			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -288,21 +295,14 @@ public class Y3853992NavigatorLabelProvider extends LabelProvider
 	/**
 	* @generated
 	*/
-	private String getConflict_4008Text(View view) {
-		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTeamMemberRequirements_4009Text(View view) {
-		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMemberRequirements_4009,
+	private String getTeamMemberRequirements_4004Text(View view) {
+		IParser parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMemberRequirements_4004,
 				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
-			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6006); //$NON-NLS-1$
+			Y3853992DiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 6003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

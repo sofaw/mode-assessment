@@ -23,7 +23,7 @@ public class RequirementDecompositionEditPart extends ConnectionNodeEditPart imp
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 4001;
+	public static final int VISUAL_ID = 4002;
 
 	/**
 	* @generated

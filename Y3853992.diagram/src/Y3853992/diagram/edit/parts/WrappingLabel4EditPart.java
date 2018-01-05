@@ -309,7 +309,7 @@ public class WrappingLabel4EditPart extends LabelEditPart implements ITextAwareE
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCaseVerifies_4004, getParserElement(),
+			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCaseVerifies_4003, getParserElement(),
 					CommonParserHint.DESCRIPTION);
 		}
 		return parser;

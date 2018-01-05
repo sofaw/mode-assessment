@@ -18,7 +18,7 @@ public class TestCaseVerifiesItemSemanticEditPolicy extends Y3853992BaseItemSema
 	* @generated
 	*/
 	public TestCaseVerifiesItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.TestCaseVerifies_4004);
+		super(Y3853992ElementTypes.TestCaseVerifies_4003);
 	}
 
 	/**

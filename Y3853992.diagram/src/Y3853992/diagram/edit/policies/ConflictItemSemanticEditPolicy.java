@@ -18,7 +18,7 @@ public class ConflictItemSemanticEditPolicy extends Y3853992BaseItemSemanticEdit
 	* @generated
 	*/
 	public ConflictItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.Conflict_4008);
+		super(Y3853992ElementTypes.Conflict_4001);
 	}
 
 	/**

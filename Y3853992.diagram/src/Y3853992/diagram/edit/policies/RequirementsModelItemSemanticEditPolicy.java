@@ -31,13 +31,13 @@ public class RequirementsModelItemSemanticEditPolicy extends Y3853992BaseItemSem
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (Y3853992ElementTypes.Requirement_2007 == req.getElementType()) {
+		if (Y3853992ElementTypes.Requirement_2001 == req.getElementType()) {
 			return getGEFWrapper(new RequirementCreateCommand(req));
 		}
-		if (Y3853992ElementTypes.TestCase_2008 == req.getElementType()) {
+		if (Y3853992ElementTypes.TestCase_2002 == req.getElementType()) {
 			return getGEFWrapper(new TestCaseCreateCommand(req));
 		}
-		if (Y3853992ElementTypes.TeamMember_2009 == req.getElementType()) {
+		if (Y3853992ElementTypes.TeamMember_2003 == req.getElementType()) {
 			return getGEFWrapper(new TeamMemberCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

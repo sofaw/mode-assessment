@@ -336,62 +336,62 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Requirement_2007_incominglinks;
+	public static String NavigatorGroupName_Requirement_2001_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Requirement_2007_outgoinglinks;
+	public static String NavigatorGroupName_Requirement_2001_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TestCase_2008_outgoinglinks;
+	public static String NavigatorGroupName_TestCase_2002_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TeamMember_2009_outgoinglinks;
+	public static String NavigatorGroupName_TeamMember_2003_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_RequirementDecomposition_4001_target;
+	public static String NavigatorGroupName_Conflict_4001_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_RequirementDecomposition_4001_source;
+	public static String NavigatorGroupName_Conflict_4001_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TestCaseVerifies_4004_target;
+	public static String NavigatorGroupName_RequirementDecomposition_4002_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TestCaseVerifies_4004_source;
+	public static String NavigatorGroupName_RequirementDecomposition_4002_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Conflict_4008_target;
+	public static String NavigatorGroupName_TestCaseVerifies_4003_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Conflict_4008_source;
+	public static String NavigatorGroupName_TestCaseVerifies_4003_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TeamMemberRequirements_4009_target;
+	public static String NavigatorGroupName_TeamMemberRequirements_4004_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TeamMemberRequirements_4009_source;
+	public static String NavigatorGroupName_TeamMemberRequirements_4004_source;
 
 	/**
 	* @generated

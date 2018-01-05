@@ -313,14 +313,14 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		* @generated
 		*/
-		public boolean canCreateConflict_4008(RequirementsModel container, Requirement source, Requirement target) {
-			return canExistConflict_4008(container, null, source, target);
+		public boolean canCreateConflict_4001(RequirementsModel container, Requirement source, Requirement target) {
+			return canExistConflict_4001(container, null, source, target);
 		}
 
 		/**
-			 * @generated
-			 */
-		public boolean canCreateRequirementDecomposition_4001(Requirement source, Requirement target) {
+		* @generated
+		*/
+		public boolean canCreateRequirementDecomposition_4002(Requirement source, Requirement target) {
 			if (source != null) {
 				if (source.getDecomposition().contains(target)) {
 					return false;
@@ -330,13 +330,13 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistRequirementDecomposition_4001(source, target);
+			return canExistRequirementDecomposition_4002(source, target);
 		}
 
 		/**
-					 * @generated
-					 */
-		public boolean canCreateTestCaseVerifies_4004(TestCase source, Requirement target) {
+		* @generated
+		*/
+		public boolean canCreateTestCaseVerifies_4003(TestCase source, Requirement target) {
 			if (source != null) {
 				if (source.getVerifies().contains(target)) {
 					return false;
@@ -346,13 +346,13 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistTestCaseVerifies_4004(source, target);
+			return canExistTestCaseVerifies_4003(source, target);
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canCreateTeamMemberRequirements_4009(TeamMember source, Requirement target) {
+		public boolean canCreateTeamMemberRequirements_4004(TeamMember source, Requirement target) {
 			if (source != null) {
 				if (source.getRequirements().contains(target)) {
 					return false;
@@ -362,35 +362,35 @@ public class Y3853992BaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistTeamMemberRequirements_4009(source, target);
+			return canExistTeamMemberRequirements_4004(source, target);
 		}
 
 		/**
-			* @generated
-			*/
-		public boolean canExistConflict_4008(RequirementsModel container, Conflict linkInstance, Requirement source,
+		* @generated
+		*/
+		public boolean canExistConflict_4001(RequirementsModel container, Conflict linkInstance, Requirement source,
 				Requirement target) {
-			return true;
-		}
-
-		/**
-			* @generated
-			*/
-		public boolean canExistRequirementDecomposition_4001(Requirement source, Requirement target) {
-			return true;
-		}
-
-		/**
-					* @generated
-					*/
-		public boolean canExistTestCaseVerifies_4004(TestCase source, Requirement target) {
 			return true;
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistTeamMemberRequirements_4009(TeamMember source, Requirement target) {
+		public boolean canExistRequirementDecomposition_4002(Requirement source, Requirement target) {
+			return true;
+		}
+
+		/**
+		* @generated
+		*/
+		public boolean canExistTestCaseVerifies_4003(TestCase source, Requirement target) {
+			return true;
+		}
+
+		/**
+		* @generated
+		*/
+		public boolean canExistTeamMemberRequirements_4004(TeamMember source, Requirement target) {
 			return true;
 		}
 	}

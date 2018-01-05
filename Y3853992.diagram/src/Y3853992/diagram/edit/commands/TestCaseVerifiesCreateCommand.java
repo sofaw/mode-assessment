@@ -56,7 +56,7 @@ public class TestCaseVerifiesCreateCommand extends EditElementCommand {
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canCreateTestCaseVerifies_4004(getSource(),
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canCreateTestCaseVerifies_4003(getSource(),
 				getTarget());
 	}
 

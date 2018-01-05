@@ -45,14 +45,10 @@ import org.eclipse.swt.graphics.FontData;
 
 import Y3853992.diagram.edit.parts.ConflictEditPart;
 import Y3853992.diagram.edit.parts.RequirementDecompositionEditPart;
-import Y3853992.diagram.edit.parts.RequirementDescription2EditPart;
 import Y3853992.diagram.edit.parts.RequirementDescriptionEditPart;
-import Y3853992.diagram.edit.parts.RequirementDescriptionTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementEditPart;
-import Y3853992.diagram.edit.parts.RequirementIdentifierEditPart;
 import Y3853992.diagram.edit.parts.RequirementIdentifierTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementProgressEditPart;
-import Y3853992.diagram.edit.parts.RequirementTypeEditPart;
 import Y3853992.diagram.edit.parts.RequirementsModelEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberEditPart;
 import Y3853992.diagram.edit.parts.TeamMemberNameEditPart;
@@ -211,11 +207,11 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		}
 		switch (visualID) {
 		case RequirementEditPart.VISUAL_ID:
-			return createRequirement_2007(domainElement, containerView, index, persisted, preferencesHint);
+			return createRequirement_2001(domainElement, containerView, index, persisted, preferencesHint);
 		case TestCaseEditPart.VISUAL_ID:
-			return createTestCase_2008(domainElement, containerView, index, persisted, preferencesHint);
+			return createTestCase_2002(domainElement, containerView, index, persisted, preferencesHint);
 		case TeamMemberEditPart.VISUAL_ID:
-			return createTeamMember_2009(domainElement, containerView, index, persisted, preferencesHint);
+			return createTeamMember_2003(domainElement, containerView, index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -230,14 +226,14 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (Y3853992VisualIDRegistry.getVisualID(elementTypeHint)) {
 		case ConflictEditPart.VISUAL_ID:
-			return createConflict_4008(getSemanticElement(semanticAdapter), containerView, index, persisted,
+			return createConflict_4001(getSemanticElement(semanticAdapter), containerView, index, persisted,
 					preferencesHint);
 		case RequirementDecompositionEditPart.VISUAL_ID:
-			return createRequirementDecomposition_4001(containerView, index, persisted, preferencesHint);
+			return createRequirementDecomposition_4002(containerView, index, persisted, preferencesHint);
 		case TestCaseVerifiesEditPart.VISUAL_ID:
-			return createTestCaseVerifies_4004(containerView, index, persisted, preferencesHint);
+			return createTestCaseVerifies_4003(containerView, index, persisted, preferencesHint);
 		case TeamMemberRequirementsEditPart.VISUAL_ID:
-			return createTeamMemberRequirements_4009(containerView, index, persisted, preferencesHint);
+			return createTeamMemberRequirements_4004(containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
@@ -246,7 +242,7 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	/**
 	* @generated
 	*/
-	public Node createRequirement_2007(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createRequirement_2001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -274,17 +270,17 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5007 = createLabel(node,
+		Node label5001 = createLabel(node,
 				Y3853992VisualIDRegistry.getType(RequirementIdentifierTypeEditPart.VISUAL_ID));
-		Node label5010 = createLabel(node, Y3853992VisualIDRegistry.getType(RequirementDescriptionEditPart.VISUAL_ID));
-		Node label5011 = createLabel(node, Y3853992VisualIDRegistry.getType(RequirementProgressEditPart.VISUAL_ID));
+		Node label5002 = createLabel(node, Y3853992VisualIDRegistry.getType(RequirementDescriptionEditPart.VISUAL_ID));
+		Node label5003 = createLabel(node, Y3853992VisualIDRegistry.getType(RequirementProgressEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	* @generated
 	*/
-	public Node createTestCase_2008(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createTestCase_2002(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -312,14 +308,14 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5008 = createLabel(node, Y3853992VisualIDRegistry.getType(TestCaseDescriptionEditPart.VISUAL_ID));
+		Node label5004 = createLabel(node, Y3853992VisualIDRegistry.getType(TestCaseDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	* @generated
 	*/
-	public Node createTeamMember_2009(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createTeamMember_2003(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -347,14 +343,14 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5009 = createLabel(node, Y3853992VisualIDRegistry.getType(TeamMemberNameEditPart.VISUAL_ID));
+		Node label5005 = createLabel(node, Y3853992VisualIDRegistry.getType(TeamMemberNameEditPart.VISUAL_ID));
 		return node;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createConflict_4008(EObject domainElement, View containerView, int index, boolean persisted,
+	public Edge createConflict_4001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
@@ -391,7 +387,7 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	/**
 	* @generated
 	*/
-	public Edge createRequirementDecomposition_4001(View containerView, int index, boolean persisted,
+	public Edge createRequirementDecomposition_4002(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
@@ -434,7 +430,7 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 	/**
 	* @generated
 	*/
-	public Edge createTestCaseVerifies_4004(View containerView, int index, boolean persisted,
+	public Edge createTestCaseVerifies_4003(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
@@ -465,19 +461,19 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6004 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
-		label6004.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6004.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6004 = (Location) label6004.getLayoutConstraint();
-		location6004.setX(0);
-		location6004.setY(40);
+		Node label6002 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
+		label6002.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6002.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6002 = (Location) label6002.getLayoutConstraint();
+		location6002.setX(0);
+		location6002.setY(40);
 		return edge;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createTeamMemberRequirements_4009(View containerView, int index, boolean persisted,
+	public Edge createTeamMemberRequirements_4004(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
@@ -508,12 +504,12 @@ public class Y3853992ViewProvider extends AbstractProvider implements IViewProvi
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6006 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
-		label6006.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6006.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6006 = (Location) label6006.getLayoutConstraint();
-		location6006.setX(0);
-		location6006.setY(40);
+		Node label6003 = createLabel(edge, Y3853992VisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
+		label6003.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6003.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6003 = (Location) label6003.getLayoutConstraint();
+		location6003.setX(0);
+		location6003.setY(40);
 		return edge;
 	}
 

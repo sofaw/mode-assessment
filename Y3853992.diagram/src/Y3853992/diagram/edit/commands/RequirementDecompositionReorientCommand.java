@@ -75,7 +75,7 @@ public class RequirementDecompositionReorientCommand extends EditElementCommand 
 			return false;
 		}
 		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRequirementDecomposition_4001(getNewSource(), getOldTarget());
+				.canExistRequirementDecomposition_4002(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class RequirementDecompositionReorientCommand extends EditElementCommand 
 			return false;
 		}
 		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistRequirementDecomposition_4001(getOldSource(), getNewTarget());
+				.canExistRequirementDecomposition_4002(getOldSource(), getNewTarget());
 	}
 
 	/**

@@ -74,7 +74,7 @@ public class ConflictReorientCommand extends EditElementCommand {
 			return false;
 		}
 		RequirementsModel container = (RequirementsModel) getLink().eContainer();
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistConflict_4008(container, getLink(),
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistConflict_4001(container, getLink(),
 				getNewSource(), target);
 	}
 
@@ -90,7 +90,7 @@ public class ConflictReorientCommand extends EditElementCommand {
 			return false;
 		}
 		RequirementsModel container = (RequirementsModel) getLink().eContainer();
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistConflict_4008(container, getLink(),
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistConflict_4001(container, getLink(),
 				source, getNewTarget());
 	}
 

@@ -42,7 +42,7 @@ public class RequirementEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2007;
+	public static final int VISUAL_ID = 2001;
 
 	/**
 	* @generated

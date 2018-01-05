@@ -64,7 +64,7 @@ public class TeamMemberNameEditPart extends CompartmentEditPart implements IText
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5009;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	* @generated
@@ -299,7 +299,7 @@ public class TeamMemberNameEditPart extends CompartmentEditPart implements IText
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMember_2009, getParserElement(),
+			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TeamMember_2003, getParserElement(),
 					Y3853992VisualIDRegistry.getType(Y3853992.diagram.edit.parts.TeamMemberNameEditPart.VISUAL_ID));
 		}
 		return parser;

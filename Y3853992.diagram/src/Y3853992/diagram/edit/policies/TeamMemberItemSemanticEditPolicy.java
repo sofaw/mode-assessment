@@ -33,7 +33,7 @@ public class TeamMemberItemSemanticEditPolicy extends Y3853992BaseItemSemanticEd
 	* @generated
 	*/
 	public TeamMemberItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.TeamMember_2009);
+		super(Y3853992ElementTypes.TeamMember_2003);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class TeamMemberItemSemanticEditPolicy extends Y3853992BaseItemSemanticEd
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (Y3853992ElementTypes.TeamMemberRequirements_4009 == req.getElementType()) {
+		if (Y3853992ElementTypes.TeamMemberRequirements_4004 == req.getElementType()) {
 			return getGEFWrapper(new TeamMemberRequirementsCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -88,7 +88,7 @@ public class TeamMemberItemSemanticEditPolicy extends Y3853992BaseItemSemanticEd
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (Y3853992ElementTypes.TeamMemberRequirements_4009 == req.getElementType()) {
+		if (Y3853992ElementTypes.TeamMemberRequirements_4004 == req.getElementType()) {
 			return null;
 		}
 		return null;

@@ -37,8 +37,8 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 	*/
 	public List<IElementType> doGetRelTypesOnSource(RequirementEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(Y3853992ElementTypes.Conflict_4008);
-		types.add(Y3853992ElementTypes.RequirementDecomposition_4001);
+		types.add(Y3853992ElementTypes.Conflict_4001);
+		types.add(Y3853992ElementTypes.RequirementDecomposition_4002);
 		return types;
 	}
 
@@ -60,10 +60,10 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof RequirementEditPart) {
-			types.add(Y3853992ElementTypes.Conflict_4008);
+			types.add(Y3853992ElementTypes.Conflict_4001);
 		}
 		if (targetEditPart instanceof RequirementEditPart) {
-			types.add(Y3853992ElementTypes.RequirementDecomposition_4001);
+			types.add(Y3853992ElementTypes.RequirementDecomposition_4002);
 		}
 		return types;
 	}
@@ -83,10 +83,10 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 	*/
 	public List<IElementType> doGetTypesForTarget(RequirementEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == Y3853992ElementTypes.Conflict_4008) {
-			types.add(Y3853992ElementTypes.Requirement_2007);
-		} else if (relationshipType == Y3853992ElementTypes.RequirementDecomposition_4001) {
-			types.add(Y3853992ElementTypes.Requirement_2007);
+		if (relationshipType == Y3853992ElementTypes.Conflict_4001) {
+			types.add(Y3853992ElementTypes.Requirement_2001);
+		} else if (relationshipType == Y3853992ElementTypes.RequirementDecomposition_4002) {
+			types.add(Y3853992ElementTypes.Requirement_2001);
 		}
 		return types;
 	}
@@ -106,10 +106,10 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 	*/
 	public List<IElementType> doGetRelTypesOnTarget(RequirementEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(4);
-		types.add(Y3853992ElementTypes.Conflict_4008);
-		types.add(Y3853992ElementTypes.RequirementDecomposition_4001);
-		types.add(Y3853992ElementTypes.TestCaseVerifies_4004);
-		types.add(Y3853992ElementTypes.TeamMemberRequirements_4009);
+		types.add(Y3853992ElementTypes.Conflict_4001);
+		types.add(Y3853992ElementTypes.RequirementDecomposition_4002);
+		types.add(Y3853992ElementTypes.TestCaseVerifies_4003);
+		types.add(Y3853992ElementTypes.TeamMemberRequirements_4004);
 		return types;
 	}
 
@@ -128,14 +128,14 @@ public class Y3853992ModelingAssistantProviderOfRequirementEditPart extends Y385
 	*/
 	public List<IElementType> doGetTypesForSource(RequirementEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == Y3853992ElementTypes.Conflict_4008) {
-			types.add(Y3853992ElementTypes.Requirement_2007);
-		} else if (relationshipType == Y3853992ElementTypes.RequirementDecomposition_4001) {
-			types.add(Y3853992ElementTypes.Requirement_2007);
-		} else if (relationshipType == Y3853992ElementTypes.TestCaseVerifies_4004) {
-			types.add(Y3853992ElementTypes.TestCase_2008);
-		} else if (relationshipType == Y3853992ElementTypes.TeamMemberRequirements_4009) {
-			types.add(Y3853992ElementTypes.TeamMember_2009);
+		if (relationshipType == Y3853992ElementTypes.Conflict_4001) {
+			types.add(Y3853992ElementTypes.Requirement_2001);
+		} else if (relationshipType == Y3853992ElementTypes.RequirementDecomposition_4002) {
+			types.add(Y3853992ElementTypes.Requirement_2001);
+		} else if (relationshipType == Y3853992ElementTypes.TestCaseVerifies_4003) {
+			types.add(Y3853992ElementTypes.TestCase_2002);
+		} else if (relationshipType == Y3853992ElementTypes.TeamMemberRequirements_4004) {
+			types.add(Y3853992ElementTypes.TeamMember_2003);
 		}
 		return types;
 	}

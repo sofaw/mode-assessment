@@ -33,7 +33,7 @@ public class TestCaseItemSemanticEditPolicy extends Y3853992BaseItemSemanticEdit
 	* @generated
 	*/
 	public TestCaseItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.TestCase_2008);
+		super(Y3853992ElementTypes.TestCase_2002);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class TestCaseItemSemanticEditPolicy extends Y3853992BaseItemSemanticEdit
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (Y3853992ElementTypes.TestCaseVerifies_4004 == req.getElementType()) {
+		if (Y3853992ElementTypes.TestCaseVerifies_4003 == req.getElementType()) {
 			return getGEFWrapper(new TestCaseVerifiesCreateCommand(req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -88,7 +88,7 @@ public class TestCaseItemSemanticEditPolicy extends Y3853992BaseItemSemanticEdit
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (Y3853992ElementTypes.TestCaseVerifies_4004 == req.getElementType()) {
+		if (Y3853992ElementTypes.TestCaseVerifies_4003 == req.getElementType()) {
 			return null;
 		}
 		return null;

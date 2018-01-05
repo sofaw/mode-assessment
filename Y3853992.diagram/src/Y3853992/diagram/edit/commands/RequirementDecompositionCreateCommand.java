@@ -56,7 +56,7 @@ public class RequirementDecompositionCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateRequirementDecomposition_4001(getSource(), getTarget());
+				.canCreateRequirementDecomposition_4002(getSource(), getTarget());
 	}
 
 	/**

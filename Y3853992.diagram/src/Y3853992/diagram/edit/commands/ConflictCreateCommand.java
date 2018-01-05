@@ -71,7 +71,7 @@ public class ConflictCreateCommand extends EditElementCommand {
 		if (getContainer() == null) {
 			return false;
 		}
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canCreateConflict_4008(getContainer(),
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canCreateConflict_4001(getContainer(),
 				getSource(), getTarget());
 	}
 

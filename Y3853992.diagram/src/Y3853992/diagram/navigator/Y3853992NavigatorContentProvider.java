@@ -270,10 +270,10 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Y3853992NavigatorGroup incominglinks = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_Requirement_2007_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_Requirement_2001_incominglinks, "icons/incomingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Y3853992NavigatorGroup outgoinglinks = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_Requirement_2007_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_Requirement_2001_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
@@ -307,7 +307,7 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Y3853992NavigatorGroup outgoinglinks = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TestCase_2008_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_TestCase_2002_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -323,7 +323,7 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Y3853992NavigatorGroup outgoinglinks = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TeamMember_2009_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_TeamMember_2003_outgoinglinks, "icons/outgoingLinksNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
@@ -335,14 +335,37 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			return result.toArray();
 		}
 
+		case ConflictEditPart.VISUAL_ID: {
+			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(Messages.NavigatorGroupName_Conflict_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(Messages.NavigatorGroupName_Conflict_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source, true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
 		case RequirementDecompositionEditPart.VISUAL_ID: {
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_RequirementDecomposition_4001_target,
+					Messages.NavigatorGroupName_RequirementDecomposition_4002_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_RequirementDecomposition_4001_source,
+					Messages.NavigatorGroupName_RequirementDecomposition_4002_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
@@ -364,10 +387,10 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TestCaseVerifies_4004_target, "icons/linkTargetNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_TestCaseVerifies_4003_target, "icons/linkTargetNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TestCaseVerifies_4004_source, "icons/linkSourceNavigatorGroup.gif", //$NON-NLS-1$
+					Messages.NavigatorGroupName_TestCaseVerifies_4003_source, "icons/linkSourceNavigatorGroup.gif", //$NON-NLS-1$
 					parentElement);
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
@@ -385,37 +408,14 @@ public class Y3853992NavigatorContentProvider implements ICommonContentProvider 
 			return result.toArray();
 		}
 
-		case ConflictEditPart.VISUAL_ID: {
-			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(Messages.NavigatorGroupName_Conflict_4008_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(Messages.NavigatorGroupName_Conflict_4008_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target, true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					Y3853992VisualIDRegistry.getType(RequirementEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source, true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
 		case TeamMemberRequirementsEditPart.VISUAL_ID: {
 			LinkedList<Y3853992AbstractNavigatorItem> result = new LinkedList<Y3853992AbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			Y3853992NavigatorGroup target = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TeamMemberRequirements_4009_target,
+					Messages.NavigatorGroupName_TeamMemberRequirements_4004_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Y3853992NavigatorGroup source = new Y3853992NavigatorGroup(
-					Messages.NavigatorGroupName_TeamMemberRequirements_4009_source,
+					Messages.NavigatorGroupName_TeamMemberRequirements_4004_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),

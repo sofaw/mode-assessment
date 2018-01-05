@@ -60,7 +60,7 @@ public class RequirementIdentifierTypeEditPart extends CompartmentEditPart imple
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 5001;
 
 	/**
 	* @generated
@@ -295,7 +295,7 @@ public class RequirementIdentifierTypeEditPart extends CompartmentEditPart imple
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2007, getParserElement(),
+			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.Requirement_2001, getParserElement(),
 					Y3853992VisualIDRegistry
 							.getType(Y3853992.diagram.edit.parts.RequirementIdentifierTypeEditPart.VISUAL_ID));
 		}

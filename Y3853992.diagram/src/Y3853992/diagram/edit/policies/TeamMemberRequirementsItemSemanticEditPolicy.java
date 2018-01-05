@@ -18,7 +18,7 @@ public class TeamMemberRequirementsItemSemanticEditPolicy extends Y3853992BaseIt
 	* @generated
 	*/
 	public TeamMemberRequirementsItemSemanticEditPolicy() {
-		super(Y3853992ElementTypes.TeamMemberRequirements_4009);
+		super(Y3853992ElementTypes.TeamMemberRequirements_4004);
 	}
 
 	/**

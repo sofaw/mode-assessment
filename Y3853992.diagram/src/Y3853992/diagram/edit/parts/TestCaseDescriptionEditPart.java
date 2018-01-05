@@ -60,7 +60,7 @@ public class TestCaseDescriptionEditPart extends CompartmentEditPart implements 
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5008;
+	public static final int VISUAL_ID = 5004;
 
 	/**
 	* @generated
@@ -295,7 +295,7 @@ public class TestCaseDescriptionEditPart extends CompartmentEditPart implements 
 	*/
 	public IParser getParser() {
 		if (parser == null) {
-			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCase_2008, getParserElement(),
+			parser = Y3853992ParserProvider.getParser(Y3853992ElementTypes.TestCase_2002, getParserElement(),
 					Y3853992VisualIDRegistry
 							.getType(Y3853992.diagram.edit.parts.TestCaseDescriptionEditPart.VISUAL_ID));
 		}

@@ -15,12 +15,12 @@ public class Y3853992NavigatorSorter extends ViewerSorter {
 	/**
 	* @generated
 	*/
-	private static final int GROUP_CATEGORY = 4011;
+	private static final int GROUP_CATEGORY = 4006;
 
 	/**
 	* @generated
 	*/
-	private static final int SHORTCUTS_CATEGORY = 4010;
+	private static final int SHORTCUTS_CATEGORY = 4005;
 
 	/**
 	* @generated

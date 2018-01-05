@@ -258,8 +258,8 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Y3853992"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4008,4001,4004,4009"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004"/>
       </viewProvider>
    </extension>
 
@@ -271,13 +271,13 @@
             <method name="getType()" value="Y3853992"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2007,2008,2009"/>
+            <method name="getType()" value="2001,2002,2003"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4008,4001,4004,4009"/>
+            <method name="getType()" value="4001,4002,4003,4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5007,5010,5011,5008,5009"/>
+            <method name="getType()" value="5001,5002,5003,5004,5005"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value=""/>
@@ -296,18 +296,18 @@
       </modelingAssistantProvider>
             <modelingAssistantProvider class="Y3853992.diagram.providers.assistants.Y3853992ModelingAssistantProviderOfRequirementEditPart">
          <Priority name="Lowest"/>
-         <object class="Y3853992.diagram.edit.parts.RequirementEditPart" id="Requirement_2007"/>
-         <context elements="Requirement_2007"/>
+         <object class="Y3853992.diagram.edit.parts.RequirementEditPart" id="Requirement_2001"/>
+         <context elements="Requirement_2001"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="Y3853992.diagram.providers.assistants.Y3853992ModelingAssistantProviderOfTestCaseEditPart">
          <Priority name="Lowest"/>
-         <object class="Y3853992.diagram.edit.parts.TestCaseEditPart" id="TestCase_2008"/>
-         <context elements="TestCase_2008"/>
+         <object class="Y3853992.diagram.edit.parts.TestCaseEditPart" id="TestCase_2002"/>
+         <context elements="TestCase_2002"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="Y3853992.diagram.providers.assistants.Y3853992ModelingAssistantProviderOfTeamMemberEditPart">
          <Priority name="Lowest"/>
-         <object class="Y3853992.diagram.edit.parts.TeamMemberEditPart" id="TeamMember_2009"/>
-         <context elements="TeamMember_2009"/>
+         <object class="Y3853992.diagram.edit.parts.TeamMemberEditPart" id="TeamMember_2003"/>
+         <context elements="TeamMember_2003"/>
       </modelingAssistantProvider>
       
    </extension>
@@ -332,7 +332,7 @@
       <decoratorProvider class="Y3853992.diagram.providers.Y3853992ShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2007,2008,2009"/>
+            <method name="getType()" value="2001,2002,2003"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -352,69 +352,69 @@
       </metamodel>
       <metamodel nsURI="http://Y3853992">
          <metamodelType
-               id="Y3853992.diagram.Requirement_2007"
-               name="%metatype.name.Requirement_2007"
+               id="Y3853992.diagram.Requirement_2001"
+               name="%metatype.name.Requirement_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Requirement"
                edithelper="Y3853992.diagram.edit.helpers.RequirementEditHelper">
-            <param name="semanticHint" value="2007"/>
+            <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
          <metamodelType
-               id="Y3853992.diagram.TestCase_2008"
-               name="%metatype.name.TestCase_2008"
+               id="Y3853992.diagram.TestCase_2002"
+               name="%metatype.name.TestCase_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TestCase"
                edithelper="Y3853992.diagram.edit.helpers.TestCaseEditHelper">
-            <param name="semanticHint" value="2008"/>
+            <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
          <metamodelType
-               id="Y3853992.diagram.TeamMember_2009"
-               name="%metatype.name.TeamMember_2009"
+               id="Y3853992.diagram.TeamMember_2003"
+               name="%metatype.name.TeamMember_2003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TeamMember"
                edithelper="Y3853992.diagram.edit.helpers.TeamMemberEditHelper">
-            <param name="semanticHint" value="2009"/>
+            <param name="semanticHint" value="2003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
          <metamodelType
-               id="Y3853992.diagram.Conflict_4008"
-               name="%metatype.name.Conflict_4008"
+               id="Y3853992.diagram.Conflict_4001"
+               name="%metatype.name.Conflict_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Conflict"
                edithelper="Y3853992.diagram.edit.helpers.ConflictEditHelper">
-            <param name="semanticHint" value="4008"/>
+            <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
          <specializationType
-               id="Y3853992.diagram.RequirementDecomposition_4001"
-               name="%metatype.name.RequirementDecomposition_4001"
+               id="Y3853992.diagram.RequirementDecomposition_4002"
+               name="%metatype.name.RequirementDecomposition_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4001"/>
+            <param name="semanticHint" value="4002"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://Y3853992">
          <specializationType
-               id="Y3853992.diagram.TestCaseVerifies_4004"
-               name="%metatype.name.TestCaseVerifies_4004"
+               id="Y3853992.diagram.TestCaseVerifies_4003"
+               name="%metatype.name.TestCaseVerifies_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4003"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://Y3853992">
+         <specializationType
+               id="Y3853992.diagram.TeamMemberRequirements_4004"
+               name="%metatype.name.TeamMemberRequirements_4004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="4004"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http://Y3853992">
-         <specializationType
-               id="Y3853992.diagram.TeamMemberRequirements_4009"
-               name="%metatype.name.TeamMemberRequirements_4009"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4009"/>
          </specializationType>
       </metamodel>
    </extension>
@@ -430,13 +430,13 @@
       </clientContext> 
       <binding context="Y3853992.diagram.TypeContext">
          <elementType ref="Y3853992.diagram.RequirementsModel_1000"/>
-         <elementType ref="Y3853992.diagram.Requirement_2007"/>
-         <elementType ref="Y3853992.diagram.TestCase_2008"/>
-         <elementType ref="Y3853992.diagram.TeamMember_2009"/>
-         <elementType ref="Y3853992.diagram.Conflict_4008"/>
-         <elementType ref="Y3853992.diagram.RequirementDecomposition_4001"/>
-         <elementType ref="Y3853992.diagram.TestCaseVerifies_4004"/>
-         <elementType ref="Y3853992.diagram.TeamMemberRequirements_4009"/>
+         <elementType ref="Y3853992.diagram.Requirement_2001"/>
+         <elementType ref="Y3853992.diagram.TestCase_2002"/>
+         <elementType ref="Y3853992.diagram.TeamMember_2003"/>
+         <elementType ref="Y3853992.diagram.Conflict_4001"/>
+         <elementType ref="Y3853992.diagram.RequirementDecomposition_4002"/>
+         <elementType ref="Y3853992.diagram.TestCaseVerifies_4003"/>
+         <elementType ref="Y3853992.diagram.TeamMemberRequirements_4004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

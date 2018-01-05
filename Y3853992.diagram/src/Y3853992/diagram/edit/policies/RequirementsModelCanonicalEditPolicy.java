@@ -271,28 +271,28 @@ public class RequirementsModelCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case RequirementEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(Y3853992DiagramUpdater.getRequirement_2007ContainedLinks(view));
+				result.addAll(Y3853992DiagramUpdater.getRequirement_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TestCaseEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(Y3853992DiagramUpdater.getTestCase_2008ContainedLinks(view));
+				result.addAll(Y3853992DiagramUpdater.getTestCase_2002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TeamMemberEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(Y3853992DiagramUpdater.getTeamMember_2009ContainedLinks(view));
+				result.addAll(Y3853992DiagramUpdater.getTeamMember_2003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ConflictEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(Y3853992DiagramUpdater.getConflict_4008ContainedLinks(view));
+				result.addAll(Y3853992DiagramUpdater.getConflict_4001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

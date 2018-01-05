@@ -36,7 +36,7 @@ public class Y3853992ModelingAssistantProviderOfTestCaseEditPart extends Y385399
 	*/
 	public List<IElementType> doGetRelTypesOnSource(TestCaseEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(Y3853992ElementTypes.TestCaseVerifies_4004);
+		types.add(Y3853992ElementTypes.TestCaseVerifies_4003);
 		return types;
 	}
 
@@ -58,7 +58,7 @@ public class Y3853992ModelingAssistantProviderOfTestCaseEditPart extends Y385399
 			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof RequirementEditPart) {
-			types.add(Y3853992ElementTypes.TestCaseVerifies_4004);
+			types.add(Y3853992ElementTypes.TestCaseVerifies_4003);
 		}
 		return types;
 	}
@@ -78,8 +78,8 @@ public class Y3853992ModelingAssistantProviderOfTestCaseEditPart extends Y385399
 	*/
 	public List<IElementType> doGetTypesForTarget(TestCaseEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == Y3853992ElementTypes.TestCaseVerifies_4004) {
-			types.add(Y3853992ElementTypes.Requirement_2007);
+		if (relationshipType == Y3853992ElementTypes.TestCaseVerifies_4003) {
+			types.add(Y3853992ElementTypes.Requirement_2001);
 		}
 		return types;
 	}

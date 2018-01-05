@@ -75,7 +75,7 @@ public class TestCaseVerifiesReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Requirement && newEnd instanceof TestCase)) {
 			return false;
 		}
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistTestCaseVerifies_4004(getNewSource(),
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistTestCaseVerifies_4003(getNewSource(),
 				getOldTarget());
 	}
 
@@ -86,7 +86,7 @@ public class TestCaseVerifiesReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Requirement && newEnd instanceof Requirement)) {
 			return false;
 		}
-		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistTestCaseVerifies_4004(getOldSource(),
+		return Y3853992BaseItemSemanticEditPolicy.getLinkConstraints().canExistTestCaseVerifies_4003(getOldSource(),
 				getNewTarget());
 	}
 
