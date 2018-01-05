@@ -14,4 +14,9 @@
   <teamMembers name="Richard" requirements="//@requirements.0 //@requirements.1 //@requirements.2 //@requirements.3 //@requirements.4"/>
   <teamMembers name="Lauren" requirements="//@requirements.5 //@requirements.6"/>
   <teamMembers name="Pauline" requirements="//@requirements.4 //@requirements.3 //@requirements.6"/>
+  <conflicts first="//@requirements.0" second="//@requirements.5"/>
+  <conflicts first="//@requirements.3" second="//@requirements.4"/>
+  <conflicts first="//@requirements.6">
+    <second href="15.model#_oOqtsO-rEeepbqvYU5pgVg"/>
+  </conflicts>
 </RequirementsModel>

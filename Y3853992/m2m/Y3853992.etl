@@ -24,7 +24,7 @@ rule Project2OnlyIncomplete
 		}
 		rout.testCases = testCasesWithIncomplete;
 		
+		// Conflicts
+		// EVL prevents conflicts with both requirements complete so all conflicts can be added to the new model
+		rout.conflicts.addAll(rin.conflicts); 
 }
-
-// TODO: split into multiple rules e.g. 1 for testcase;teammember;requirements
-// Make sure to save this version to talk about in report
