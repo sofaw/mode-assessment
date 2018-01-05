@@ -1,0 +1,26 @@
+<project default="main">
+  
+  <target name="main">
+  	
+    <epsilon.emf.loadModel name="IN"
+      modelfile="../models/15.model"
+      metamodeluri="http://Y3853992"
+      read="true" store="false"/>
+    
+    <epsilon.emf.loadModel name="OUT"
+      modelfile="../models/out_15.model"
+      metamodeluri="http://Y3853992"
+      read="false" store="true"/>
+  	
+  	<epsilon.evl src="../metamodel/Y3853992.evl">
+  		<model ref="IN"/>
+  	</epsilon.evl>
+  	
+    <epsilon.etl src="Y3853992.etl">
+      <model ref="IN"/>
+      <model ref="OUT"/>
+    </epsilon.etl>
+    
+  </target>
+
+</project>

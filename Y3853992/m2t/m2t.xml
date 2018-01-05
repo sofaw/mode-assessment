@@ -1,0 +1,20 @@
+<project default="main">
+  
+  <target name="main">
+  	
+    <epsilon.emf.loadModel name="IN"
+      modelfile="../models/15.model"
+      metamodeluri="http://Y3853992"
+      read="true" store="false"/>
+  	
+  	<epsilon.evl src="../metamodel/Y3853992.evl">
+  		<model ref="IN"/>
+  	</epsilon.evl>
+  	
+    <epsilon.egl src="Y3853992.egx">
+      <model ref="IN"/>
+    </epsilon.egl>
+    
+  </target>
+
+</project>

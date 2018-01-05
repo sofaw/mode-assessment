@@ -123,7 +123,6 @@ details:hover {
 }
 
 details {
-  width: 95%;
   border-radius: 5px;
   padding: 2px 6px;
   margin: 10px 0px;
@@ -154,6 +153,7 @@ details {
 
 /****** Progress bars ******/
 .progressContainer {
+  width: inherit;
   background-color: white;
   margin: 10px 20px;
 }

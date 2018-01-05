@@ -123,7 +123,6 @@ details:hover {
 }
 
 details {
-  width: 95%;
   border-radius: 5px;
   padding: 2px 6px;
   margin: 10px 0px;
@@ -154,6 +153,7 @@ details {
 
 /****** Progress bars ******/
 .progressContainer {
+  width: inherit;
   background-color: white;
   margin: 10px 20px;
 }
@@ -194,7 +194,7 @@ details {
             <p>Type: Customer</p>
             <p>Description: "Requirement 0"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Richard</li>
   </ul>
 </p>
           </div>
@@ -202,7 +202,7 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 70.0%;">70.0%</div>
         </div>
       </summary>
     
@@ -222,11 +222,12 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 1"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Richard</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 1"</li>
+	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
           </div>
@@ -234,7 +235,7 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
       </summary>
     
@@ -254,11 +255,11 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 2"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Richard</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
           </div>
@@ -266,7 +267,7 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
       </summary>
     
@@ -286,11 +287,13 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 3"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Richard</li>
+      <li>Pauline</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 3, 4, 7, 9"</li>
+	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
           </div>
@@ -298,11 +301,26 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
+	
+    	
+    </details>
+  </div>
+        </div>	
+	
+    	
+    </details>
+  </div>
+        </div>	
+	
+    	
+    </details>
+  </div>
+        </div>	
         <div class="indented">
   <div>
     <details class="req-details">
@@ -318,11 +336,13 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 4"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Richard</li>
+      <li>Pauline</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 3, 4, 7, 9"</li>
+	  <li>"Verifies 1, 2, 3, 4"</li>
   </ul>
 </p>
           </div>
@@ -330,12 +350,20 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 90.0%;">90.0%</div>
         </div>
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
+	
+    	
+    </details>
+  </div>
+        </div>	
+	
+    	
+    </details>
+  </div>
   <div>
     <details class="req-details">
     
@@ -347,14 +375,10 @@ details {
         <details class="req-info-details">
           <summary></summary>
           <div class="indented">
-            <p>Type: System</p>
+            <p>Type: Customer</p>
             <p>Description: "Requirement 5"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+      <li>Lauren</li>
   </ul>
 </p>
           </div>
@@ -362,13 +386,13 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 50.0%;">50.0%</div>
         </div>
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-  <div>
+  <div class="complete">
     <details class="req-details">
     
       <!-- info and progress bar for requirement -->
@@ -382,11 +406,13 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 6"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Lauren</li>
+      <li>Pauline</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 6, 7"</li>
+	  <li>"Verifies only completed (6, 9)"</li>
   </ul>
 </p>
           </div>
@@ -394,11 +420,16 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 100.0%;">100.0%</div>
         </div>
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
+	
+    	
+    </details>
+  </div>
+        </div>	
         <div class="indented">
   <div>
     <details class="req-details">
@@ -414,11 +445,13 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 7"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Lauren</li>
+      <li>Pauline</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 3, 4, 7, 9"</li>
+	  <li>"Verifies 6, 7"</li>
   </ul>
 </p>
           </div>
@@ -431,8 +464,16 @@ details {
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
+	
+    	
+    </details>
+  </div>
+        </div>	
+	
+    	
+    </details>
+  </div>
+  <div class="complete">
     <details class="req-details">
     
       <!-- info and progress bar for requirement -->
@@ -443,14 +484,11 @@ details {
         <details class="req-info-details">
           <summary></summary>
           <div class="indented">
-            <p>Type: System</p>
+            <p>Type: Customer</p>
             <p>Description: "Requirement 8"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+      <li>Sam</li>
+      <li>All requirements complete</li>
   </ul>
 </p>
           </div>
@@ -458,13 +496,13 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 100.0%;">100.0%</div>
         </div>
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
         <div class="indented">
-  <div>
+  <div class="complete">
     <details class="req-details">
     
       <!-- info and progress bar for requirement -->
@@ -478,11 +516,15 @@ details {
             <p>Type: System</p>
             <p>Description: "Requirement 9"</p>
             <p>Team Members:   <ul>
-      <li>Responsible for all</li>
+      <li>Sam</li>
+      <li>Pauline</li>
+      <li>All requirements complete</li>
   </ul>
 </p>
               <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
+	  <li>"Verifies 3, 4, 7, 9"</li>
+	  <li>"Verifies 9"</li>
+	  <li>"Verifies only completed (6, 9)"</li>
   </ul>
 </p>
           </div>
@@ -490,421 +532,11 @@ details {
       
         <!-- progress bar -->
         <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
+          <div class="progressBar" style="width: 100.0%;">100.0%</div>
         </div>
       </summary>
     
       <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 10
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 10"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 11
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 11"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 12
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 12"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 13
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 13"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 14
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 14"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 15
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 15"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 16
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 16"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 17
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 17"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 18
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 18"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-        <div class="indented">
-  <div>
-    <details class="req-details">
-    
-      <!-- info and progress bar for requirement -->
-      <summary>
-        Requirement: 19
-      
-        <!-- info hidden by default -->
-        <details class="req-info-details">
-          <summary></summary>
-          <div class="indented">
-            <p>Type: System</p>
-            <p>Description: "Requirement 19"</p>
-            <p>Team Members:   <ul>
-      <li>Responsible for all</li>
-  </ul>
-</p>
-              <p>Test Cases:   <ul>
-	  <li>"Tests all"</li>
-  </ul>
-</p>
-          </div>
-        </details>				
-      
-        <!-- progress bar -->
-        <div class="progressContainer">
-          <div class="progressBar" style="width: 0.0%;">0.0%</div>
-        </div>
-      </summary>
-    
-      <!-- generate summaries for requirements in self.decomposition -->
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
-	
-    	
-    </details>
-  </div>
-        </div>	
 	
     	
     </details>
@@ -919,7 +551,7 @@ details {
 <div id="team-members-tab" class="tabcontent">
   <h2>Team Members</h2>
   <button id="tm-button" class="hide-completed" onclick="hideCompleted(this, 'team-members-tab')">Hide Completed Requirements</button>
-    <h3>Responsible for all</h3>
+    <h3>Richard</h3>
   <ul>
       <div>
         <li>Requirement: 0</li>
@@ -936,50 +568,53 @@ details {
       <div>
         <li>Requirement: 4</li>
       </div>
+  </ul>
+    <h3>Lauren</h3>
+  <ul>
       <div>
         <li>Requirement: 5</li>
       </div>
-      <div>
+      <div class="complete">
         <li>Requirement: 6</li>
       </div>
       <div>
         <li>Requirement: 7</li>
       </div>
-      <div>
+  </ul>
+    <h3>Sam</h3>
+  <ul>
+      <div class="complete">
         <li>Requirement: 8</li>
       </div>
+      <div class="complete">
+        <li>Requirement: 9</li>
+      </div>
+  </ul>
+    <h3>Pauline</h3>
+  <ul>
       <div>
+        <li>Requirement: 4</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 6</li>
+      </div>
+      <div class="complete">
         <li>Requirement: 9</li>
       </div>
       <div>
-        <li>Requirement: 10</li>
+        <li>Requirement: 3</li>
       </div>
       <div>
-        <li>Requirement: 11</li>
+        <li>Requirement: 7</li>
       </div>
-      <div>
-        <li>Requirement: 12</li>
+  </ul>
+    <h3>All requirements complete</h3>
+  <ul>
+      <div class="complete">
+        <li>Requirement: 8</li>
       </div>
-      <div>
-        <li>Requirement: 13</li>
-      </div>
-      <div>
-        <li>Requirement: 14</li>
-      </div>
-      <div>
-        <li>Requirement: 15</li>
-      </div>
-      <div>
-        <li>Requirement: 16</li>
-      </div>
-      <div>
-        <li>Requirement: 17</li>
-      </div>
-      <div>
-        <li>Requirement: 18</li>
-      </div>
-      <div>
-        <li>Requirement: 19</li>
+      <div class="complete">
+        <li>Requirement: 9</li>
       </div>
   </ul>
 </div>
@@ -987,11 +622,29 @@ details {
 <div id="test-cases-tab" class="tabcontent">
   <h2>Test Cases</h2>
   <button id="tc-button" class="hide-completed" onclick="hideCompleted(this, 'test-cases-tab')">Hide Completed Requirements</button>     
-    <h3>Test case: "Tests all"</h3>
+    <h3>Test case: "Verifies 3, 4, 7, 9"</h3>
   <ul>
       <div>
-        <li>Requirement: 0</li>
+        <li>Requirement: 3</li>
       </div>
+      <div>
+        <li>Requirement: 4</li>
+      </div>
+      <div>
+        <li>Requirement: 7</li>
+      </div>
+      <div class="complete">
+        <li>Requirement: 9</li>
+      </div>
+  </ul>
+    <h3>Test case: "Verifies 1"</h3>
+  <ul>
+      <div>
+        <li>Requirement: 1</li>
+      </div>
+  </ul>
+    <h3>Test case: "Verifies 1, 2, 3, 4"</h3>
+  <ul>
       <div>
         <li>Requirement: 1</li>
       </div>
@@ -1004,50 +657,29 @@ details {
       <div>
         <li>Requirement: 4</li>
       </div>
-      <div>
-        <li>Requirement: 5</li>
-      </div>
-      <div>
+  </ul>
+    <h3>Test case: "Verifies 6, 7"</h3>
+  <ul>
+      <div class="complete">
         <li>Requirement: 6</li>
       </div>
       <div>
         <li>Requirement: 7</li>
       </div>
-      <div>
-        <li>Requirement: 8</li>
-      </div>
-      <div>
+  </ul>
+    <h3>Test case: "Verifies 9"</h3>
+  <ul>
+      <div class="complete">
         <li>Requirement: 9</li>
       </div>
-      <div>
-        <li>Requirement: 10</li>
+  </ul>
+    <h3>Test case: "Verifies only completed (6, 9)"</h3>
+  <ul>
+      <div class="complete">
+        <li>Requirement: 6</li>
       </div>
-      <div>
-        <li>Requirement: 11</li>
-      </div>
-      <div>
-        <li>Requirement: 12</li>
-      </div>
-      <div>
-        <li>Requirement: 13</li>
-      </div>
-      <div>
-        <li>Requirement: 14</li>
-      </div>
-      <div>
-        <li>Requirement: 15</li>
-      </div>
-      <div>
-        <li>Requirement: 16</li>
-      </div>
-      <div>
-        <li>Requirement: 17</li>
-      </div>
-      <div>
-        <li>Requirement: 18</li>
-      </div>
-      <div>
-        <li>Requirement: 19</li>
+      <div class="complete">
+        <li>Requirement: 9</li>
       </div>
   </ul>
  
@@ -1057,6 +689,9 @@ details {
   <h2>Conflicts</h2> 
   <p>There are conflicts between the following pairs of requirements:</p>  
   <ul>   
+      <li>Requirement 0 and Requirement 5</li>
+      <li>Requirement 3 and Requirement 4</li>
+      <li>Requirement 7 and Requirement 9</li>
  
   </ul>
 </div>

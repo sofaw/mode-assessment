@@ -1,5 +1,5 @@
 rule REQMODEL2HTML 
-	transform rm : RequirementsModel {
+	transform rm : IN!RequirementsModel {
 		template : "REQ2HTML.egl"
 		target : "gen/gen.html"
 	}
